@@ -1,0 +1,12 @@
+{
+  "extends": "@acme/tsconfig/base.json",
+  "compilerOptions": {
+    //    "target": "ESNext", // TODO: check if this is needed
+    "types": ["@cloudflare/workers-types"],
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx"
+  },
+  "include": ["*.ts", "src"],
+  "exclude": ["node_modules"]
+}
