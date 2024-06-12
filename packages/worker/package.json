@@ -8,6 +8,7 @@
   },
   "license": "MIT",
   "scripts": {
+    "dev": "wrangler dev",
     "clean": "rm -rf .turbo node_modules",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
