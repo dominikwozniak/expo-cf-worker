@@ -3,18 +3,16 @@ main = "src/index.ts"
 compatibility_date = "2023-12-01"
 compatibility_flags = [ "nodejs_compat" ]
 
- [vars]
- MY_VAR = "my-variable"
+[[d1_databases]]
+binding = "DB"
+database_name = "worker-db-prod"
+database_id = "e1714f1d-80dd-44f7-8427-e692d52fb941"
+migrations_dir = "migrations"
 
-# [[kv_namespaces]]
-# binding = "MY_KV_NAMESPACE"
-# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-
-# [[r2_buckets]]
-# binding = "MY_BUCKET"
-# bucket_name = "my-bucket"
-
-# [[d1_databases]]
-# binding = "DB"
-# database_name = "my-database"
-# database_id = ""
+[env.dev]
+name = "dev"
+[[env.dev.d1_databases]]
+binding = "DB"
+database_name = "worker-db"
+database_id = "86e7e44b-aa72-4e91-8c82-ee24e2de2608"
+migrations_dir = "migrations"

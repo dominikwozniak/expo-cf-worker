@@ -1,0 +1,1 @@
+ALTER TABLE `posts` ADD `description` text(256) NOT NULL;
