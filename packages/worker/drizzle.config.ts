@@ -1,40 +1,37 @@
-import type { Config } from 'drizzle-kit';
+import type { Config } from "drizzle-kit";
 
-/*
-  Env variables required only for drizzle studio
-  Consider using env validation library
-  https://env.t3.gg/docs/core
- */
-const localDbPath = process.env.LOCAL_DB_PATH
-const databaseId = process.env.USE_PROD_DB === 'true'
-  ? process.env.DATABASE_ID_PROD
-  : process.env.DATABASE_ID;
-const accountId = process.env.ACCOUNT_ID
-const accountToken = process.env.ACCOUNT_TOKEN
+import { drizzleEnv } from "./src/db/drizzle-env.mjs";
+
+const localDbPath = drizzleEnv.LOCAL_DB_PATH;
+const databaseId = drizzleEnv.USE_PROD_DB
+  ? drizzleEnv.DATABASE_ID_PROD
+  : drizzleEnv.DATABASE_ID;
+const accountId = drizzleEnv.ACCOUNT_ID;
+const accountToken = drizzleEnv.ACCOUNT_TOKEN;
 
 const sharedConfig = {
-  schema: './src/db/schema.ts',
-  out: './migrations',
+  schema: "./src/db/schema.ts",
+  out: "./migrations",
   verbose: false,
   strict: true,
-  dialect: 'sqlite',
-} as const
+  dialect: "sqlite",
+} as const;
 
 const localConfig = {
   ...sharedConfig,
   dbCredentials: {
     url: localDbPath as string,
-  }
-} satisfies Config
+  },
+} satisfies Config;
 
 const remoteConfig = {
   ...sharedConfig,
-  driver: 'd1-http',
+  driver: "d1-http",
   dbCredentials: {
-    databaseId: databaseId as string,
-    accountId: accountId as string,
-    token: accountToken as string,
-  }
-} satisfies Config
+    databaseId,
+    accountId,
+    token: accountToken,
+  },
+} satisfies Config;
 
-export default localDbPath ? localConfig : remoteConfig
+export default localDbPath ? localConfig : remoteConfig;

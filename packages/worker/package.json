@@ -10,7 +10,6 @@
   "scripts": {
     "dev": "wrangler dev",
     "db:generate": "drizzle-kit generate",
-    "db:up": "drizzle-kit up",
     "db:studio:local": "cross-env LOCAL_DB_PATH=$(find .wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) drizzle-kit studio",
     "db:studio:remote:dev": "cross-env USE_PROD_DB=false drizzle-kit studio",
     "db:studio:remote:prod": "cross-env USE_PROD_DB=true drizzle-kit studio",
@@ -25,8 +24,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@t3-oss/env-core": "^0.10.1",
     "drizzle-orm": "^0.31.2",
-    "hono": "^4.4.5"
+    "hono": "^4.4.5",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@acme/eslint-config": "workspace:*",
