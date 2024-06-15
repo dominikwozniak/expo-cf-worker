@@ -20,7 +20,7 @@ app.get("/", async (c) => {
   // const posts = await client.query(posts.select());
   const res = await client.select().from(posts).all();
 
-  console.log("RES >>>", res)
+  console.log("RES >>>", res);
 
   return c.text("Hello Hono! 🚀" + JSON.stringify(res, null, 2));
 });
