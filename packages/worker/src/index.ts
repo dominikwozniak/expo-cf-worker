@@ -10,7 +10,6 @@ import { posts } from "./db/schema";
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 type Env = {
   DB: D1Database;
-  TEST_VAR: string;
 };
 
 const app = new Hono<{ Bindings: Env }>();

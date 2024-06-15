@@ -6,7 +6,7 @@ import type { Config } from 'drizzle-kit';
   https://env.t3.gg/docs/core
  */
 const localDbPath = process.env.LOCAL_DB_PATH
-const databaseId = process.env.USE_PROD_DB
+const databaseId = process.env.USE_PROD_DB === 'true'
   ? process.env.DATABASE_ID_PROD
   : process.env.DATABASE_ID;
 const accountId = process.env.ACCOUNT_ID
