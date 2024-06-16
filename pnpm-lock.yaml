@@ -505,9 +505,15 @@ importers:
 
   packages/worker:
     dependencies:
+      '@hono/trpc-server':
+        specifier: ^0.3.1
+        version: 0.3.1(@trpc/server@11.0.0-rc.364)(hono@4.4.5)
       '@t3-oss/env-core':
         specifier: ^0.10.1
         version: 0.10.1(typescript@5.4.5)(zod@3.23.8)
+      '@trpc/server':
+        specifier: 11.0.0-rc.364
+        version: 11.0.0-rc.364
       drizzle-orm:
         specifier: ^0.31.2
         version: 0.31.2(@cloudflare/workers-types@4.20240605.0)(better-sqlite3@11.0.0)
@@ -3583,6 +3589,17 @@ packages:
     resolution: {integrity: sha512-foQZKJig7Ob0BMAYBfcJk8d77QtOe7Wo4ox7ff1lQYoNNAb6jwcY1ncdoy2e9wQZzvNy7ODZCYJkK8kzmcAnAg==}
     dependencies:
       '@hapi/hoek': 9.3.0
+    dev: false
+
+  /@hono/trpc-server@0.3.1(@trpc/server@11.0.0-rc.364)(hono@4.4.5):
+    resolution: {integrity: sha512-2FgDUv6ngrDA8pu/hb8hTqUyEgsT7PbYriTVKJoYxlqW8nnCqubruZ/14IQ/MCkBPXKVefnqUCJNAytW1Su++A==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      '@trpc/server': ^10.10.0
+      hono: '>=4.*'
+    dependencies:
+      '@trpc/server': 11.0.0-rc.364
+      hono: 4.4.5
     dev: false
 
   /@hookform/resolvers@3.6.0(react-hook-form@7.51.5):
