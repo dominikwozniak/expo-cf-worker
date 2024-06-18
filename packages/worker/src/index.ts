@@ -1,21 +1,15 @@
+import { trpcServer } from "@hono/trpc-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 
+import type { Env } from "./env";
 import { dbClient } from "./db/db-client";
 import { posts } from "./db/schema";
-
-/*
- * Define the environment variables that your application will use.
- * Hono disallows the use interface for defining environment variables.
- */
-// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
-type Env = {
-  DB: D1Database;
-};
+import { appRouter } from "./router";
+import { createContext } from "./trpc";
 
 const app = new Hono<{ Bindings: Env }>();
 
-// app.use("/trpc/*", async (c, next) => {
 app.use(
   "*",
   cors({
@@ -28,11 +22,23 @@ app.use(
 );
 
 app.get("/", async (c) => {
-  const client = dbClient(c.env.DB);
-
-  const res = await client.select().from(posts).all();
-
-  return c.text("Hello Hono! 🚀" + JSON.stringify(res, null, 2));
+  return c.text("App is running! 🚀");
 });
+
+app.use(
+  "/trpc/*",
+  trpcServer({
+    router: appRouter,
+    createContext: async (opts, c) => {
+      return await createContext(c.env as Env, opts);
+      // TODO: check if await is needed
+      // return await createContext(c.env.DB, opts);
+    },
+    onError({ error, path }) {
+      // TODO: add logging
+      console.error(`>>> tRPC Error on '${path}'`, error);
+    },
+  }),
+);
 
 export default app;

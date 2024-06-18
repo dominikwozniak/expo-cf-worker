@@ -520,6 +520,9 @@ importers:
       hono:
         specifier: ^4.4.5
         version: 4.4.5
+      superjson:
+        specifier: 2.2.1
+        version: 2.2.1
       zod:
         specifier: ^3.23.8
         version: 3.23.8
