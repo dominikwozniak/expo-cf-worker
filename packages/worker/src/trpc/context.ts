@@ -19,12 +19,16 @@ export const createContext = async (
   const clerk = createClerkClient({
     secretKey: env.CLERK_SECRET_KEY,
   });
-  const userId = req.headers.get("authorization");
+  const token = req.headers.get("x-clerk-auth-token");
+  const sessionId = req.headers.get("x-clerk-auth-session-id");
 
   return {
     db,
     language,
-    user: userId ? await clerk.users.getUser(userId) : null,
+    userId:
+      sessionId && token
+        ? await clerk.sessions.verifySession(sessionId, token)
+        : null,
   };
 };
 

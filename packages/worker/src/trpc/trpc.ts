@@ -1,3 +1,4 @@
+import type { typeToFlattenedError } from "zod";
 import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
@@ -6,20 +7,29 @@ import type { Context } from "./context";
 
 const t = initTRPC.context<Context>().create({
   transformer: superjson,
-  errorFormatter({ shape, error }) {
+  errorFormatter: ({ shape, error }) => {
+    let dataError: typeToFlattenedError<unknown, string> = {
+      formErrors: [],
+      fieldErrors: {},
+    };
+
+    if (error.cause instanceof ZodError) {
+      dataError = Object.assign(dataError, error.cause.flatten());
+    }
+
     return {
       ...shape,
       data: {
         ...shape.data,
-        zodError:
-          error.cause instanceof ZodError ? error.cause.flatten() : null,
+        ...dataError,
       },
     };
   },
 });
 
 const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
-  if (!ctx.user?.id) {
+  // if (!ctx.user?.id) {
+  if (!ctx.userId) {
     throw new TRPCError({
       code: "UNAUTHORIZED",
       message: "User is not authenticated",
