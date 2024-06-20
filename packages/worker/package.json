@@ -24,6 +24,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@clerk/backend": "^1.2.4",
     "@hono/trpc-server": "^0.3.1",
     "@t3-oss/env-core": "^0.10.1",
     "@trpc/server": "11.0.0-rc.364",

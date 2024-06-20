@@ -5,4 +5,5 @@
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 export type Env = {
   DB: D1Database;
+  CLERK_SECRET_KEY: string;
 };

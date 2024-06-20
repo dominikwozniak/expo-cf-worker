@@ -3,8 +3,6 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 
 import type { Env } from "./env";
-import { dbClient } from "./db/db-client";
-import { posts } from "./db/schema";
 import { appRouter } from "./router";
 import { createContext } from "./trpc";
 
@@ -21,7 +19,7 @@ app.use(
   }),
 );
 
-app.get("/", async (c) => {
+app.get("/", (c) => {
   return c.text("App is running! 🚀");
 });
 
