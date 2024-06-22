@@ -11,7 +11,7 @@
     "build": "tsc",
     "dev": "tsc --watch",
     "db:generate": "drizzle-kit generate",
-    "db:studio:local": "cross-env LOCAL_DB_PATH=$(find ../worker/.wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) drizzle-kit studio",
+    "db:studio:local": "cross-env LOCAL_DB_PATH=$(find ../../apps/worker/.wrangler/state/v3/d1/miniflare-D1DatabaseObject -type f -name '*.sqlite' -print -quit) drizzle-kit studio",
     "db:studio:remote:dev": "cross-env USE_PROD_DB=false drizzle-kit studio",
     "db:studio:remote:prod": "cross-env USE_PROD_DB=true drizzle-kit studio",
     "clean": "rm -rf .turbo node_modules",

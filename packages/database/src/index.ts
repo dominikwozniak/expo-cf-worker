@@ -1,2 +1,2 @@
 export * from "./db-client";
-export * from "./schema";
+export * from "./schema/post";

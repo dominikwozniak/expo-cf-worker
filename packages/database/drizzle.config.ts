@@ -10,12 +10,13 @@ const accountId = drizzleEnv.ACCOUNT_ID;
 const accountToken = drizzleEnv.ACCOUNT_TOKEN;
 
 const sharedConfig = {
-  schema: "./src/schema.ts",
+  schema: "./src/schema",
+  tablesFilter: ["acme_*"],
   out: "./migrations",
   verbose: false,
   strict: true,
   dialect: "sqlite",
-} as const;
+} satisfies Config;
 
 const localConfig = {
   ...sharedConfig,

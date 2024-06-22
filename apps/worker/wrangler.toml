@@ -7,7 +7,7 @@ compatibility_flags = [ "nodejs_compat" ]
 binding = "DB"
 database_name = "worker-db-prod"
 database_id = "e1714f1d-80dd-44f7-8427-e692d52fb941"
-migrations_dir = "migrations"
+migrations_dir = "../../packages/database/migrations"
 
 [env.dev]
 name = "dev"
@@ -15,4 +15,4 @@ name = "dev"
 binding = "DB"
 database_name = "worker-db"
 database_id = "86e7e44b-aa72-4e91-8c82-ee24e2de2608"
-migrations_dir = "migrations"
+migrations_dir = "../../packages/database/migrations"
