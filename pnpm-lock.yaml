@@ -276,6 +276,61 @@ importers:
         specifier: ^5.4.5
         version: 5.4.5
 
+  apps/worker:
+    dependencies:
+      '@acme/database':
+        specifier: workspace:*
+        version: link:../../packages/database
+      '@clerk/backend':
+        specifier: ^1.2.4
+        version: 1.2.4(react@18.3.1)
+      '@hono/trpc-server':
+        specifier: ^0.3.1
+        version: 0.3.1(@trpc/server@11.0.0-rc.364)(hono@4.4.5)
+      '@trpc/server':
+        specifier: 11.0.0-rc.364
+        version: 11.0.0-rc.364
+      hono:
+        specifier: ^4.4.5
+        version: 4.4.5
+      superjson:
+        specifier: 2.2.1
+        version: 2.2.1
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
+    devDependencies:
+      '@acme/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint
+      '@acme/prettier-config':
+        specifier: workspace:*
+        version: link:../../tooling/prettier
+      '@acme/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
+      '@cloudflare/workers-types':
+        specifier: ^4.20240605.0
+        version: 4.20240605.0
+      '@types/node':
+        specifier: ^20.12.9
+        version: 20.14.2
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
+      eslint:
+        specifier: ^9.4.0
+        version: 9.4.0
+      prettier:
+        specifier: ^3.3.1
+        version: 3.3.2
+      typescript:
+        specifier: ^5.4.5
+        version: 5.4.5
+      wrangler:
+        specifier: ^3.0.0
+        version: 3.60.2(@cloudflare/workers-types@4.20240605.0)
+
   packages/api:
     dependencies:
       '@acme/auth':
@@ -539,61 +594,6 @@ importers:
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
-
-  packages/worker:
-    dependencies:
-      '@clerk/backend':
-        specifier: ^1.2.4
-        version: 1.2.4(react@18.3.1)
-      '@hono/trpc-server':
-        specifier: ^0.3.1
-        version: 0.3.1(@trpc/server@11.0.0-rc.364)(hono@4.4.5)
-      '@trpc/server':
-        specifier: 11.0.0-rc.364
-        version: 11.0.0-rc.364
-      hono:
-        specifier: ^4.4.5
-        version: 4.4.5
-      superjson:
-        specifier: 2.2.1
-        version: 2.2.1
-      zod:
-        specifier: ^3.23.8
-        version: 3.23.8
-    devDependencies:
-      '@acme/database':
-        specifier: workspace:*
-        version: link:../database
-      '@acme/eslint-config':
-        specifier: workspace:*
-        version: link:../../tooling/eslint
-      '@acme/prettier-config':
-        specifier: workspace:*
-        version: link:../../tooling/prettier
-      '@acme/tsconfig':
-        specifier: workspace:*
-        version: link:../../tooling/typescript
-      '@cloudflare/workers-types':
-        specifier: ^4.20240605.0
-        version: 4.20240605.0
-      '@types/node':
-        specifier: ^20.12.9
-        version: 20.14.2
-      cross-env:
-        specifier: ^7.0.3
-        version: 7.0.3
-      eslint:
-        specifier: ^9.4.0
-        version: 9.4.0
-      prettier:
-        specifier: ^3.3.1
-        version: 3.3.2
-      typescript:
-        specifier: ^5.4.5
-        version: 5.4.5
-      wrangler:
-        specifier: ^3.0.0
-        version: 3.60.2(@cloudflare/workers-types@4.20240605.0)
 
   tooling/eslint:
     dependencies:

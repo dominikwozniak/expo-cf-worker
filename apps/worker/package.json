@@ -20,6 +20,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@acme/database": "workspace:*",
     "@clerk/backend": "^1.2.4",
     "@hono/trpc-server": "^0.3.1",
     "@trpc/server": "11.0.0-rc.364",
@@ -28,7 +29,6 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@acme/database": "workspace:*",
     "@acme/eslint-config": "workspace:*",
     "@acme/prettier-config": "workspace:*",
     "@acme/tsconfig": "workspace:*",
