@@ -365,6 +365,43 @@ importers:
         specifier: ^5.4.5
         version: 5.4.5
 
+  packages/database:
+    dependencies:
+      '@t3-oss/env-core':
+        specifier: ^0.10.1
+        version: 0.10.1(typescript@5.4.5)(zod@3.23.8)
+      drizzle-orm:
+        specifier: ^0.31.2
+        version: 0.31.2(better-sqlite3@11.0.0)
+    devDependencies:
+      '@acme/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint
+      '@acme/prettier-config':
+        specifier: workspace:*
+        version: link:../../tooling/prettier
+      '@acme/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
+      better-sqlite3:
+        specifier: ^11.0.0
+        version: 11.0.0
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
+      drizzle-kit:
+        specifier: ^0.22.6
+        version: 0.22.7
+      eslint:
+        specifier: ^9.4.0
+        version: 9.4.0
+      prettier:
+        specifier: ^3.3.1
+        version: 3.3.2
+      typescript:
+        specifier: ^5.4.5
+        version: 5.4.5
+
   packages/db:
     dependencies:
       '@t3-oss/env-core':
@@ -511,15 +548,9 @@ importers:
       '@hono/trpc-server':
         specifier: ^0.3.1
         version: 0.3.1(@trpc/server@11.0.0-rc.364)(hono@4.4.5)
-      '@t3-oss/env-core':
-        specifier: ^0.10.1
-        version: 0.10.1(typescript@5.4.5)(zod@3.23.8)
       '@trpc/server':
         specifier: 11.0.0-rc.364
         version: 11.0.0-rc.364
-      drizzle-orm:
-        specifier: ^0.31.2
-        version: 0.31.2(@cloudflare/workers-types@4.20240605.0)(better-sqlite3@11.0.0)(react@18.3.1)
       hono:
         specifier: ^4.4.5
         version: 4.4.5
@@ -530,6 +561,9 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
     devDependencies:
+      '@acme/database':
+        specifier: workspace:*
+        version: link:../database
       '@acme/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint
@@ -545,15 +579,9 @@ importers:
       '@types/node':
         specifier: ^20.12.9
         version: 20.14.2
-      better-sqlite3:
-        specifier: ^11.0.0
-        version: 11.0.0
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
-      drizzle-kit:
-        specifier: ^0.22.6
-        version: 0.22.7
       eslint:
         specifier: ^9.4.0
         version: 9.4.0
@@ -2317,6 +2345,7 @@ packages:
 
   /@cloudflare/workers-types@4.20240605.0:
     resolution: {integrity: sha512-zJw4Q6CnkaQ5JZmHRkNiSs5GfiRgUIUL8BIHPQkd2XUHZkIBv9M9yc0LKEwMYGpCFC+oSOltet6c9RjP9uQ99g==}
+    dev: true
 
   /@cspotcode/source-map-support@0.8.1:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -7785,94 +7814,6 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.31.2(@cloudflare/workers-types@4.20240605.0)(better-sqlite3@11.0.0)(react@18.3.1):
-    resolution: {integrity: sha512-QnenevbnnAzmbNzQwbhklvIYrDE8YER8K7kSrAWQSV1YvFCdSQPzj+jzqRdTSsV2cDqSpQ0NXGyL1G9I43LDLg==}
-    peerDependencies:
-      '@aws-sdk/client-rds-data': '>=3'
-      '@cloudflare/workers-types': '>=3'
-      '@electric-sql/pglite': '>=0.1.1'
-      '@libsql/client': '*'
-      '@neondatabase/serverless': '>=0.1'
-      '@op-engineering/op-sqlite': '>=2'
-      '@opentelemetry/api': ^1.4.1
-      '@planetscale/database': '>=1'
-      '@tidbcloud/serverless': '*'
-      '@types/better-sqlite3': '*'
-      '@types/pg': '*'
-      '@types/react': '>=18'
-      '@types/sql.js': '*'
-      '@vercel/postgres': '>=0.8.0'
-      '@xata.io/client': '*'
-      better-sqlite3: '>=7'
-      bun-types: '*'
-      expo-sqlite: '>=13.2.0'
-      knex: '*'
-      kysely: '*'
-      mysql2: '>=2'
-      pg: '>=8'
-      postgres: '>=3'
-      react: '>=18'
-      sql.js: '>=1'
-      sqlite3: '>=5'
-    peerDependenciesMeta:
-      '@aws-sdk/client-rds-data':
-        optional: true
-      '@cloudflare/workers-types':
-        optional: true
-      '@electric-sql/pglite':
-        optional: true
-      '@libsql/client':
-        optional: true
-      '@neondatabase/serverless':
-        optional: true
-      '@op-engineering/op-sqlite':
-        optional: true
-      '@opentelemetry/api':
-        optional: true
-      '@planetscale/database':
-        optional: true
-      '@tidbcloud/serverless':
-        optional: true
-      '@types/better-sqlite3':
-        optional: true
-      '@types/pg':
-        optional: true
-      '@types/react':
-        optional: true
-      '@types/sql.js':
-        optional: true
-      '@vercel/postgres':
-        optional: true
-      '@xata.io/client':
-        optional: true
-      better-sqlite3:
-        optional: true
-      bun-types:
-        optional: true
-      expo-sqlite:
-        optional: true
-      knex:
-        optional: true
-      kysely:
-        optional: true
-      mysql2:
-        optional: true
-      pg:
-        optional: true
-      postgres:
-        optional: true
-      react:
-        optional: true
-      sql.js:
-        optional: true
-      sqlite3:
-        optional: true
-    dependencies:
-      '@cloudflare/workers-types': 4.20240605.0
-      better-sqlite3: 11.0.0
-      react: 18.3.1
-    dev: false
-
   /drizzle-orm@0.31.2(@vercel/postgres@0.8.0):
     resolution: {integrity: sha512-QnenevbnnAzmbNzQwbhklvIYrDE8YER8K7kSrAWQSV1YvFCdSQPzj+jzqRdTSsV2cDqSpQ0NXGyL1G9I43LDLg==}
     peerDependencies:
@@ -7957,6 +7898,92 @@ packages:
         optional: true
     dependencies:
       '@vercel/postgres': 0.8.0
+    dev: false
+
+  /drizzle-orm@0.31.2(better-sqlite3@11.0.0):
+    resolution: {integrity: sha512-QnenevbnnAzmbNzQwbhklvIYrDE8YER8K7kSrAWQSV1YvFCdSQPzj+jzqRdTSsV2cDqSpQ0NXGyL1G9I43LDLg==}
+    peerDependencies:
+      '@aws-sdk/client-rds-data': '>=3'
+      '@cloudflare/workers-types': '>=3'
+      '@electric-sql/pglite': '>=0.1.1'
+      '@libsql/client': '*'
+      '@neondatabase/serverless': '>=0.1'
+      '@op-engineering/op-sqlite': '>=2'
+      '@opentelemetry/api': ^1.4.1
+      '@planetscale/database': '>=1'
+      '@tidbcloud/serverless': '*'
+      '@types/better-sqlite3': '*'
+      '@types/pg': '*'
+      '@types/react': '>=18'
+      '@types/sql.js': '*'
+      '@vercel/postgres': '>=0.8.0'
+      '@xata.io/client': '*'
+      better-sqlite3: '>=7'
+      bun-types: '*'
+      expo-sqlite: '>=13.2.0'
+      knex: '*'
+      kysely: '*'
+      mysql2: '>=2'
+      pg: '>=8'
+      postgres: '>=3'
+      react: '>=18'
+      sql.js: '>=1'
+      sqlite3: '>=5'
+    peerDependenciesMeta:
+      '@aws-sdk/client-rds-data':
+        optional: true
+      '@cloudflare/workers-types':
+        optional: true
+      '@electric-sql/pglite':
+        optional: true
+      '@libsql/client':
+        optional: true
+      '@neondatabase/serverless':
+        optional: true
+      '@op-engineering/op-sqlite':
+        optional: true
+      '@opentelemetry/api':
+        optional: true
+      '@planetscale/database':
+        optional: true
+      '@tidbcloud/serverless':
+        optional: true
+      '@types/better-sqlite3':
+        optional: true
+      '@types/pg':
+        optional: true
+      '@types/react':
+        optional: true
+      '@types/sql.js':
+        optional: true
+      '@vercel/postgres':
+        optional: true
+      '@xata.io/client':
+        optional: true
+      better-sqlite3:
+        optional: true
+      bun-types:
+        optional: true
+      expo-sqlite:
+        optional: true
+      knex:
+        optional: true
+      kysely:
+        optional: true
+      mysql2:
+        optional: true
+      pg:
+        optional: true
+      postgres:
+        optional: true
+      react:
+        optional: true
+      sql.js:
+        optional: true
+      sqlite3:
+        optional: true
+    dependencies:
+      better-sqlite3: 11.0.0
     dev: false
 
   /drizzle-zod@0.5.1(drizzle-orm@0.31.2)(zod@3.23.8):

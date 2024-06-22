@@ -1,6 +1,6 @@
 import type { Config } from "drizzle-kit";
 
-import { drizzleEnv } from "./src/db/drizzle-env.mjs";
+import { drizzleEnv } from "./src/drizzle-env.mjs";
 
 const localDbPath = drizzleEnv.LOCAL_DB_PATH;
 const databaseId = drizzleEnv.USE_PROD_DB
@@ -10,7 +10,7 @@ const accountId = drizzleEnv.ACCOUNT_ID;
 const accountToken = drizzleEnv.ACCOUNT_TOKEN;
 
 const sharedConfig = {
-  schema: "./src/db/schema.ts",
+  schema: "./src/schema.ts",
   out: "./migrations",
   verbose: false,
   strict: true,

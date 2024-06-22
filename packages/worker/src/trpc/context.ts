@@ -1,8 +1,9 @@
 import type { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
 import { createClerkClient } from "@clerk/backend";
 
+import { dbClient } from "@acme/database";
+
 import type { Env } from "../env";
-import { dbClient } from "../db";
 
 export const createContext = async (
   env: Env,
