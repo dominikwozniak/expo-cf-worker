@@ -27,6 +27,10 @@ const t = initTRPC.context<Context>().create({
   },
 });
 
+export const createCallerFactory = t.createCallerFactory;
+
+export const createTRPCRouter = t.router;
+
 const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
   // if (!ctx.user?.id) {
   if (!ctx.userId) {
@@ -43,5 +47,3 @@ export const publicProcedure = t.procedure;
 
 // TODO: implement protected procedure
 export const protectedProcedure = t.procedure.use(enforceUserIsAuthed);
-
-export const createTRPCRouter = t.router;

@@ -3,10 +3,13 @@ import { createClerkClient } from "@clerk/backend";
 
 import { dbClient } from "@acme/database";
 
-import type { Env } from "../env";
+// TODO: fix me
+// import type { Env } from "../env";
 
 export const createContext = async (
-  env: Env,
+  // TODO: fix me
+  // env: Env,
+  env: { CLERK_SECRET_KEY: string; DB: D1Database },
   { req }: FetchCreateContextFnOptions,
 ) => {
   const d1 = env.DB;

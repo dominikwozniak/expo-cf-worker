@@ -1,4 +1,4 @@
-import { sql } from "drizzle-orm";
+import { InferSelectModel, sql } from "drizzle-orm";
 import { integer, text } from "drizzle-orm/sqlite-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 
@@ -14,4 +14,6 @@ export const post = sqliteTable("post", {
 });
 
 export const insertPostSchema = createInsertSchema(post);
-export const selectUserSchema = createSelectSchema(post);
+export const selectPostSchema = createSelectSchema(post);
+
+export type Post = InferSelectModel<typeof post>;

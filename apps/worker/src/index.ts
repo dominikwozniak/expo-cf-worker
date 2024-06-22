@@ -2,9 +2,9 @@ import { trpcServer } from "@hono/trpc-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 
+import { appRouter, createContext } from "@acme/trpc";
+
 import type { Env } from "./env";
-import { appRouter } from "./router";
-import { createContext } from "./trpc";
 
 const app = new Hono<{ Bindings: Env }>();
 
