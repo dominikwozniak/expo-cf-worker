@@ -9,6 +9,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "wrangler dev",
+    "tunel": "if command -v ngrok > /dev/null 2>&1; then ngrok http 8787; else echo 'ngrok is not installed. Please install ngrok.'; fi",
     "cf:migrate:local": "wrangler d1 migrations apply worker-db-prod --local",
     "cf:migrate:remote:dev": "wrangler d1 migrations apply --env dev worker-db --remote",
     "cf:migrate:remote:prod": "wrangler d1 migrations apply worker-db-prod --remote",
