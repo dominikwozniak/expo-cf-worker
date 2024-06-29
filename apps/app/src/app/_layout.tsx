@@ -24,7 +24,7 @@ export default function RootLayout() {
   const { colorScheme } = useColorScheme();
   return (
     <ClerkProvider
-      publishableKey={publishableKey as string}
+      publishableKey={publishableKey ?? ""}
       tokenCache={tokenCache}
     >
       <ClerkLoaded>
