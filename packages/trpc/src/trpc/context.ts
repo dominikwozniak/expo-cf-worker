@@ -1,15 +1,13 @@
 import type { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
 import { createClerkClient } from "@clerk/backend";
 
-import { dbClient } from "@acme/database";
+// import jwt from "jsonwebtoken";
 
-// TODO: fix me
-// import type { Env } from "../env";
+import { dbClient } from "@acme/database";
+import type { Env } from "../env";
 
 export const createContext = async (
-  // TODO: fix me
-  // env: Env,
-  env: { CLERK_SECRET_KEY: string; DB: D1Database },
+  env: Env,
   { req }: FetchCreateContextFnOptions,
 ) => {
   const d1 = env.DB;
@@ -27,12 +25,33 @@ export const createContext = async (
   const authToken = req.headers.get("x-clerk-auth-token");
   const sessionId = req.headers.get("x-clerk-auth-session-id");
 
+  console.log(">>> tRPC Request with authToken: ", authToken);
+  console.log(">>> tRPC Request with session: ", sessionId);
+
+  console.log("clerk PEM >>>", env.CLERK_PEM_KEY);
+
+  if (authToken) {
+    try {
+      // const decoded = jwt.verify(authToken, env.CLERK_PEM_KEY);
+      // console.log(">>> clerk decoded: ", decoded);
+    } catch (error) {
+      console.error(">>> clerk error: ", error);
+    }
+  }
+
+  if (sessionId) {
+    console.log(
+      ">>> clerk session: ",
+      await clerk.sessions.getSession(sessionId),
+    );
+  }
+
   return {
     db,
     language,
     userId:
       sessionId && authToken
-        ? await clerk.sessions.verifySession(sessionId, authToken)
+        ? await clerk.sessions.getSession(sessionId)
         : null,
   };
 };

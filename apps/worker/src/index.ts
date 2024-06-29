@@ -3,8 +3,7 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 
 import { appRouter, createContext } from "@acme/trpc";
-
-import type { Env } from "./env";
+import type { Env } from "@acme/trpc/env";
 
 const app = new Hono<{ Bindings: Env }>();
 
