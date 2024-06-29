@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAuth } from "@clerk/clerk-expo";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink, loggerLink } from "@trpc/client";
 import { createTRPCReact } from "@trpc/react-query";
@@ -21,6 +22,8 @@ export { type RouterInputs, type RouterOutputs } from "@acme/trpc";
  * Use only in _app.tsx
  */
 export function TRPCProvider(props: { children: React.ReactNode }) {
+  const { getToken } = useAuth();
+
   const [queryClient] = useState(() => new QueryClient());
   const [trpcClient] = useState(() =>
     api.createClient({
@@ -34,12 +37,13 @@ export function TRPCProvider(props: { children: React.ReactNode }) {
         httpBatchLink({
           transformer: superjson,
           url: `${getBaseUrl()}/trpc`,
-          headers() {
+          async headers() {
+            const authToken = await getToken();
+
             const headers = new Map<string, string>();
             headers.set("x-trpc-source", "expo-react");
-
-            // const token = getToken();
-            // if (token) headers.set("Authorization", `Bearer ${token}`);
+            headers.set("Content-Language", "en");
+            headers.set("x-clerk-auth-token", authToken ?? "");
 
             return Object.fromEntries(headers);
           },

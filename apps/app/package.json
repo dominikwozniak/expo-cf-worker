@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@bacons/text-decoder": "^0.0.0",
+    "@clerk/clerk-expo": "^1.2.2",
     "@expo/metro-config": "^0.18.3",
     "@shopify/flash-list": "1.6.4",
     "@tanstack/react-query": "^5.35.5",
@@ -43,10 +44,10 @@
     "superjson": "2.2.1"
   },
   "devDependencies": {
-    "@acme/trpc": "workspace:*",
     "@acme/eslint-config": "workspace:*",
     "@acme/prettier-config": "workspace:*",
     "@acme/tailwind-config": "workspace:*",
+    "@acme/trpc": "workspace:*",
     "@acme/tsconfig": "workspace:*",
     "@babel/core": "^7.24.7",
     "@babel/preset-env": "^7.24.7",

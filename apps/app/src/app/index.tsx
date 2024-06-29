@@ -2,6 +2,8 @@ import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Stack } from "expo-router";
 
+import { SignIn } from "~/module/auth/sign-in";
+import { SignUp } from "~/module/auth/sign-up";
 import { api } from "~/utils/api";
 
 export default function Index() {
@@ -12,9 +14,12 @@ export default function Index() {
       <Stack.Screen options={{ title: "Home Page" }} />
       <View className="h-full w-full bg-background p-4">
         <Text className="pb-2 text-center text-5xl font-bold text-foreground">
-          RN + CF
-          {postQuery.isLoading ? "..." : postQuery.data}
+          {postQuery.data ?? "Welcome to the app"}
         </Text>
+
+        <SignIn />
+
+        <SignUp />
       </View>
     </SafeAreaView>
   );
