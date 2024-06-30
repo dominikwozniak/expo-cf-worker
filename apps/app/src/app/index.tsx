@@ -12,8 +12,8 @@ export default function Index() {
   return (
     <SafeAreaView className="bg-background">
       <Stack.Screen options={{ title: "Home Page" }} />
-      <View className="h-full w-full bg-background p-4">
-        <Text className="pb-2 text-center text-5xl font-bold text-foreground">
+      <View className="bg-background h-full w-full p-4">
+        <Text className="text-foreground pb-2 text-center text-5xl font-bold">
           {postQuery.data ?? "Welcome to the app"}
         </Text>
 

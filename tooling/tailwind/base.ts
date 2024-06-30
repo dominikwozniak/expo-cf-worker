@@ -6,42 +6,38 @@ export default {
   theme: {
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "var(--primary-default)",
+          light: "var(--primary-light)",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "var(--secondary-default)",
+          light: "var(--secondary-light)",
         },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+        tertiary: {
+          DEFAULT: "var(--tertiary-default)",
+          light: "var(--tertiary-light)",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "var(--accent-default)",
+          light: "var(--accent-light)",
         },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+        gray: {
+          DEFAULT: "var(--gray-default)",
+          light: "var(--gray-light)",
         },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+        slate: {
+          DEFAULT: "var(--slate-default)",
         },
-      },
-      borderColor: {
-        DEFAULT: "hsl(var(--border))",
+        dark: {
+          DEFAULT: "var(--dark-default)",
+        },
+        light: {
+          DEFAULT: "var(--light-default)",
+        },
+        overlay: {
+          DEFAULT: "var(--overlay)",
+        },
       },
     },
   },
