@@ -1,6 +1,7 @@
 import "@bacons/text-decoder/install";
 
 import { Stack } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { ClerkLoaded, ClerkProvider } from "@clerk/clerk-expo";
 import { useColorScheme } from "nativewind";
@@ -10,6 +11,10 @@ import { tokenCache } from "~/utils/token-cache";
 
 import "../styles.css";
 
+import { useEffect } from "react";
+
+import { useAppBootstrap } from "~/shared-hooks/useAppBootstrap";
+
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
 if (!publishableKey) {
@@ -18,10 +23,20 @@ if (!publishableKey) {
   );
 }
 
-// This is the main layout of the app
-// It wraps your pages with the providers they need
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
+SplashScreen.preventAutoHideAsync();
+
 export default function RootLayout() {
   const { colorScheme } = useColorScheme();
+  const { isAppReady } = useAppBootstrap();
+
+  useEffect(() => {
+    if (isAppReady) {
+      // eslint-disable-next-line @typescript-eslint/no-floating-promises
+      SplashScreen.hideAsync();
+    }
+  }, [isAppReady]);
+
   return (
     <ClerkProvider
       publishableKey={publishableKey ?? ""}
