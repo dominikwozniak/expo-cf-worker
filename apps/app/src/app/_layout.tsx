@@ -1,19 +1,15 @@
 import "@bacons/text-decoder/install";
 
+import { useEffect } from "react";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
-import { ClerkLoaded, ClerkProvider } from "@clerk/clerk-expo";
 import { useColorScheme } from "nativewind";
 
-import { TRPCProvider } from "~/utils/api";
-import { tokenCache } from "~/utils/token-cache";
+import { AppProvider } from "~/shared-components/providers/AppProvider";
+import { useAppBootstrap } from "~/shared-hooks/useAppBootstrap";
 
 import "../styles.css";
-
-import { useEffect } from "react";
-
-import { useAppBootstrap } from "~/shared-hooks/useAppBootstrap";
 
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
@@ -38,23 +34,16 @@ export default function RootLayout() {
   }, [isAppReady]);
 
   return (
-    <ClerkProvider
-      publishableKey={publishableKey ?? ""}
-      tokenCache={tokenCache}
-    >
-      <ClerkLoaded>
-        <TRPCProvider>
-          <Stack
-            screenOptions={{
-              headerStyle: {},
-              contentStyle: {
-                backgroundColor: colorScheme == "dark" ? "#09090B" : "#FFFFFF",
-              },
-            }}
-          />
-          <StatusBar />
-        </TRPCProvider>
-      </ClerkLoaded>
-    </ClerkProvider>
+    <AppProvider>
+      <Stack
+        screenOptions={{
+          headerStyle: {},
+          contentStyle: {
+            backgroundColor: colorScheme == "dark" ? "#09090B" : "#FFFFFF",
+          },
+        }}
+      />
+      <StatusBar />
+    </AppProvider>
   );
 }
