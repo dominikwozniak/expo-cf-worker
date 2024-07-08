@@ -19,7 +19,8 @@ export default function Index() {
           Hello world!
         </Typography>
         <Typography variant="regular" color="primary" weight="bold">
-          DATA: {postQuery.data}
+          DATA:
+          {postQuery.data}
         </Typography>
         <Button>Test</Button>
 
