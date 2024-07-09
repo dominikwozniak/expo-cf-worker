@@ -48,7 +48,8 @@
     "react-native-screens": "~3.31.1",
     "react-native-svg": "15.2.0",
     "superjson": "2.2.1",
-    "tailwind-merge": "^2.3.0"
+    "tailwind-merge": "^2.3.0",
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
     "@acme/eslint-config": "workspace:*",

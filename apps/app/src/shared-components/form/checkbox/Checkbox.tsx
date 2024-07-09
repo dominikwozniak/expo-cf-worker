@@ -1,7 +1,7 @@
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
 
-import { Icon } from "~/shared-components/icons";
+import { CheckmarkIcon } from "~/shared-components/icons";
 import { Typography } from "~/shared-components/Typography";
 import { useColor } from "~/shared-hooks/useColor";
 import { cn } from "~/utils/classnames";
@@ -36,7 +36,7 @@ export function Checkbox({
       {...props}
     >
       <View className={computedCheckboxClassName}>
-        {isChecked ? <Icon name="checkmark" color={light} /> : null}
+        {isChecked ? <CheckmarkIcon color={light} /> : null}
       </View>
       <Typography weight="semiBold" className="pr-4">
         {label}

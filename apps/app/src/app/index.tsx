@@ -23,7 +23,6 @@ export default function Index() {
           {postQuery.data}
         </Typography>
         <Button>Test</Button>
-
         <SignIn />
 
         <SignUp />
