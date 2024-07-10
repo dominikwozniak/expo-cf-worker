@@ -17,5 +17,5 @@ export function useAuthRedirect() {
     } else if (!isSignedIn) {
       router.replace("/(auth)");
     }
-  }, [isSignedIn, router, segments, isLoaded]);
+  }, [isSignedIn, isLoaded]);
 }
