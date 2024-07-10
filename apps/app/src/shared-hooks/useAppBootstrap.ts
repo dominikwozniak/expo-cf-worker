@@ -1,4 +1,4 @@
-// import { useAuth } from "@clerk/clerk-expo";
+import { useAuth } from "@clerk/clerk-expo";
 import {
   Poppins_400Regular,
   Poppins_600SemiBold,
@@ -12,10 +12,9 @@ export const useAppBootstrap = () => {
     Poppins_600SemiBold,
     Poppins_700Bold,
   });
-  // const { isLoaded: isClerkLoaded } = useAuth();
+  const { isLoaded: isClerkLoaded } = useAuth();
 
-  // const isAppReady = fontsLoaded && isClerkLoaded;
-  const isAppReady = fontsLoaded && !fontLoadedError;
+  const isAppReady = fontsLoaded && !fontLoadedError && isClerkLoaded;
 
   return {
     isAppReady,

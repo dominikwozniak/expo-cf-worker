@@ -1,30 +1,28 @@
 import "@bacons/text-decoder/install";
 
 import { useEffect } from "react";
-import { Stack } from "expo-router";
+import { Slot } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useColorScheme } from "nativewind";
 
 import { AppProvider } from "~/shared-components/providers/AppProvider";
+import { useAuthRedirect } from "~/shared-hooks/auth/useAuthRedirect";
 import { useAppBootstrap } from "~/shared-hooks/useAppBootstrap";
 
 import "../styles.css";
 
-const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
-
-if (!publishableKey) {
-  throw new Error(
-    "Missing Publishable Key. Please set EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY in your .env",
-  );
-}
+export {
+  // Catch any errors thrown by the Layout component.
+  ErrorBoundary,
+} from "expo-router";
 
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
-  const { colorScheme } = useColorScheme();
+function AppLayout() {
   const { isAppReady } = useAppBootstrap();
+  useAuthRedirect();
 
   useEffect(() => {
     if (isAppReady) {
@@ -33,17 +31,25 @@ export default function RootLayout() {
     }
   }, [isAppReady]);
 
+  if (!isAppReady) {
+    return null;
+  }
+
+  return <Slot />;
+}
+
+export default function RootLayout() {
+  const { colorScheme } = useColorScheme();
+
   return (
-    <AppProvider>
-      <Stack
-        screenOptions={{
-          headerStyle: {},
-          contentStyle: {
-            backgroundColor: colorScheme == "dark" ? "#09090B" : "#FFFFFF",
-          },
-        }}
+    <>
+      <StatusBar
+        key={`root-status-bar-${colorScheme}`}
+        style={colorScheme == "dark" ? "light" : "dark"}
       />
-      <StatusBar />
-    </AppProvider>
+      <AppProvider>
+        <AppLayout />
+      </AppProvider>
+    </>
   );
 }

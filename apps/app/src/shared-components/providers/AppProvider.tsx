@@ -1,5 +1,5 @@
 import React from "react";
-import { ClerkLoaded, ClerkProvider } from "@clerk/clerk-expo";
+import { ClerkProvider } from "@clerk/clerk-expo";
 
 import { AlertProvider } from "~/shared-components/providers/AlertProvider";
 import { TRPCProvider } from "~/utils/api";
@@ -16,11 +16,9 @@ if (!publishableKey) {
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
-      <ClerkLoaded>
-        <TRPCProvider>
-          <AlertProvider>{children}</AlertProvider>
-        </TRPCProvider>
-      </ClerkLoaded>
+      <TRPCProvider>
+        <AlertProvider>{children}</AlertProvider>
+      </TRPCProvider>
     </ClerkProvider>
   );
 };
