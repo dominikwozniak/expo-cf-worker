@@ -33,12 +33,12 @@ export function useLogin() {
   const onSubmit = useCallback<SubmitHandler<FormValues>>(
     async (data) => {
       try {
-        setLoading(true);
-        const { email, password } = data;
-
         if (!isLoaded) {
           return;
         }
+
+        setLoading(true);
+        const { email, password } = data;
 
         Keyboard.dismiss();
         const completeSignIn = await signIn.create({

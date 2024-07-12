@@ -39,12 +39,12 @@ export function useRegister() {
   const onSubmit = useCallback<SubmitHandler<FormValues>>(
     async (data) => {
       try {
-        setLoading(true);
-        const { email, firstName, lastName, password } = data;
-
         if (!isLoaded) {
           return;
         }
+
+        const { email, firstName, lastName, password } = data;
+        setLoading(true);
 
         Keyboard.dismiss();
         await signUp.create({
@@ -58,7 +58,7 @@ export function useRegister() {
           strategy: "email_code",
         });
 
-        router.push("/(verify)/email");
+        router.push("/(utils)/verify-email");
       } catch {
         showAlert({
           title: "Error!",

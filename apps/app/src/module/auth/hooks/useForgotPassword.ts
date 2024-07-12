@@ -30,12 +30,12 @@ export function useForgotPassword() {
   const onSubmit = useCallback<SubmitHandler<FormValues>>(
     async (data) => {
       try {
-        setLoading(true);
-        const { email } = data;
-
         if (!isLoaded) {
           return;
         }
+
+        setLoading(true);
+        const { email } = data;
 
         Keyboard.dismiss();
         await signIn.create({
@@ -43,7 +43,7 @@ export function useForgotPassword() {
           identifier: email,
         });
 
-        router.push("/(verify)/code");
+        router.push("/(utils)/verify-code");
       } catch {
         showAlert({
           title: "Error!",

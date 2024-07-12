@@ -30,12 +30,12 @@ export function useVerifyCode() {
   const onSubmit = useCallback<SubmitHandler<FormValues>>(
     async (data) => {
       try {
-        setLoading(true);
-        const { code } = data;
-
         if (!isLoaded) {
           return;
         }
+
+        setLoading(true);
+        const { code } = data;
 
         Keyboard.dismiss();
         const completeSignIn = await signIn.attemptFirstFactor({
