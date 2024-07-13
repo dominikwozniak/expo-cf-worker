@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 
-import { useRegister } from "~/module/auth/hooks/useRegister";
+import { useRegister } from "~/modules/auth/hooks/useRegister";
 import { Button } from "~/shared-components/Button";
 import { FormField } from "~/shared-components/form/FormField";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";

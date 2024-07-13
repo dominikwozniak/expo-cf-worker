@@ -2,7 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import { Link } from "expo-router";
 
-import { useLogin } from "~/module/auth/hooks/useLogin";
+import { useLogin } from "~/modules/auth/hooks/useLogin";
 import { Button } from "~/shared-components/Button";
 import { FormField } from "~/shared-components/form/FormField";
 import { Typography } from "~/shared-components/Typography";

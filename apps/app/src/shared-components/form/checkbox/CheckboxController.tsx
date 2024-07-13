@@ -31,7 +31,7 @@ export function CheckboxController<FieldName extends FieldValues>({
               label={label}
               isChecked={value}
               onPress={() => onChange(!value)}
-              isAlternative={isAlternative}
+              variant={isAlternative ? "secondary" : "primary"}
             />
           );
         }}

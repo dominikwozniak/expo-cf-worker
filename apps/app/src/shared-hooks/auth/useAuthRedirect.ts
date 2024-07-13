@@ -10,9 +10,9 @@ export function useAuthRedirect() {
   useEffect(() => {
     if (!isLoaded) return;
 
-    const inAuthTabsGroup = segments[0] === "(auth)";
+    const inAuthGroup = segments[0] === "(auth)";
 
-    if (isSignedIn && !inAuthTabsGroup) {
+    if (isSignedIn && !inAuthGroup) {
       router.replace("/(app)/(tabs)/home");
     } else if (!isSignedIn) {
       router.replace("/(auth)");

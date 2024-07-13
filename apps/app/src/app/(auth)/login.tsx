@@ -2,8 +2,8 @@ import React from "react";
 import { ScrollView, View } from "react-native";
 import { Link } from "expo-router";
 
-import { LoginForm } from "~/module/auth/components/LoginForm";
-import { OAuthForm } from "~/module/auth/components/OAuthForm";
+import { LoginForm } from "~/modules/auth/components/LoginForm";
+import { OAuthForm } from "~/modules/auth/components/OAuthForm";
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
 import { TopBar } from "~/shared-components/TopBar";
 import { Typography } from "~/shared-components/Typography";

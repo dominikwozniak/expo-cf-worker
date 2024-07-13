@@ -1,6 +1,6 @@
 import { ScrollView, View } from "react-native";
 
-import { VerifyEmailForm } from "~/module/auth/components/VerifyEmailForm";
+import { VerifyEmailForm } from "~/modules/auth/components/VerifyEmailForm";
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
 import { TopBar } from "~/shared-components/TopBar";
 import { Typography } from "~/shared-components/Typography";

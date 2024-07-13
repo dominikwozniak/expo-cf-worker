@@ -1,8 +1,7 @@
 import { ScrollView, View } from "react-native";
 
-import { VerifyCodeForm } from "~/module/auth/components/VerifyCodeForm";
+import { VerifyCodeForm } from "~/modules/auth/components/VerifyCodeForm";
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
-import { TopBar } from "~/shared-components/TopBar";
 import { Typography } from "~/shared-components/Typography";
 
 export default function VerifyCode() {
@@ -10,7 +9,6 @@ export default function VerifyCode() {
     <ScreenLayout>
       <ScrollView>
         <View className="flex-1 p-4">
-          <TopBar isBackButtonHidden />
           <Typography
             variant="subheader"
             weight="semiBold"

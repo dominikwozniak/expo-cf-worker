@@ -1,27 +1,23 @@
 import React from "react";
 
-import { useVerifyCode } from "~/module/auth/hooks/useVerifyCode";
+import { useVerifyCode } from "~/modules/auth/hooks/useVerifyCode";
 import { Button } from "~/shared-components/Button";
-import { FormField } from "~/shared-components/form/FormField";
+import { ConfirmationCodeController } from "~/shared-components/form/confirmation-code/ConfirmationCodeController";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
 
 export function VerifyCodeForm() {
   const isLoading = useGlobalStore((state) => state.isLoading);
-  const { control, onSubmitPress, errors, isButtonDisabled } = useVerifyCode();
+  const { control, onSubmitPress, isButtonDisabled } = useVerifyCode();
 
   return (
     <>
-      <FormField
+      <ConfirmationCodeController
         control={control}
-        error={errors.code}
-        name={"code"}
-        label={"Code"}
-        placeholder="Enter verification code"
+        name="code"
         isRequired
-        isNumeric
         customRules={{
           required: true,
-          minLength: 1,
+          minLength: 6,
         }}
         className="mt-8"
       />

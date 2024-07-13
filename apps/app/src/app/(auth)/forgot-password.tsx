@@ -1,6 +1,6 @@
 import { ScrollView, View } from "react-native";
 
-import { ForgotPasswordForm } from "~/module/auth/components/ForgotPasswordForm";
+import { ForgotPasswordForm } from "~/modules/auth/components/ForgotPasswordForm";
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
 import { TopBar } from "~/shared-components/TopBar";
 import { Typography } from "~/shared-components/Typography";

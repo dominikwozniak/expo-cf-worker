@@ -1,27 +1,29 @@
-import React from "react";
-
-import { useVerifyEmail } from "~/module/auth/hooks/useVerifyEmail";
+import { useForgotPassword } from "~/modules/auth/hooks/useForgotPassword";
 import { Button } from "~/shared-components/Button";
 import { FormField } from "~/shared-components/form/FormField";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
 
-export function VerifyEmailForm() {
+export function ForgotPasswordForm() {
   const isLoading = useGlobalStore((state) => state.isLoading);
-  const { control, onSubmitPress, errors, isButtonDisabled } = useVerifyEmail();
+  const { control, onSubmitPress, errors, isButtonDisabled } =
+    useForgotPassword();
 
   return (
     <>
       <FormField
         control={control}
-        error={errors.code}
-        name={"code"}
-        label="Code"
-        placeholder="Enter verification code"
+        error={errors.email}
+        name={"email"}
+        label="Email"
+        placeholder="Enter your email address"
         isRequired
-        isNumeric
         customRules={{
           required: true,
-          minLength: 1,
+          minLength: 0,
+          pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            message: "Invalid email address",
+          },
         }}
         className="mt-8"
       />
@@ -30,7 +32,7 @@ export function VerifyEmailForm() {
         disabled={isButtonDisabled || isLoading}
         className="mt-8"
       >
-        Verify
+        Reset password
       </Button>
     </>
   );

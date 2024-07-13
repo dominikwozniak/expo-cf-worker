@@ -2,7 +2,7 @@ import React from "react";
 import { ScrollView, View } from "react-native";
 import { Link } from "expo-router";
 
-import { RegisterForm } from "~/module/auth/components/RegisterForm";
+import { RegisterForm } from "~/modules/auth/components/RegisterForm";
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
 import { TopBar } from "~/shared-components/TopBar";
 import { Typography } from "~/shared-components/Typography";

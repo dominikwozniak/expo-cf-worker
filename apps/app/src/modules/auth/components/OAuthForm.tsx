@@ -1,7 +1,7 @@
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
 
-import { OAuthStrategy, useOAuth } from "~/module/auth/hooks/useOAuth";
+import { OAuthStrategy, useOAuth } from "~/modules/auth/hooks/useOAuth";
 import {
   AppleIcon,
   ArrowIcon,

@@ -45,6 +45,7 @@
     "react-dom": "18.3.1",
     "react-hook-form": "^7.52.1",
     "react-native": "~0.74.1",
+    "react-native-confirmation-code-field": "^7.4.0",
     "react-native-css-interop": "~0.0.34",
     "react-native-gesture-handler": "~2.16.2",
     "react-native-reanimated": "~3.10.1",
