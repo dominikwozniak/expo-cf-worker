@@ -65,6 +65,9 @@ importers:
       expo-constants:
         specifier: ~16.0.1
         version: 16.0.2(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
+      expo-crypto:
+        specifier: ~13.0.2
+        version: 13.0.2(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
       expo-dev-client:
         specifier: ~4.0.13
         version: 4.0.16(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
@@ -320,7 +323,7 @@ importers:
         version: 7.34.2(eslint@9.4.0)
       eslint-plugin-react-hooks:
         specifier: rc
-        version: 5.1.0-rc-c3cdbec0a7-20240708(eslint@9.4.0)
+        version: 5.1.0-rc-df5f2736-20240712(eslint@9.4.0)
       eslint-plugin-turbo:
         specifier: ^2.0.3
         version: 2.0.3(eslint@9.4.0)
@@ -3527,8 +3530,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
 
-  eslint-plugin-react-hooks@5.1.0-rc-c3cdbec0a7-20240708:
-    resolution: {integrity: sha512-Yj2ZS7MReTI9q+ibEeK2DEnWfP/Ovg/1jrK4K/WSPV+J62Wh3vyTOG5jmk5REdXOYbn+tZW4GcqAkmFO268msg==}
+  eslint-plugin-react-hooks@5.1.0-rc-df5f2736-20240712:
+    resolution: {integrity: sha512-7rU6g+0yCvGAoJ3iIpK89XRir4FokHYJ8mUnOMuEt04UdTONOFVoMeXDC6Vjy6TnS3BMxMwOUDeDooEhK2ud1A==}
     engines: {node: '>=10'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
@@ -10747,7 +10750,7 @@ snapshots:
       object.entries: 1.1.8
       object.fromentries: 2.0.8
 
-  eslint-plugin-react-hooks@5.1.0-rc-c3cdbec0a7-20240708(eslint@9.4.0):
+  eslint-plugin-react-hooks@5.1.0-rc-df5f2736-20240712(eslint@9.4.0):
     dependencies:
       eslint: 9.4.0
 

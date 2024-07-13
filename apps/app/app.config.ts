@@ -19,11 +19,11 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
   assetBundlePatterns: ["**/*"],
   ios: {
-    bundleIdentifier: "dominikwozniak.rn.app",
+    bundleIdentifier: "com.dominikwozniak.rnstarer",
     supportsTablet: true,
   },
   android: {
-    package: "your.bundle.identifier",
+    package: "com.dominikwozniak.rnstarer",
     adaptiveIcon: {
       foregroundImage: "./assets/icon.png",
       backgroundColor: "#1F104A",
