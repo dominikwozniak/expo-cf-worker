@@ -1,12 +1,11 @@
 import React from "react";
 import { View } from "react-native";
-import { Link } from "expo-router";
 
 import { useLogin } from "~/modules/auth/hooks/useLogin";
 import { Button } from "~/shared-components/Button";
 import { FormField } from "~/shared-components/form/FormField";
-import { Typography } from "~/shared-components/Typography";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
+import { i18n } from "~/utils/i18n";
 
 export function LoginForm() {
   const isLoading = useGlobalStore((state) => state.isLoading);
@@ -18,15 +17,15 @@ export function LoginForm() {
         control={control}
         error={errors.email}
         name={"email"}
-        label="Email"
-        placeholder="Enter your email address"
+        label={i18n.t("common.input.email.label")}
+        placeholder={i18n.t("common.input.email.placeholder")}
         isRequired
         customRules={{
           required: true,
           minLength: 0,
           pattern: {
             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            message: "Invalid email address",
+            message: i18n.t("common.input.email.error"),
           },
         }}
         className="mt-4"
@@ -35,8 +34,8 @@ export function LoginForm() {
         control={control}
         error={errors.password}
         name={"password"}
-        label="Password"
-        placeholder="Enter your password"
+        label={i18n.t("common.input.password.label")}
+        placeholder={i18n.t("common.input.password.placeholder")}
         isRequired
         isPassword
         customRules={{
@@ -50,15 +49,8 @@ export function LoginForm() {
         disabled={isButtonDisabled || isLoading}
         className="mt-8"
       >
-        Sign in
+        {i18n.t("auth.loginScreen.button")}
       </Button>
-      <View className="mt-4">
-        <Link href="/(auth)/forgot-password">
-          <Typography className="text-right underline">
-            Forgot password?
-          </Typography>
-        </Link>
-      </View>
     </View>
   );
 }

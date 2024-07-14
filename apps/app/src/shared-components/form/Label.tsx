@@ -3,6 +3,7 @@ import React from "react";
 import { View } from "react-native";
 
 import { Typography } from "~/shared-components/Typography";
+import { i18n } from "~/utils/i18n";
 
 interface LabelProps extends React.ComponentPropsWithoutRef<typeof View> {
   isRequired?: boolean;
@@ -29,7 +30,7 @@ export function Label({
       </Typography>
       {isError ? (
         <Typography variant="paragraph" weight="semiBold" color="accent">
-          {error?.message ?? "This field is required"}
+          {error?.message ?? i18n.t("common.input.required")}
         </Typography>
       ) : null}
     </View>

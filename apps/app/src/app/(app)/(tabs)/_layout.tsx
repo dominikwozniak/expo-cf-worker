@@ -1,6 +1,7 @@
 import { Tabs } from "expo-router";
 
 import { useColor } from "~/shared-hooks/useColor";
+import { i18n } from "~/utils/i18n";
 
 export default function TabLayout() {
   const { secondary: secondaryColor, light: lightColor } = useColor();
@@ -28,7 +29,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="home"
         options={{
-          title: "Home",
+          title: i18n.t("common.tabs.home"),
           tabBarLabelStyle,
         }}
       />

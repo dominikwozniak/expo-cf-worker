@@ -6,6 +6,7 @@ import { RegisterForm } from "~/modules/auth/components/RegisterForm";
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
 import { TopBar } from "~/shared-components/TopBar";
 import { Typography } from "~/shared-components/Typography";
+import { i18n } from "~/utils/i18n";
 
 export default function Register() {
   return (
@@ -18,19 +19,19 @@ export default function Register() {
             weight="semiBold"
             className="mt-4 text-center"
           >
-            Welcome to the community!
+            {i18n.t("auth.registerScreen.title")}
           </Typography>
           <Typography className="text-center">
-            Create an account to get started
+            {i18n.t("auth.registerScreen.description")}
           </Typography>
           <RegisterForm />
           <View className="mt-4 flex-row justify-center">
             <Typography className="mr-2 text-right">
-              Already have an account?{" "}
+              {i18n.t("auth.registerScreen.alreadyHaveAccount.title")}{" "}
             </Typography>
             <Link href={"/(auth)/login"}>
               <Typography weight="semiBold" className="text-right underline">
-                Sign in
+                {i18n.t("auth.registerScreen.alreadyHaveAccount.button")}
               </Typography>
             </Link>
           </View>

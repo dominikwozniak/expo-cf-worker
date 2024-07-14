@@ -11,6 +11,7 @@ import {
 import { Typography } from "~/shared-components/Typography";
 import { useColor } from "~/shared-hooks/useColor";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
+import { i18n } from "~/utils/i18n";
 
 const providers = [
   {
@@ -43,7 +44,9 @@ export function OAuthForm() {
     <View className="mt-10">
       <View className="flex flex-row items-center justify-center gap-4">
         <View className="flex-1 border-t border-gray" />
-        <Typography weight="semiBold">or sign in with</Typography>
+        <Typography weight="semiBold">
+          {i18n.t("auth.oauth.selectProvider")}
+        </Typography>
         <View className="flex-1 border-t border-gray" />
       </View>
       <View className="mt-6 flex flex-row justify-center">

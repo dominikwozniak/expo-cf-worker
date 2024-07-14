@@ -5,6 +5,7 @@ import { Link, useRouter } from "expo-router";
 import { Button } from "~/shared-components/Button";
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
 import { Typography } from "~/shared-components/Typography";
+import { i18n } from "~/utils/i18n";
 
 export default function Auth() {
   const router = useRouter();
@@ -13,26 +14,28 @@ export default function Auth() {
     <ScreenLayout>
       <View className="flex-1 p-4">
         <Typography variant="header" weight="semiBold" className="mt-4">
-          Hello, welcome to the app!
+          {i18n.t("auth.welcomeScreen.title")}
         </Typography>
         <Typography variant="paragraph" className="mt-2">
-          Let's get started by creating your account.
+          {i18n.t("auth.welcomeScreen.description")}
         </Typography>
         <Button
           onPress={() => router.push("/(auth)/register")}
           className="mt-8"
         >
-          Let's start
+          {i18n.t("auth.welcomeScreen.register.button")}
         </Button>
         <View className="mt-4 flex flex-row justify-center">
-          <Typography variant="paragraph">Already have an account? </Typography>
+          <Typography variant="paragraph">
+            {i18n.t("auth.welcomeScreen.login.description")}{" "}
+          </Typography>
           <Link href="/(auth)/login">
             <Typography
               variant="paragraph"
               weight="semiBold"
               className="underline"
             >
-              Sign in
+              {i18n.t("auth.welcomeScreen.login.button")}
             </Typography>
           </Link>
         </View>

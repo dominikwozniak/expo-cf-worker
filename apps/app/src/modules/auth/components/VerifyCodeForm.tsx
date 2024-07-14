@@ -4,6 +4,7 @@ import { useVerifyCode } from "~/modules/auth/hooks/useVerifyCode";
 import { Button } from "~/shared-components/Button";
 import { ConfirmationCodeController } from "~/shared-components/form/confirmation-code/ConfirmationCodeController";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
+import { i18n } from "~/utils/i18n";
 
 export function VerifyCodeForm() {
   const isLoading = useGlobalStore((state) => state.isLoading);
@@ -26,7 +27,7 @@ export function VerifyCodeForm() {
         disabled={isButtonDisabled || isLoading}
         className="mt-8"
       >
-        Verify
+        {i18n.t("utils.verifyCodeScreen.button")}
       </Button>
     </>
   );

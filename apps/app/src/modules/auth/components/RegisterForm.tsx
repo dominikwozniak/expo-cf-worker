@@ -5,6 +5,7 @@ import { useRegister } from "~/modules/auth/hooks/useRegister";
 import { Button } from "~/shared-components/Button";
 import { FormField } from "~/shared-components/form/FormField";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
+import { i18n } from "~/utils/i18n";
 
 export function RegisterForm() {
   const isLoading = useGlobalStore((state) => state.isLoading);
@@ -16,15 +17,15 @@ export function RegisterForm() {
         control={control}
         error={errors.email}
         name={"email"}
-        label="Email"
-        placeholder="Enter your email address"
+        label={i18n.t("common.input.email.label")}
+        placeholder={i18n.t("common.input.email.placeholder")}
         isRequired
         customRules={{
           required: true,
           minLength: 0,
           pattern: {
             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            message: "Invalid email address",
+            message: i18n.t("common.input.email.error"),
           },
         }}
         className="mt-4"
@@ -33,8 +34,8 @@ export function RegisterForm() {
         control={control}
         error={errors.firstName}
         name={"firstName"}
-        label="Fisrst Name"
-        placeholder="Enter your first name"
+        label={i18n.t("common.input.firstName.label")}
+        placeholder={i18n.t("common.input.firstName.placeholder")}
         isRequired
         customRules={{
           required: true,
@@ -46,8 +47,8 @@ export function RegisterForm() {
         control={control}
         error={errors.lastName}
         name={"lastName"}
-        label="Last Name"
-        placeholder="Enter your last name"
+        label={i18n.t("common.input.lastName.label")}
+        placeholder={i18n.t("common.input.lastName.placeholder")}
         isRequired
         customRules={{
           required: true,
@@ -59,8 +60,8 @@ export function RegisterForm() {
         control={control}
         error={errors.password}
         name={"password"}
-        label="Password"
-        placeholder="Enter your password"
+        label={i18n.t("common.input.password.label")}
+        placeholder={i18n.t("common.input.password.placeholder")}
         isRequired
         isPassword
         customRules={{
@@ -73,19 +74,20 @@ export function RegisterForm() {
         control={control}
         error={errors.confirmPassword}
         name={"confirmPassword"}
-        label="Confirm Password"
-        placeholder="Confirm your password"
+        label={i18n.t("common.input.confirmPassword.label")}
+        placeholder={i18n.t("common.input.confirmPassword.placeholder")}
         isRequired
         isPassword
         customRules={{
           minLength: 6,
           validate: (value: string) =>
-            value === getValues().password || "The passwords do not match",
+            value === getValues().password ||
+            i18n.t("common.input.confirmPassword.error"),
         }}
         className="mt-4"
       />
       <Button onPress={onSubmitPress} disabled={isLoading} className="mt-8">
-        Create Your Account
+        {i18n.t("auth.registerScreen.button")}
       </Button>
     </View>
   );

@@ -6,6 +6,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 import { useAlert } from "~/shared-hooks/useAlert";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
+import { i18n } from "~/utils/i18n";
 
 export interface FormValues {
   email: string;
@@ -46,8 +47,8 @@ export function useForgotPassword() {
         router.push("/(utils)/verify-code");
       } catch {
         showAlert({
-          title: "Error!",
-          message: "Something went wrong. Please try again.",
+          title: i18n.t("common.error.baseError.title"),
+          message: i18n.t("common.error.baseError.message"),
         });
       } finally {
         setLoading(false);

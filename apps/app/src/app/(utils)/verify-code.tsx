@@ -3,6 +3,7 @@ import { ScrollView, View } from "react-native";
 import { VerifyCodeForm } from "~/modules/auth/components/VerifyCodeForm";
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
 import { Typography } from "~/shared-components/Typography";
+import { i18n } from "~/utils/i18n";
 
 export default function VerifyCode() {
   return (
@@ -14,12 +15,10 @@ export default function VerifyCode() {
             weight="semiBold"
             className="mt-4 text-center"
           >
-            Enter verification code
+            {i18n.t("utils.verifyCodeScreen.title")}
           </Typography>
           <Typography className="mt-2 text-center">
-            After you provide verification code, you will be able to sign in to
-            your account. Then you can change your password on the account
-            settings screen.
+            {i18n.t("utils.verifyCodeScreen.description")}
           </Typography>
           <VerifyCodeForm />
         </View>
