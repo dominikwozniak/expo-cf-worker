@@ -1,5 +1,6 @@
 import { Tabs } from "expo-router";
 
+import { HomeIcon, UserIcon } from "~/shared-components/icons";
 import { useColor } from "~/shared-hooks/useColor";
 import { i18n } from "~/utils/i18n";
 
@@ -30,6 +31,17 @@ export default function TabLayout() {
         name="home"
         options={{
           title: i18n.t("common.tabs.home"),
+          tabBarIcon: ({ color }) => <HomeIcon color={color} />,
+          tabBarLabelStyle,
+        }}
+      />
+      <Tabs.Screen
+        name="account"
+        options={{
+          title: i18n.t("common.tabs.account"),
+          tabBarIcon: ({ color }) => (
+            <UserIcon color={color} strokeWidth={3} width={26} height={26} />
+          ),
           tabBarLabelStyle,
         }}
       />

@@ -26,11 +26,13 @@ export default function LoginScreen() {
             {i18n.t("auth.loginScreen.description")}
           </Typography>
           <LoginForm />
-          <Link href="/(auth)/forgot-password" className="mt-4">
-            <Typography className="text-right underline">
-              {i18n.t("auth.loginScreen.forgotPassword")}
-            </Typography>
-          </Link>
+          <View className="mt-4">
+            <Link href="/(auth)/forgot-password">
+              <Typography className="text-right underline">
+                {i18n.t("auth.loginScreen.forgotPassword")}
+              </Typography>
+            </Link>
+          </View>
           <OAuthForm />
           <View className="mt-2 flex-row justify-center">
             <Typography className="mr-2 text-right">

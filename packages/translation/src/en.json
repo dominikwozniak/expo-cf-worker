@@ -125,7 +125,8 @@
       }
     },
     "tabs": {
-      "home": "Home"
+      "home": "Home",
+      "account": "Account"
     }
   }
 }
