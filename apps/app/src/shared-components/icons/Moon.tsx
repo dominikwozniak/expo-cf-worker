@@ -1,12 +1,12 @@
 import type { SvgProps } from "react-native-svg";
 import Svg, { Path } from "react-native-svg";
 
-export function ShareIcon(props: SvgProps) {
+export function MoonIcon(props: SvgProps) {
   return (
     <Svg width={24} height={24} viewBox="0 0 24 24" fill="none" {...props}>
       <Path
-        d="M20 13v4.5c0 3.058-4 3-8 3s-8 .058-8-3V13m8-10v12m0-12l4 4m-4-4L8 7"
-        stroke="currentColor"
+        d="M4.672 18.797c-.699-.564-.114-1.573.78-1.652 5.79-.51 9.608-7.07 7.007-12.144-.41-.802.124-1.871.988-1.615C17.244 4.51 20 7.942 20 12c0 4.971-3.881 9-9 9-2.34 0-4.62-.824-6.328-2.203z"
+        stroke="#001A72"
         strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"

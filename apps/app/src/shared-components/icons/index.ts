@@ -16,3 +16,4 @@ export * from "./Shield";
 export * from "./Star";
 export * from "./StarFill";
 export * from "./Logout";
+export * from "./Moon";

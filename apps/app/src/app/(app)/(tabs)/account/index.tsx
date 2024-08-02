@@ -2,6 +2,7 @@ import { ScrollView, View } from "react-native";
 import { useRouter } from "expo-router";
 import { useAuth, useUser } from "@clerk/clerk-expo";
 
+import { UserInfoCard } from "~/modules/account/components/UserInfoCard";
 import { Avatar } from "~/shared-components/Avatar";
 import {
   DocumentIcon,
@@ -20,7 +21,7 @@ import { Typography } from "~/shared-components/Typography";
 
 const personalOptions = [
   {
-    id: "preferences",
+    id: "personal-details",
     icon: UserIcon,
     title: "Personal Details",
     href: "/(app)/home",
@@ -28,8 +29,8 @@ const personalOptions = [
   {
     id: "settings",
     icon: SettingsIcon,
-    title: "Profile Settings",
-    href: "/(app)/home",
+    title: "Preferences",
+    href: "/(app)/account/preferences",
   },
   {
     id: "support",
@@ -83,92 +84,82 @@ export default function AccountScreen() {
   const { signOut } = useAuth();
 
   return (
-    <ScreenLayout>
-      <ScrollView>
-        <View className="flex-1 p-4">
-          <Typography variant="header" weight="semiBold" color="primary">
-            My Account
-          </Typography>
-          <View className="mt-2 flex flex-row items-center gap-4 rounded-2xl bg-gray-light p-4">
-            <Avatar src={user?.imageUrl ?? ""} alt={user?.fullName ?? ""} />
-            <Typography variant="title" weight="semiBold" color="primary">
-              {user?.fullName}
-            </Typography>
-          </View>
-
-          <List className="mt-4">
-            <List.Inner isAccent>
-              <List.Item
-                icon={StarFillIcon}
-                title={"Active premium"}
-                onPress={() => router.push("/(app)/home")}
-                isAccent
-                isTouchable
-                isLastItem
-              />
-            </List.Inner>
-          </List>
-          <List className="mt-2">
-            <List.Label>Personal</List.Label>
-            <List.Inner>
-              {personalOptions.map((option, index) => (
-                <List.Item
-                  key={option.id}
-                  icon={option.icon}
-                  title={option.title}
-                  href={option.href}
-                  isTouchable
-                  isLastItem={index === personalOptions.length - 1}
-                />
-              ))}
-            </List.Inner>
-          </List>
-          <List className="mt-2">
-            <List.Label>About Us</List.Label>
-            <List.Inner>
-              {aboutOptions.map((option, index) => (
-                <List.Item
-                  key={option.id}
-                  icon={option.icon}
-                  title={option.title}
-                  href={option.href}
-                  isTouchable
-                  isLastItem={index === aboutOptions.length - 1}
-                />
-              ))}
-            </List.Inner>
-          </List>
-          <List className="mt-2">
-            <List.Label>Legal</List.Label>
-            <List.Inner>
-              {legalOptions.map((option, index) => (
-                <List.Item
-                  key={option.id}
-                  icon={option.icon}
-                  title={option.title}
-                  href={option.href}
-                  isTouchable
-                  isLastItem={index === legalOptions.length - 1}
-                />
-              ))}
-            </List.Inner>
-          </List>
-          <List className="mt-2">
-            <List.Inner>
-              {logoutOptions.map((option) => (
-                <List.Item
-                  key={option.id}
-                  icon={option.icon}
-                  title={option.title}
-                  onPress={() => signOut()}
-                  isTouchable
-                  isLastItem
-                />
-              ))}
-            </List.Inner>
-          </List>
-        </View>
-      </ScrollView>
+    <ScreenLayout isScrollable>
+      <Typography variant="header" weight="semiBold" color="primary">
+        My Account
+      </Typography>
+      <UserInfoCard />
+      <List className="mt-4">
+        <List.Inner isAccent>
+          <List.Item
+            icon={StarFillIcon}
+            title={"Active premium"}
+            onPress={() => router.push("/(app)/home")}
+            isAccent
+            isTouchable
+            isLastItem
+          />
+        </List.Inner>
+      </List>
+      <List className="mt-2">
+        <List.Label>Personal</List.Label>
+        <List.Inner>
+          {personalOptions.map((option, index) => (
+            <List.Item
+              key={option.id}
+              icon={option.icon}
+              title={option.title}
+              href={option.href}
+              isTouchable
+              isLastItem={index === personalOptions.length - 1}
+            />
+          ))}
+        </List.Inner>
+      </List>
+      <List className="mt-2">
+        <List.Label>About Us</List.Label>
+        <List.Inner>
+          {aboutOptions.map((option, index) => (
+            <List.Item
+              key={option.id}
+              icon={option.icon}
+              title={option.title}
+              href={option.href}
+              isTouchable
+              isLastItem={index === aboutOptions.length - 1}
+            />
+          ))}
+        </List.Inner>
+      </List>
+      <List className="mt-2">
+        <List.Label>Legal</List.Label>
+        <List.Inner>
+          {legalOptions.map((option, index) => (
+            <List.Item
+              key={option.id}
+              icon={option.icon}
+              title={option.title}
+              href={option.href}
+              isTouchable
+              isLastItem={index === legalOptions.length - 1}
+            />
+          ))}
+        </List.Inner>
+      </List>
+      <List className="mt-2">
+        <List.Inner>
+          {logoutOptions.map((option) => (
+            <List.Item
+              key={option.id}
+              icon={option.icon}
+              title={option.title}
+              onPress={() => signOut()}
+              isTouchable
+              isLastItem
+            />
+          ))}
+        </List.Inner>
+      </List>
     </ScreenLayout>
   );
 }

@@ -67,14 +67,14 @@ export function Item({
   const router = useRouter();
   const { primary: primaryColor, accent: accentColor } = useColor();
 
-  const Icon = icon ?? (() => null);
+  const LeftIcon = icon ?? (() => null);
 
   const item = (
     <>
       <View className="flex flex-row items-center justify-center">
         {icon ? (
           <View className="mr-4">
-            <Icon color={isAccent ? accentColor : primaryColor} />
+            <LeftIcon color={isAccent ? accentColor : primaryColor} />
           </View>
         ) : null}
         {title ? <Title title={title} isAccent={isAccent} /> : null}
