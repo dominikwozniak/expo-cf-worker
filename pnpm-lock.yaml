@@ -86,6 +86,9 @@ importers:
       expo-localization:
         specifier: ~15.0.3
         version: 15.0.3(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
+      expo-navigation-bar:
+        specifier: ~3.0.7
+        version: 3.0.7(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
       expo-router:
         specifier: ~3.5.11
         version: 3.5.16(ibivcdaqflce255lblhxk43jii)
@@ -98,6 +101,9 @@ importers:
       expo-status-bar:
         specifier: ~1.12.1
         version: 1.12.1
+      expo-system-ui:
+        specifier: ~3.0.7
+        version: 3.0.7(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
       expo-web-browser:
         specifier: ^13.0.3
         version: 13.0.3(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
@@ -362,7 +368,7 @@ importers:
         version: 7.34.2(eslint@9.4.0)
       eslint-plugin-react-hooks:
         specifier: rc
-        version: 5.1.0-rc-06d0b89e-20240801(eslint@9.4.0)
+        version: 5.1.0-rc-65903583-20240805(eslint@9.4.0)
       eslint-plugin-turbo:
         specifier: ^2.0.3
         version: 2.0.3(eslint@9.4.0)
@@ -409,6 +415,9 @@ importers:
 
   tooling/tailwind:
     dependencies:
+      nativewind:
+        specifier: ~4.0.36
+        version: 4.0.36(@babel/core@7.24.7)(react-native-reanimated@3.10.1(@babel/core@7.24.7)(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1))(react-native-safe-area-context@4.10.4(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1))(react-native-svg@15.2.0(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1))(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.4(ts-node@10.9.2(@types/node@20.14.2)(typescript@5.4.5)))
       postcss:
         specifier: ^8.4.38
         version: 8.4.38
@@ -2115,6 +2124,9 @@ packages:
   '@react-native/normalize-colors@0.74.84':
     resolution: {integrity: sha512-Y5W6x8cC5RuakUcTVUFNAIhUZ/tYpuqHZlRBoAuakrTwVuoNHXfQki8lj1KsYU7rW6e3VWgdEx33AfOQpdNp6A==}
 
+  '@react-native/normalize-colors@0.74.85':
+    resolution: {integrity: sha512-pcE4i0X7y3hsAE0SpIl7t6dUc0B0NZLd1yv7ssm4FrLhWG+CGyIq4eFDXpmPU1XHmL5PPySxTAjEMiwv6tAmOw==}
+
   '@react-native/virtualized-lists@0.74.84':
     resolution: {integrity: sha512-XcV+qdqt2WihaY4iRm/M1FdSy+18lecU9mRXNmy9YK8g9Th/8XbNtmmKI0qWBx3KxyuXMH/zd0ps05YTrX16kw==}
     engines: {node: '>=18'}
@@ -3572,8 +3584,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
 
-  eslint-plugin-react-hooks@5.1.0-rc-06d0b89e-20240801:
-    resolution: {integrity: sha512-plXgCYyGEdDbk+4dR2r1OdnvA+wjTKoHHVr9g9ShbLEeftC1ajTNh6/6OKPgHtEbRNK2nY37+CLqVX/TmCPSGA==}
+  eslint-plugin-react-hooks@5.1.0-rc-65903583-20240805:
+    resolution: {integrity: sha512-NEsjgvv/oqnwGu1PIuk0LKo5UrBO0SnvFdavWl56R5SAcHPZi+sEnQ7Onzp6hpRuEAC69bhfTA/9no6JItCM/w==}
     engines: {node: '>=10'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
@@ -3747,6 +3759,11 @@ packages:
   expo-modules-core@1.12.15:
     resolution: {integrity: sha512-VjDPIgUyhCZzf692NF4p2iFTsKAQMcU3jc0pg33eNvN/kdrJqkeucqCDuuwoNxg0vIBKtoqAJDuPnWiemldsTg==}
 
+  expo-navigation-bar@3.0.7:
+    resolution: {integrity: sha512-KCNHyZ58zoN4xdy7D1lUdJvveCYNVQHGSX4M6xO/SZypvI6GZbLzKSN6Lx4GDGEFxG6Kb+EAckZl48tSiNeGYQ==}
+    peerDependencies:
+      expo: '*'
+
   expo-router@3.5.16:
     resolution: {integrity: sha512-XP6LS13O8elK467gX9lN7Fr4s3OLfLFBOwVIxaV8idBc6e0lpnrm8gOiygSCtX511v04w13Uf1rKS+RApg709w==}
     peerDependencies:
@@ -3779,6 +3796,11 @@ packages:
 
   expo-status-bar@1.12.1:
     resolution: {integrity: sha512-/t3xdbS8KB0prj5KG5w7z+wZPFlPtkgs95BsmrP/E7Q0xHXTcDcQ6Cu2FkFuRM+PKTb17cJDnLkawyS5vDLxMA==}
+
+  expo-system-ui@3.0.7:
+    resolution: {integrity: sha512-KAs72F5JKhdIfPR9ZNVlRubTPK9uUuevPy5oYEp12xNEzSQcjZKvypH5NpwJuNWkXzrp3n3vZ+3pXsudA7J3KA==}
+    peerDependencies:
+      expo: '*'
 
   expo-updates-interface@0.16.2:
     resolution: {integrity: sha512-929XBU70q5ELxkKADj1xL0UIm3HvhYhNAOZv5DSk7rrKvLo7QDdPyl+JVnwZm9LrkNbH4wuE2rLoKu1KMgZ+9A==}
@@ -9167,6 +9189,8 @@ snapshots:
 
   '@react-native/normalize-colors@0.74.84': {}
 
+  '@react-native/normalize-colors@0.74.85': {}
+
   '@react-native/virtualized-lists@0.74.84(@types/react@18.3.3)(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)':
     dependencies:
       invariant: 2.2.4
@@ -10830,7 +10854,7 @@ snapshots:
       object.entries: 1.1.8
       object.fromentries: 2.0.8
 
-  eslint-plugin-react-hooks@5.1.0-rc-06d0b89e-20240801(eslint@9.4.0):
+  eslint-plugin-react-hooks@5.1.0-rc-65903583-20240805(eslint@9.4.0):
     dependencies:
       eslint: 9.4.0
 
@@ -11085,6 +11109,14 @@ snapshots:
     dependencies:
       invariant: 2.2.4
 
+  expo-navigation-bar@3.0.7(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))):
+    dependencies:
+      '@react-native/normalize-colors': 0.74.85
+      debug: 4.3.5
+      expo: 51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))
+    transitivePeerDependencies:
+      - supports-color
+
   expo-router@3.5.16(ibivcdaqflce255lblhxk43jii):
     dependencies:
       '@expo/metro-runtime': 3.2.1(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))
@@ -11126,6 +11158,14 @@ snapshots:
       - supports-color
 
   expo-status-bar@1.12.1: {}
+
+  expo-system-ui@3.0.7(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))):
+    dependencies:
+      '@react-native/normalize-colors': 0.74.85
+      debug: 4.3.5
+      expo: 51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))
+    transitivePeerDependencies:
+      - supports-color
 
   expo-updates-interface@0.16.2(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))):
     dependencies:

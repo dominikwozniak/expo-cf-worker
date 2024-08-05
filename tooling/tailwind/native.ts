@@ -5,5 +5,13 @@ import base from "./base";
 export default {
   content: base.content,
   presets: [base],
-  theme: {},
+  theme: {
+    extend: {
+      fontFamily: {
+        poppins: ["Poppins_400Regular"],
+        poppinsSemiBold: ["Poppins_600SemiBold"],
+        poppinsBold: ["Poppins_700Bold"],
+      },
+    }
+  },
 } satisfies Config;
