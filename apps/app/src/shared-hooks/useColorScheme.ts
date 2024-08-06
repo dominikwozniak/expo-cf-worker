@@ -1,27 +1,35 @@
-import { useCallback } from "react";
 import { Appearance, Platform } from "react-native";
 import * as NavigationBar from "expo-navigation-bar";
 import { useColorScheme as useNativewindColorScheme } from "nativewind";
 
 import { colorTheme } from "~/utils/color-theme";
 
+function setNavigationBar(colorScheme: "light" | "dark") {
+  if (Platform.OS !== "android") return;
+
+  return Promise.all([
+    NavigationBar.setButtonStyleAsync(
+      colorScheme === "dark" ? "light" : "dark",
+    ),
+    NavigationBar.setPositionAsync("absolute"),
+    NavigationBar.setBackgroundColorAsync(
+      colorScheme === "dark" ? colorTheme.dark.gray : colorTheme.light.gray,
+    ),
+  ]);
+}
+
 export function useColorScheme() {
-  const {
-    colorScheme,
-    setColorScheme: setNativeWindColorScheme,
-    toggleColorScheme: toggleNativeWindColorScheme,
-  } = useNativewindColorScheme();
+  const { colorScheme, setColorScheme: setNativewindColorScheme } = useNativewindColorScheme();
 
   async function setColorScheme(colorScheme: "light" | "dark") {
-    setNativeWindColorScheme(colorScheme);
-    // Appearance.setColorScheme(colorScheme)
+    /*
+     * Workaround: v4: Unable to manually set color scheme without using darkMode: class
+     * https://github.com/nativewind/nativewind/issues/587
+     */
+    // Appearance.setColorScheme(colorScheme);
+    setNativewindColorScheme(colorScheme);
 
-    if (Platform.OS !== "android") return;
-    try {
-      await setNavigationBar(colorScheme);
-    } catch (error) {
-      console.error('useColorScheme.tsx", "setColorScheme', error);
-    }
+    await setNavigationBar(colorScheme);
   }
 
   function toggleColorScheme() {
@@ -34,17 +42,6 @@ export function useColorScheme() {
     colorScheme: colorScheme ?? "dark",
     color: colorTheme[colorScheme ?? "light"],
     isDarkColorScheme: colorScheme === "dark",
-    toggleColorScheme: toggleNativeWindColorScheme,
+    toggleColorScheme: toggleColorScheme,
   };
-}
-function setNavigationBar(colorScheme: "light" | "dark") {
-  return Promise.all([
-    NavigationBar.setButtonStyleAsync(
-      colorScheme === "dark" ? "light" : "dark",
-    ),
-    NavigationBar.setPositionAsync("absolute"),
-    NavigationBar.setBackgroundColorAsync(
-      colorScheme === "dark" ? "#00000030" : "#ffffff80",
-    ),
-  ]);
 }
