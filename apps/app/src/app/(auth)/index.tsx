@@ -4,6 +4,7 @@ import { Link, useRouter } from "expo-router";
 
 import { Button } from "~/shared-components/Button";
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
+import { ThemeToggle } from "~/shared-components/ThemeToggle";
 import { Typography } from "~/shared-components/Typography";
 import { i18n } from "~/utils/i18n";
 
@@ -19,6 +20,7 @@ export default function Auth() {
         <Typography variant="paragraph" className="mt-2">
           {i18n.t("auth.welcomeScreen.description")}
         </Typography>
+        <ThemeToggle />
         <Button
           onPress={() => router.push("/(auth)/register")}
           className="mt-8"
