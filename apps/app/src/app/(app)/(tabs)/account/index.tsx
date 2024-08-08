@@ -1,9 +1,7 @@
-import { ScrollView, View } from "react-native";
 import { useRouter } from "expo-router";
-import { useAuth, useUser } from "@clerk/clerk-expo";
+import { useAuth } from "@clerk/clerk-expo";
 
 import { UserInfoCard } from "~/modules/account/components/UserInfoCard";
-import { Avatar } from "~/shared-components/Avatar";
 import {
   DocumentIcon,
   LogoutIcon,
@@ -80,7 +78,6 @@ const logoutOptions = [
 
 export default function AccountScreen() {
   const router = useRouter();
-  const { user } = useUser();
   const { signOut } = useAuth();
 
   return (

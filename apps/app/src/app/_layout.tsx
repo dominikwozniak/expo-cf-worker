@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { Slot } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
+
 import { AppProvider } from "~/shared-components/providers/AppProvider";
 import { useAuthRedirect } from "~/shared-hooks/auth/useAuthRedirect";
 import { useAppBootstrap } from "~/shared-hooks/useAppBootstrap";

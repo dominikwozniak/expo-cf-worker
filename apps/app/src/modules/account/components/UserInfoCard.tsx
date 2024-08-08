@@ -11,9 +11,9 @@ export function UserInfoCard() {
 
   return (
     <View className="mt-2 flex flex-row items-center gap-4 rounded-2xl bg-gray-light p-4">
-      <Avatar src={user?.imageUrl ?? ""} alt={user?.fullName ?? ""} />
+      <Avatar src={user.imageUrl} alt={user.fullName ?? ""} />
       <Typography variant="title" weight="semiBold" color="primary">
-        {user?.fullName}
+        {user.fullName}
       </Typography>
     </View>
   );

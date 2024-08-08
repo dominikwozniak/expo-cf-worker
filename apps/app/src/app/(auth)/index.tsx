@@ -6,7 +6,6 @@ import { Button } from "~/shared-components/Button";
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
 import { Typography } from "~/shared-components/Typography";
 import { i18n } from "~/utils/i18n";
-import {PreferredTheme} from "~/modules/account/components/PreferredTheme";
 
 export default function Auth() {
   const router = useRouter();
@@ -14,8 +13,6 @@ export default function Auth() {
   return (
     <ScreenLayout>
       <View className="flex-1 p-4">
-        <PreferredTheme />
-
         <Typography variant="header" weight="semiBold" className="mt-4">
           {i18n.t("auth.welcomeScreen.title")}
         </Typography>
