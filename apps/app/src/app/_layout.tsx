@@ -6,11 +6,11 @@ import { useEffect } from "react";
 import { Slot } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
-import { useColorScheme } from "nativewind";
 
 import { AppProvider } from "~/shared-components/providers/AppProvider";
 import { useAuthRedirect } from "~/shared-hooks/auth/useAuthRedirect";
 import { useAppBootstrap } from "~/shared-hooks/useAppBootstrap";
+import { useColorScheme } from "~/shared-hooks/useColorScheme";
 
 export {
   // Catch any errors thrown by the Layout component.

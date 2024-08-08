@@ -19,7 +19,6 @@ next-env.d.ts
 
 # expo
 .expo/
-expo-env.d.ts
 apps/app/.gitignore
 apps/app/ios
 apps/app/android
