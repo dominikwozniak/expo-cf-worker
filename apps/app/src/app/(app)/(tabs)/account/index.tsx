@@ -16,24 +16,25 @@ import {
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
 import { List } from "~/shared-components/list";
 import { Typography } from "~/shared-components/Typography";
+import { i18n } from "~/utils/i18n";
 
 const personalOptions = [
   {
     id: "personal-details",
     icon: UserIcon,
-    title: "Personal Details",
+    title: i18n.t("account.accountScreen.personal.items.personal-details.title"),
     href: "/(app)/home",
   },
   {
     id: "settings",
     icon: SettingsIcon,
-    title: "Preferences",
+    title: i18n.t("account.accountScreen.personal.items.preferences.title"),
     href: "/(app)/account/preferences",
   },
   {
     id: "support",
     icon: MessageIcon,
-    title: "Support",
+    title: i18n.t("account.accountScreen.personal.items.support.title"),
     href: "/(app)/home",
   },
 ];
@@ -42,13 +43,13 @@ const aboutOptions = [
   {
     id: "faqs",
     icon: QuestionIcon,
-    title: "FAQ's",
+    title: i18n.t("account.accountScreen.about.items.faqs.title"),
     href: "https://instagram.com",
   },
   {
     id: "review",
     icon: PencilIcon,
-    title: "Write a Review",
+    title: i18n.t("account.accountScreen.about.items.review.title"),
     href: "https://www.example.com/review",
   },
 ];
@@ -57,13 +58,13 @@ const legalOptions = [
   {
     id: "terms",
     icon: DocumentIcon,
-    title: "Terms of Service",
+    title: i18n.t("account.accountScreen.legal.items.terms.title"),
     href: "https://www.example.com/terms-of-service",
   },
   {
     id: "privacy",
     icon: ShieldIcon,
-    title: "Privacy Policy",
+    title: i18n.t("account.accountScreen.legal.items.privacy.title"),
     href: "https://www.example.com/privacy-policy",
   },
 ];
@@ -72,7 +73,7 @@ const logoutOptions = [
   {
     id: "logout",
     icon: LogoutIcon,
-    title: "Log out",
+    title: i18n.t("account.accountScreen.logout.button"),
   },
 ];
 
@@ -83,14 +84,14 @@ export default function AccountScreen() {
   return (
     <ScreenLayout isScrollable>
       <Typography variant="header" weight="semiBold" color="primary">
-        My Account
+        {i18n.t("account.accountScreen.title")}
       </Typography>
       <UserInfoCard />
       <List className="mt-4">
         <List.Inner isAccent>
           <List.Item
             icon={StarFillIcon}
-            title={"Active premium"}
+            title={i18n.t("account.accountScreen.premium.button")}
             onPress={() => router.push("/(app)/home")}
             isAccent
             isTouchable
@@ -99,7 +100,9 @@ export default function AccountScreen() {
         </List.Inner>
       </List>
       <List className="mt-2">
-        <List.Label>Personal</List.Label>
+        <List.Label>
+          {i18n.t("account.accountScreen.personal.title")}
+        </List.Label>
         <List.Inner>
           {personalOptions.map((option, index) => (
             <List.Item
@@ -114,7 +117,7 @@ export default function AccountScreen() {
         </List.Inner>
       </List>
       <List className="mt-2">
-        <List.Label>About Us</List.Label>
+        <List.Label>{i18n.t("account.accountScreen.about.title")}</List.Label>
         <List.Inner>
           {aboutOptions.map((option, index) => (
             <List.Item
@@ -129,7 +132,7 @@ export default function AccountScreen() {
         </List.Inner>
       </List>
       <List className="mt-2">
-        <List.Label>Legal</List.Label>
+        <List.Label>{i18n.t("account.accountScreen.legal.title")}</List.Label>
         <List.Inner>
           {legalOptions.map((option, index) => (
             <List.Item

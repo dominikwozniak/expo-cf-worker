@@ -39,6 +39,59 @@
       "selectProvider": "or sign in with"
     }
   },
+  "account": {
+    "accountScreen": {
+      "title": "My account",
+      "premium": {
+        "button": "Activate Premium"
+      },
+      "personal": {
+        "title": "Personal",
+        "items": {
+          "personal-details": {
+            "title": "Personal Details"
+          },
+          "preferences": {
+            "title": "Preferences"
+          },
+          "support": {
+            "title": "Support"
+          }
+        }
+      },
+      "about": {
+        "title": "About Us",
+        "items": {
+          "faqs": {
+            "title": "FAQ's"
+          },
+          "review": {
+            "title": "Write a Review"
+          }
+        }
+      },
+      "legal": {
+        "title": "Legal",
+        "items": {
+          "terms": {
+            "title": "Terms & Conditions"
+          },
+          "privacy": {
+            "title": "Privacy Policy"
+          }
+        }
+      },
+      "logout": {
+        "button": "Log Out"
+      }
+    },
+    "preferencesScreen": {
+      "title": "Preferences",
+      "darkMode": {
+        "button": "Dark Mode"
+      }
+    }
+  },
   "utils": {
     "resetPasswordScreen": {
       "title": "Reset Password",
