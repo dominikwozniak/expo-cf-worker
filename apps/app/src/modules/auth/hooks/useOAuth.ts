@@ -4,12 +4,9 @@ import * as WebBrowser from "expo-web-browser";
 import { useAuth, useOAuth as useOAuthClerk } from "@clerk/clerk-expo";
 import { useTranslation } from "react-i18next";
 
-
-
 import { useAlert } from "~/shared-hooks/useAlert";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
 import { useWarmUpBrowser } from "~/shared-hooks/useWarmUpBrowser";
-
 
 WebBrowser.maybeCompleteAuthSession();
 

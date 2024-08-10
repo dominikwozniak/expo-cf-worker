@@ -1,12 +1,9 @@
 import { ScrollView, View } from "react-native";
 import { useTranslation } from "react-i18next";
 
-
-
 import { VerifyCodeForm } from "~/modules/auth/components/VerifyCodeForm";
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
 import { Typography } from "~/shared-components/Typography";
-
 
 export default function VerifyCode() {
   const { t } = useTranslation();

@@ -6,11 +6,8 @@ import { useSignIn } from "@clerk/clerk-expo";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-
-
 import { useAlert } from "~/shared-hooks/useAlert";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
-
 
 export interface FormValues {
   email: string;
@@ -18,7 +15,7 @@ export interface FormValues {
 
 export function useForgotPassword() {
   const router = useRouter();
-  const { signIn, isLoaded } = useSignIn()
+  const { signIn, isLoaded } = useSignIn();
   const { t } = useTranslation();
   const setLoading = useGlobalStore((state) => state.setLoading);
   const { showAlert } = useAlert();

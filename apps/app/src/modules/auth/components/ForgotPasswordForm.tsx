@@ -1,12 +1,9 @@
 import { useTranslation } from "react-i18next";
 
-
-
 import { useForgotPassword } from "~/modules/auth/hooks/useForgotPassword";
 import { Button } from "~/shared-components/Button";
 import { FormField } from "~/shared-components/form/FormField";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
-
 
 export function ForgotPasswordForm() {
   const { t } = useTranslation();

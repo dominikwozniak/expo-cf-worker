@@ -1,13 +1,10 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-
-
 import { useVerifyCode } from "~/modules/auth/hooks/useVerifyCode";
 import { Button } from "~/shared-components/Button";
 import { ConfirmationCodeController } from "~/shared-components/form/confirmation-code/ConfirmationCodeController";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
-
 
 export function VerifyCodeForm() {
   const { t } = useTranslation();

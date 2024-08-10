@@ -2,13 +2,10 @@ import React from "react";
 import { View } from "react-native";
 import { useTranslation } from "react-i18next";
 
-
-
 import { useRegister } from "~/modules/auth/hooks/useRegister";
 import { Button } from "~/shared-components/Button";
 import { FormField } from "~/shared-components/form/FormField";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
-
 
 export function RegisterForm() {
   const { t } = useTranslation();

@@ -1,11 +1,8 @@
 import { Tabs } from "expo-router";
 import { useTranslation } from "react-i18next";
 
-
-
 import { HomeIcon, UserIcon } from "~/shared-components/icons";
 import { useColor } from "~/shared-hooks/useColor";
-
 
 export default function TabLayout() {
   const { t } = useTranslation();

@@ -3,13 +3,10 @@ import { ScrollView, View } from "react-native";
 import { Link } from "expo-router";
 import { useTranslation } from "react-i18next";
 
-
-
 import { RegisterForm } from "~/modules/auth/components/RegisterForm";
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
 import { TopBar } from "~/shared-components/TopBar";
 import { Typography } from "~/shared-components/Typography";
-
 
 export default function Register() {
   const { t } = useTranslation();

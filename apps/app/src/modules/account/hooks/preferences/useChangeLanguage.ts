@@ -20,7 +20,7 @@ export function useChangeLanguage() {
   const changeLanguage = (language: string) => {
     mmkvStore.set("locale", language);
     void i18n.changeLanguage(language);
-  }
+  };
 
   const handleLanguageChange = () => {
     showActionSheetWithOptions(

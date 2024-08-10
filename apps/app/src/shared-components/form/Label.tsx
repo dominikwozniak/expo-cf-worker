@@ -3,10 +3,7 @@ import React from "react";
 import { View } from "react-native";
 import { useTranslation } from "react-i18next";
 
-
-
 import { Typography } from "~/shared-components/Typography";
-
 
 interface LabelProps extends React.ComponentPropsWithoutRef<typeof View> {
   isRequired?: boolean;

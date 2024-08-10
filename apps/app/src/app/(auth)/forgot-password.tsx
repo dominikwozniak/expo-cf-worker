@@ -1,13 +1,10 @@
 import { ScrollView, View } from "react-native";
 import { useTranslation } from "react-i18next";
 
-
-
 import { ForgotPasswordForm } from "~/modules/auth/components/ForgotPasswordForm";
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
 import { TopBar } from "~/shared-components/TopBar";
 import { Typography } from "~/shared-components/Typography";
-
 
 export default function ForgotPassword() {
   const { t } = useTranslation();

@@ -3,14 +3,11 @@ import { ScrollView, View } from "react-native";
 import { Link } from "expo-router";
 import { useTranslation } from "react-i18next";
 
-
-
 import { LoginForm } from "~/modules/auth/components/LoginForm";
 import { OAuthForm } from "~/modules/auth/components/OAuthForm";
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
 import { TopBar } from "~/shared-components/TopBar";
 import { Typography } from "~/shared-components/Typography";
-
 
 export default function LoginScreen() {
   const { t } = useTranslation();

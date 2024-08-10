@@ -1,13 +1,10 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-
-
 import { useVerifyEmail } from "~/modules/auth/hooks/useVerifyEmail";
 import { Button } from "~/shared-components/Button";
 import { ConfirmationCodeController } from "~/shared-components/form/confirmation-code/ConfirmationCodeController";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
-
 
 export function VerifyEmailForm() {
   const { t } = useTranslation();
