@@ -1,11 +1,16 @@
 import { ScrollView, View } from "react-native";
+import { useTranslation } from "react-i18next";
+
+
 
 import { VerifyCodeForm } from "~/modules/auth/components/VerifyCodeForm";
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
 import { Typography } from "~/shared-components/Typography";
-import { i18n } from "~/utils/i18n";
+
 
 export default function VerifyCode() {
+  const { t } = useTranslation();
+
   return (
     <ScreenLayout>
       <ScrollView>
@@ -15,10 +20,10 @@ export default function VerifyCode() {
             weight="semiBold"
             className="mt-4 text-center"
           >
-            {i18n.t("utils.verifyCodeScreen.title")}
+            {t("utils.verifyCodeScreen.title")}
           </Typography>
           <Typography className="mt-2 text-center">
-            {i18n.t("utils.verifyCodeScreen.description")}
+            {t("utils.verifyCodeScreen.description")}
           </Typography>
           <VerifyCodeForm />
         </View>

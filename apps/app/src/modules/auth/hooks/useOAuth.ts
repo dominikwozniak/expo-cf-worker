@@ -2,11 +2,14 @@ import { Platform } from "react-native";
 import { useRouter } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
 import { useAuth, useOAuth as useOAuthClerk } from "@clerk/clerk-expo";
+import { useTranslation } from "react-i18next";
+
+
 
 import { useAlert } from "~/shared-hooks/useAlert";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
 import { useWarmUpBrowser } from "~/shared-hooks/useWarmUpBrowser";
-import { i18n } from "~/utils/i18n";
+
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -17,6 +20,7 @@ export const useOAuth = () => {
 
   const router = useRouter();
   const { isLoaded } = useAuth();
+  const { t } = useTranslation();
   const setLoading = useGlobalStore((state) => state.setLoading);
   const { showAlert } = useAlert();
 
@@ -68,8 +72,8 @@ export const useOAuth = () => {
       }
     } catch {
       showAlert({
-        title: i18n.t("common.error.baseError.title"),
-        message: i18n.t("common.error.baseError.message"),
+        title: t("common.error.baseError.title"),
+        message: t("common.error.baseError.message"),
       });
     } finally {
       setLoading(false);

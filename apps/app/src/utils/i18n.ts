@@ -1,26 +1,45 @@
 import * as Localization from "expo-localization";
-import { I18n } from "i18n-js";
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
 
 import { en, pl } from "@acme/translation";
 
-const availableLocales = { en, pl };
+import { mmkvStore } from "~/utils/mmkv-store";
+
+const resources = {
+  en: { translation: en },
+  pl: { translation: pl },
+};
 
 const getLocale = () => {
+  const savedLanguage = mmkvStore.getString("locale");
+
+  if (savedLanguage) {
+    return savedLanguage;
+  }
+
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   const deviceLanguage = Localization.getLocales()?.[0]?.languageCode ?? "en";
-  const isLanguageSupported =
-    Object.keys(availableLocales).includes(deviceLanguage);
+  const isLanguageSupported = Object.keys(resources).includes(deviceLanguage);
 
   return isLanguageSupported ? deviceLanguage : "en";
 };
-const i18n = new I18n(availableLocales);
 
-i18n.locale = getLocale();
-i18n.defaultLocale = "en";
-i18n.enableFallback = true;
+const initI18n = () => {
+  const language = getLocale();
 
-function changeLanguage(lang: keyof typeof availableLocales) {
-  i18n.locale = lang;
-}
+  // eslint-disable-next-line @typescript-eslint/no-floating-promises
+  i18n.use(initReactI18next).init({
+    compatibilityJSON: "v3",
+    resources,
+    lng: language,
+    fallbackLng: "en",
+    interpolation: {
+      escapeValue: false,
+    },
+  });
+};
 
-export { i18n, changeLanguage };
+initI18n();
+
+export default i18n;

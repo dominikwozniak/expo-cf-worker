@@ -1,13 +1,17 @@
 import React from "react";
 import { View } from "react-native";
+import { useTranslation } from "react-i18next";
+
+
 
 import { useRegister } from "~/modules/auth/hooks/useRegister";
 import { Button } from "~/shared-components/Button";
 import { FormField } from "~/shared-components/form/FormField";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
-import { i18n } from "~/utils/i18n";
+
 
 export function RegisterForm() {
+  const { t } = useTranslation();
   const isLoading = useGlobalStore((state) => state.isLoading);
   const { control, onSubmitPress, errors, getValues } = useRegister();
 
@@ -17,15 +21,15 @@ export function RegisterForm() {
         control={control}
         error={errors.email}
         name={"email"}
-        label={i18n.t("common.input.email.label")}
-        placeholder={i18n.t("common.input.email.placeholder")}
+        label={t("common.input.email.label")}
+        placeholder={t("common.input.email.placeholder")}
         isRequired
         customRules={{
           required: true,
           minLength: 0,
           pattern: {
             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            message: i18n.t("common.input.email.error"),
+            message: t("common.input.email.error"),
           },
         }}
         className="mt-4"
@@ -34,8 +38,8 @@ export function RegisterForm() {
         control={control}
         error={errors.firstName}
         name={"firstName"}
-        label={i18n.t("common.input.firstName.label")}
-        placeholder={i18n.t("common.input.firstName.placeholder")}
+        label={t("common.input.firstName.label")}
+        placeholder={t("common.input.firstName.placeholder")}
         isRequired
         customRules={{
           required: true,
@@ -47,8 +51,8 @@ export function RegisterForm() {
         control={control}
         error={errors.lastName}
         name={"lastName"}
-        label={i18n.t("common.input.lastName.label")}
-        placeholder={i18n.t("common.input.lastName.placeholder")}
+        label={t("common.input.lastName.label")}
+        placeholder={t("common.input.lastName.placeholder")}
         isRequired
         customRules={{
           required: true,
@@ -60,8 +64,8 @@ export function RegisterForm() {
         control={control}
         error={errors.password}
         name={"password"}
-        label={i18n.t("common.input.password.label")}
-        placeholder={i18n.t("common.input.password.placeholder")}
+        label={t("common.input.password.label")}
+        placeholder={t("common.input.password.placeholder")}
         isRequired
         isPassword
         customRules={{
@@ -74,20 +78,20 @@ export function RegisterForm() {
         control={control}
         error={errors.confirmPassword}
         name={"confirmPassword"}
-        label={i18n.t("common.input.confirmPassword.label")}
-        placeholder={i18n.t("common.input.confirmPassword.placeholder")}
+        label={t("common.input.confirmPassword.label")}
+        placeholder={t("common.input.confirmPassword.placeholder")}
         isRequired
         isPassword
         customRules={{
           minLength: 6,
           validate: (value: string) =>
             value === getValues().password ||
-            i18n.t("common.input.confirmPassword.error"),
+            t("common.input.confirmPassword.error"),
         }}
         className="mt-4"
       />
       <Button onPress={onSubmitPress} disabled={isLoading} className="mt-8">
-        {i18n.t("auth.registerScreen.button")}
+        {t("auth.registerScreen.button")}
       </Button>
     </View>
   );

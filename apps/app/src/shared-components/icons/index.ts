@@ -17,3 +17,5 @@ export * from "./Star";
 export * from "./StarFill";
 export * from "./Logout";
 export * from "./Moon";
+export * from "./Location";
+export * from "./Bell";

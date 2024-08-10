@@ -4,10 +4,13 @@ import { Keyboard } from "react-native";
 import { useRouter } from "expo-router";
 import { useSignUp } from "@clerk/clerk-expo";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
+
+
 
 import { useAlert } from "~/shared-hooks/useAlert";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
-import { i18n } from "~/utils/i18n";
+
 
 export interface FormValues {
   code: string;
@@ -16,6 +19,7 @@ export interface FormValues {
 export function useVerifyEmail() {
   const router = useRouter();
   const { isLoaded, signUp, setActive } = useSignUp();
+  const { t } = useTranslation();
   const setLoading = useGlobalStore((state) => state.setLoading);
   const { showAlert } = useAlert();
   const {
@@ -48,8 +52,8 @@ export function useVerifyEmail() {
         router.replace("/(app)/(tabs)/home");
       } catch {
         showAlert({
-          title: i18n.t("common.error.baseError.title"),
-          message: i18n.t("common.error.baseError.message"),
+          title: t("common.error.baseError.title"),
+          message: t("common.error.baseError.message"),
         });
       } finally {
         setLoading(false);

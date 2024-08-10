@@ -1,1 +1,196 @@
-{}
+{
+  "auth": {
+    "welcomeScreen": {
+      "title": "Hello, welcome to the app!",
+      "description": "This is a simple app that demonstrates how to use the authentication flow in your app.",
+      "register": {
+        "button": "Let's start"
+      },
+      "login": {
+        "description": "Already have an account?",
+        "button": "Sign In"
+      }
+    },
+    "loginScreen": {
+      "title": "Welcome back!",
+      "description": "Log in to your account",
+      "forgotPassword": "Forgot your password?",
+      "button": "Sign In",
+      "noAccount": {
+        "title": "Don't have an account?",
+        "button": "Sign Up"
+      }
+    },
+    "registerScreen": {
+      "title": "Create Account",
+      "description": "Create your own account to get started",
+      "button": "Create Your Account",
+      "alreadyHaveAccount": {
+        "title": "Already have an account?",
+        "button": "Sign In"
+      }
+    },
+    "forgotPasswordScreen": {
+      "title": "Forgot Password",
+      "description": "Enter your email address to reset your password",
+      "button": "Reset Password"
+    },
+    "oauth": {
+      "selectProvider": "or sign in with"
+    }
+  },
+  "account": {
+    "accountScreen": {
+      "title": "My account",
+      "premium": {
+        "button": "Activate Premium"
+      },
+      "personal": {
+        "title": "Personal",
+        "items": {
+          "personal-details": {
+            "title": "Personal Details"
+          },
+          "preferences": {
+            "title": "Preferences"
+          },
+          "support": {
+            "title": "Support"
+          }
+        }
+      },
+      "about": {
+        "title": "About Us",
+        "items": {
+          "faqs": {
+            "title": "FAQ's"
+          },
+          "review": {
+            "title": "Write a Review"
+          }
+        }
+      },
+      "legal": {
+        "title": "Legal",
+        "items": {
+          "terms": {
+            "title": "Terms & Conditions"
+          },
+          "privacy": {
+            "title": "Privacy Policy"
+          }
+        }
+      },
+      "logout": {
+        "button": "Log Out"
+      }
+    },
+    "preferencesScreen": {
+      "title": "Preferences",
+      "darkMode": {
+        "button": "Dark Mode"
+      },
+      "language": {
+        "button": "Language"
+      },
+      "notifications": {
+        "button": "Notifications"
+      }
+    }
+  },
+  "utils": {
+    "resetPasswordScreen": {
+      "title": "Reset Password",
+      "description": "Enter your email address to reset your password then check your email for a code to reset your password",
+      "button": "Send Email"
+    },
+    "setNewPasswordScreen": {
+      "title": "Set New Password",
+      "description": "Enter a code sent to your email address and set a new password",
+      "button": "Set New Password"
+    },
+    "verifyEmailScreen": {
+      "title": "Verify your email",
+      "description": "Enter the verification code sent to your email address",
+      "button": "Verify Email"
+    },
+    "verifyCodeScreen": {
+      "title": "Enter verification code",
+      "description": "After you provide verification code, you will be able to sign in to your account. Then you can change your password on the account settings screen.",
+      "button": "Verify Code"
+    }
+  },
+  "common": {
+    "cancel": "Cancel",
+    "languages": {
+      "pl": "Polish",
+      "en": "English"
+    },
+    "theme": {
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "notifications": {
+      "enabled": "Enabled",
+      "disabled": "Disabled"
+    },
+    "error": {
+      "baseError": {
+        "title": "Error Occurred!",
+        "message": "Something went wrong. Please try again later."
+      },
+      "passwordNotMatch": {
+        "title": "Password Not Match!",
+        "message": "Please make sure your password and confirm password are the same."
+      }
+    },
+    "input": {
+      "required": "This field is required",
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email",
+        "error": "Invalid email address"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Enter your password",
+        "error": "Invalid password"
+      },
+      "confirmPassword": {
+        "label": "Confirm Password",
+        "placeholder": "Enter your password again",
+        "error": "Passwords do not match"
+      },
+      "currentPassword": {
+        "label": "Current Password",
+        "placeholder": "Enter your current password",
+        "error": "Invalid password"
+      },
+      "changePassword": {
+        "label": "New Password",
+        "placeholder": "Enter your new password",
+        "error": "Invalid password"
+      },
+      "firstName": {
+        "label": "First Name",
+        "placeholder": "Enter your first name",
+        "error": "Invalid first name"
+      },
+      "lastName": {
+        "label": "Last Name",
+        "placeholder": "Enter your last name",
+        "error": "Invalid last name"
+      },
+      "verifyCode": {
+        "label": "Verification Code",
+        "placeholder": "Enter your verification code",
+        "error": "Invalid verification code",
+        "button": "Verify"
+      }
+    },
+    "tabs": {
+      "home": "Home",
+      "account": "Account"
+    }
+  }
+}

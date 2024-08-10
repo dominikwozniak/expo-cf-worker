@@ -1,10 +1,15 @@
+import { useTranslation } from "react-i18next";
+
+
+
 import { useForgotPassword } from "~/modules/auth/hooks/useForgotPassword";
 import { Button } from "~/shared-components/Button";
 import { FormField } from "~/shared-components/form/FormField";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
-import { i18n } from "~/utils/i18n";
+
 
 export function ForgotPasswordForm() {
+  const { t } = useTranslation();
   const isLoading = useGlobalStore((state) => state.isLoading);
   const { control, onSubmitPress, errors, isButtonDisabled } =
     useForgotPassword();
@@ -15,15 +20,15 @@ export function ForgotPasswordForm() {
         control={control}
         error={errors.email}
         name={"email"}
-        label={i18n.t("common.input.email.label")}
-        placeholder={i18n.t("common.input.email.placeholder")}
+        label={t("common.input.email.label")}
+        placeholder={t("common.input.email.placeholder")}
         isRequired
         customRules={{
           required: true,
           minLength: 0,
           pattern: {
             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            message: i18n.t("common.input.email.error"),
+            message: t("common.input.email.error"),
           },
         }}
         className="mt-8"
@@ -33,7 +38,7 @@ export function ForgotPasswordForm() {
         disabled={isButtonDisabled || isLoading}
         className="mt-8"
       >
-        {i18n.t("auth.forgotPasswordScreen.button")}
+        {t("auth.forgotPasswordScreen.button")}
       </Button>
     </>
   );

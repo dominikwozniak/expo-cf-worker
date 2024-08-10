@@ -1,11 +1,11 @@
 import type { SvgProps } from "react-native-svg";
 import Svg, { Path } from "react-native-svg";
 
-export function MoonIcon(props: SvgProps) {
+export function BellIcon(props: SvgProps) {
   return (
     <Svg width={24} height={24} viewBox="0 0 24 24" fill="none" {...props}>
       <Path
-        d="M4.672 18.797c-.699-.564-.114-1.573.78-1.652 5.79-.51 9.608-7.07 7.007-12.144-.41-.802.124-1.871.988-1.615C17.244 4.51 20 7.942 20 12c0 4.971-3.881 9-9 9-2.34 0-4.62-.824-6.328-2.203z"
+        d="M9 17.5v1c0 1.657 1.343 2.5 3 2.5s3-.843 3-2.5v-1m-9-9c0-3.314 2.686-5 6-5s6 1.686 6 5c0 1.94.705 4.113 1.432 5.839.603 1.433-.41 3.161-1.964 3.161H6.532c-1.554 0-2.567-1.728-1.964-3.161C5.295 12.613 6 10.439 6 8.5z"
         stroke="currentColor"
         strokeWidth={1.5}
         strokeLinecap="round"

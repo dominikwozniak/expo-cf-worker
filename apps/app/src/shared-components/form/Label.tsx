@@ -1,9 +1,12 @@
 import type { FieldError } from "react-hook-form";
 import React from "react";
 import { View } from "react-native";
+import { useTranslation } from "react-i18next";
+
+
 
 import { Typography } from "~/shared-components/Typography";
-import { i18n } from "~/utils/i18n";
+
 
 interface LabelProps extends React.ComponentPropsWithoutRef<typeof View> {
   isRequired?: boolean;
@@ -19,6 +22,8 @@ export function Label({
   children,
   ...rest
 }: LabelProps) {
+  const { t } = useTranslation();
+
   return (
     <View className="mb-1 flex flex-row justify-between px-2" {...rest}>
       <Typography
@@ -30,7 +35,7 @@ export function Label({
       </Typography>
       {isError ? (
         <Typography variant="paragraph" weight="semiBold" color="accent">
-          {error?.message ?? i18n.t("common.input.required")}
+          {error?.message ?? t("common.input.required")}
         </Typography>
       ) : null}
     </View>

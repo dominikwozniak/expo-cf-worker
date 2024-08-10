@@ -1,12 +1,16 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+
+
 
 import { useVerifyEmail } from "~/modules/auth/hooks/useVerifyEmail";
 import { Button } from "~/shared-components/Button";
 import { ConfirmationCodeController } from "~/shared-components/form/confirmation-code/ConfirmationCodeController";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
-import { i18n } from "~/utils/i18n";
+
 
 export function VerifyEmailForm() {
+  const { t } = useTranslation();
   const isLoading = useGlobalStore((state) => state.isLoading);
   const { control, onSubmitPress, isButtonDisabled } = useVerifyEmail();
 
@@ -27,7 +31,7 @@ export function VerifyEmailForm() {
         disabled={isButtonDisabled || isLoading}
         className="mt-8"
       >
-        {i18n.t("utils.verifyEmailScreen.button")}
+        {t("utils.verifyEmailScreen.button")}
       </Button>
     </>
   );

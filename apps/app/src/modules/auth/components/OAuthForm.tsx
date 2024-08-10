@@ -1,5 +1,6 @@
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
+import { useTranslation } from "react-i18next";
 
 import type { OAuthStrategy } from "~/modules/auth/hooks/useOAuth";
 import { useOAuth } from "~/modules/auth/hooks/useOAuth";
@@ -12,7 +13,6 @@ import {
 import { Typography } from "~/shared-components/Typography";
 import { useColor } from "~/shared-hooks/useColor";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
-import { i18n } from "~/utils/i18n";
 
 const providers = [
   {
@@ -33,6 +33,7 @@ const providers = [
 ];
 
 export function OAuthForm() {
+  const { t } = useTranslation();
   const { handleOAuth, isLoaded } = useOAuth();
   const isLoading = useGlobalStore((state) => state.isLoading);
   const { light: lightColor } = useColor();
@@ -46,7 +47,7 @@ export function OAuthForm() {
       <View className="flex flex-row items-center justify-center gap-4">
         <View className="flex-1 border-t border-gray" />
         <Typography weight="semiBold">
-          {i18n.t("auth.oauth.selectProvider")}
+          {t("auth.oauth.selectProvider")}
         </Typography>
         <View className="flex-1 border-t border-gray" />
       </View>

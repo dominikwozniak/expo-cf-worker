@@ -1,5 +1,6 @@
 import React from "react";
 import { ClerkProvider } from "@clerk/clerk-expo";
+import { ActionSheetProvider } from "@expo/react-native-action-sheet";
 
 import { AlertProvider } from "~/shared-components/providers/AlertProvider";
 import { ThemeProvider } from "~/shared-components/providers/ThemeProvider";
@@ -18,9 +19,11 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
       <ThemeProvider>
-        <TRPCProvider>
-          <AlertProvider>{children}</AlertProvider>
-        </TRPCProvider>
+        <ActionSheetProvider>
+          <TRPCProvider>
+            <AlertProvider>{children}</AlertProvider>
+          </TRPCProvider>
+        </ActionSheetProvider>
       </ThemeProvider>
     </ClerkProvider>
   );

@@ -1,10 +1,14 @@
 import { Tabs } from "expo-router";
+import { useTranslation } from "react-i18next";
+
+
 
 import { HomeIcon, UserIcon } from "~/shared-components/icons";
 import { useColor } from "~/shared-hooks/useColor";
-import { i18n } from "~/utils/i18n";
+
 
 export default function TabLayout() {
+  const { t } = useTranslation();
   const { secondary: secondaryColor, light: lightColor } = useColor();
 
   const tabBarLabelStyle = {
@@ -30,7 +34,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="home"
         options={{
-          title: i18n.t("common.tabs.home"),
+          title: t("common.tabs.home"),
           tabBarIcon: ({ color }) => <HomeIcon color={color} />,
           tabBarLabelStyle,
         }}
@@ -38,7 +42,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="account"
         options={{
-          title: i18n.t("common.tabs.account"),
+          title: t("common.tabs.account"),
           tabBarIcon: ({ color }) => (
             <UserIcon color={color} strokeWidth={3} width={26} height={26} />
           ),

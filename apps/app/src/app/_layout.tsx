@@ -12,6 +12,8 @@ import { useAuthRedirect } from "~/shared-hooks/auth/useAuthRedirect";
 import { useAppBootstrap } from "~/shared-hooks/useAppBootstrap";
 import { useColorScheme } from "~/shared-hooks/useColorScheme";
 
+import "~/utils/i18n";
+
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,

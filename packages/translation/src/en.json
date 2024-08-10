@@ -89,6 +89,12 @@
       "title": "Preferences",
       "darkMode": {
         "button": "Dark Mode"
+      },
+      "language": {
+        "button": "Language"
+      },
+      "notifications": {
+        "button": "Notifications"
       }
     }
   },
@@ -115,6 +121,7 @@
     }
   },
   "common": {
+    "cancel": "Cancel",
     "languages": {
       "pl": "Polish",
       "en": "English"
@@ -122,6 +129,10 @@
     "theme": {
       "light": "Light",
       "dark": "Dark"
+    },
+    "notifications": {
+      "enabled": "Enabled",
+      "disabled": "Disabled"
     },
     "error": {
       "baseError": {
