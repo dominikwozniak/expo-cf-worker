@@ -26,6 +26,7 @@ export function PreferencesPanel() {
           title={t("account.preferencesScreen.language.button")}
           onPress={handleLanguageChange}
           isTouchable
+          isChevronHidden
         >
           <Typography variant="small" color="primary">
             {currentLanguageLabel}
@@ -34,6 +35,7 @@ export function PreferencesPanel() {
         <List.Item
           icon={BellIcon}
           title={t("account.preferencesScreen.notifications.button")}
+          isChevronHidden
           isLastItem
         >
           <Typography variant="small" color="primary">

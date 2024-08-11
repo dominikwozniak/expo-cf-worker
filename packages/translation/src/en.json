@@ -96,6 +96,27 @@
       "notifications": {
         "button": "Notifications"
       }
+    },
+    "personalDetails": {
+      "title": "Personal Details",
+      "email": {
+        "title": "Email",
+        "placeholder": "Enter your email"
+      },
+      "firstName": {
+        "title": "First Name",
+        "placeholder": "Enter your first name"
+      },
+      "lastName": {
+        "title": "Last Name",
+        "placeholder": "Enter your last name"
+      },
+      "changePassword": {
+        "title": "Change Password"
+      },
+      "deleteAccount": {
+        "title": "Delete Account"
+      }
     }
   },
   "utils": {

@@ -28,7 +28,7 @@ export default function AccountScreen() {
       id: "personal-details",
       icon: UserIcon,
       title: t("account.accountScreen.personal.items.personal-details.title"),
-      href: "/(app)/home",
+      href: "/(app)/account/personal-details",
     },
     {
       id: "settings",
