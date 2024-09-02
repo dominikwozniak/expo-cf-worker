@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useUser } from "@clerk/clerk-expo";
 import { useTranslation } from "react-i18next";
 
+import { ChangePasswordForm } from "~/modules/account/components/personal-details/ChangePasswordForm";
 import { UpdateDetailsForm } from "~/modules/account/components/personal-details/UpdateDetailsForm";
 import { UpdateDetailsFormKeys } from "~/modules/account/hooks/personal-details/useUpdateDetails";
 import {
@@ -59,19 +60,29 @@ export default function PersonalDetails() {
     },
   ].filter((detail) => !detail.disabled);
 
-  const [selectedOption, setSelectedOption] = useState<
+  const [selectedPersonalOption, setSelectedPersonalOption] = useState<
     (typeof personalDetails)[number] | null
   >(null);
+  const [changePasswordFormVisible, setChangePasswordFormVisible] =
+    useState(false);
 
   const handlePressPersonalDetail = (
     option: (typeof personalDetails)[number],
   ) => {
-    setSelectedOption(option);
+    setSelectedPersonalOption(option);
+    openBottomSheet();
+  };
+
+  const handlePressPersonalAction = (
+    option: (typeof personalActions)[number],
+  ) => {
+    setChangePasswordFormVisible(option.id === "changePassword");
     openBottomSheet();
   };
 
   const handleCloseModal = () => {
-    setSelectedOption(null);
+    setSelectedPersonalOption(null);
+    setChangePasswordFormVisible(false);
     closeBottomSheet();
   };
 
@@ -103,20 +114,24 @@ export default function PersonalDetails() {
             <List.Item
               key={detail.id}
               title={detail.title}
+              onPress={() => handlePressPersonalAction(detail)}
               isTouchable
               isLastItem={index === personalActions.length - 1}
             />
           ))}
         </List.Inner>
       </List>
-      <BottomSheet ref={ref}>
+      <BottomSheet ref={ref} onDismiss={handleCloseModal}>
         <BottomSheetView>
-          {selectedOption?.value && selectedOption.title ? (
+          {selectedPersonalOption?.value && selectedPersonalOption.title ? (
             <UpdateDetailsForm
-              initialValue={selectedOption.value}
-              optionKey={selectedOption.id as UpdateDetailsFormKeys}
+              initialValue={selectedPersonalOption.value}
+              optionKey={selectedPersonalOption.id as UpdateDetailsFormKeys}
               onSuccess={handleCloseModal}
             />
+          ) : null}
+          {changePasswordFormVisible ? (
+            <ChangePasswordForm onSuccess={handleCloseModal} />
           ) : null}
         </BottomSheetView>
       </BottomSheet>
