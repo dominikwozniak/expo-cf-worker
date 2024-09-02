@@ -1,6 +1,7 @@
 import type { VariantProps } from "class-variance-authority";
 import React, { useState } from "react";
 import { TextInput } from "react-native";
+import { BottomSheetTextInput as GBottomSheetTextInput } from "@gorhom/bottom-sheet";
 import { cva } from "class-variance-authority";
 
 import { cn } from "~/utils/classnames";
@@ -31,12 +32,15 @@ export interface InputProps
     VariantProps<typeof inputVariants> {
   isError?: boolean;
   isPassword?: boolean;
+  isBottomSheet?: boolean;
 }
 
 export function Input({
   isError,
   isTextarea,
   isPassword,
+  isBottomSheet,
+  autoCapitalize = "none",
   className,
   ...props
 }: InputProps) {
@@ -44,12 +48,14 @@ export function Input({
 
   const state = isError ? "error" : isFocused ? "focused" : "default";
 
+  const InputComponent = isBottomSheet ? GBottomSheetTextInput : TextInput;
+
   return (
-    <TextInput
+    <InputComponent
       onFocus={() => setIsFocused(true)}
       onEndEditing={() => setIsFocused(false)}
       className={cn(inputVariants({ state, isTextarea }), className)}
-      autoCapitalize="none"
+      autoCapitalize={autoCapitalize}
       autoCorrect={false}
       secureTextEntry={isPassword}
       {...props}

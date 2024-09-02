@@ -143,6 +143,7 @@
   },
   "common": {
     "cancel": "Cancel",
+    "save": "Save Changes",
     "languages": {
       "pl": "Polish",
       "en": "English"

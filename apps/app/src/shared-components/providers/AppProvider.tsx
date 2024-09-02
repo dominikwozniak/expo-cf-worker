@@ -23,11 +23,11 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
       <GestureHandlerRootView style={{ flex: 1 }}>
         <ThemeProvider>
           <ActionSheetProvider>
-            <BottomSheetModalProvider>
-              <TRPCProvider>
-                <AlertProvider>{children}</AlertProvider>
-              </TRPCProvider>
-            </BottomSheetModalProvider>
+            <AlertProvider>
+              <BottomSheetModalProvider>
+                <TRPCProvider>{children}</TRPCProvider>
+              </BottomSheetModalProvider>
+            </AlertProvider>
           </ActionSheetProvider>
         </ThemeProvider>
       </GestureHandlerRootView>

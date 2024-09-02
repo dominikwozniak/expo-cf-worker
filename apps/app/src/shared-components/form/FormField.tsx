@@ -17,6 +17,7 @@ interface FormFieldProps<T extends FieldValues>
   customRules?: Record<string, unknown>;
   isPassword?: boolean;
   isNumeric?: boolean;
+  isBottomSheet?: boolean;
 }
 
 export function FormField<FieldName extends FieldValues>({
@@ -29,6 +30,7 @@ export function FormField<FieldName extends FieldValues>({
   customRules,
   isPassword,
   isNumeric,
+  isBottomSheet,
   ...props
 }: FormFieldProps<FieldName>) {
   const isError = Object.keys(error ?? {}).length > 0;
@@ -52,6 +54,7 @@ export function FormField<FieldName extends FieldValues>({
               isError={isError}
               placeholder={placeholder}
               isPassword={isPassword}
+              isBottomSheet={isBottomSheet}
               keyboardType={isNumeric ? "numeric" : "default"}
             />
           </View>
