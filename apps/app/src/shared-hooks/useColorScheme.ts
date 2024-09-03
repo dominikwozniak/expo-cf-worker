@@ -1,8 +1,10 @@
+import { useEffect } from "react";
 import { Platform } from "react-native";
 import * as NavigationBar from "expo-navigation-bar";
 import { useColorScheme as useNativewindColorScheme } from "nativewind";
 
 import { colorTheme } from "~/utils/color-theme";
+import { mmkvStore } from "~/utils/mmkv-store";
 
 function setNavigationBar(colorScheme: "light" | "dark") {
   if (Platform.OS !== "android") return;
@@ -25,6 +27,7 @@ export function useColorScheme() {
 
   const setColorScheme = async (colorScheme: "light" | "dark") => {
     setNativewindColorScheme(colorScheme);
+    mmkvStore.set("colorScheme", colorScheme);
     await setNavigationBar(colorScheme);
   };
 
@@ -32,6 +35,16 @@ export function useColorScheme() {
     const isDarkTheme = colorScheme === "dark";
     return setColorScheme(isDarkTheme ? "light" : "dark");
   };
+
+  useEffect(() => {
+    const savedColorScheme = mmkvStore.getString("colorScheme") as
+      | "light"
+      | "dark"
+      | undefined;
+    if (savedColorScheme) {
+      void setColorScheme(savedColorScheme);
+    }
+  }, []);
 
   return {
     colorScheme: colorScheme ?? "light",

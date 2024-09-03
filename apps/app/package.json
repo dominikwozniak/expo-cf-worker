@@ -13,7 +13,6 @@
     "prebuild": "expo prebuild",
     "prebuild:clean": "expo prebuild --clean",
     "format": "prettier --check . --ignore-path ../../.gitignore",
-    "format:fix": "prettier --write . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit"
   },
