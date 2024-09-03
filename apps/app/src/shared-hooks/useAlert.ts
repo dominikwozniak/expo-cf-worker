@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
 import { Alert } from "react-native";
+import { useTranslation } from "react-i18next";
 
 type AlertContextData = ReturnType<typeof useProvideAlert>;
 export const AlertContext = createContext<AlertContextData>(
@@ -10,17 +11,50 @@ interface ShowAlert {
   title: string;
   message?: string;
   onDismiss?: () => void;
-  buttonText?: string;
+  textDismiss?: string;
+}
+
+interface ShowConfirmAlert extends ShowAlert {
+  onConfirm: () => void | Promise<void>;
+  textConfirm?: string;
 }
 
 export const useProvideAlert = () => {
-  const showAlert = ({ title, message, onDismiss, buttonText }: ShowAlert) => {
+  const { t } = useTranslation();
+
+  const showAlert = ({ title, message, onDismiss, textDismiss }: ShowAlert) => {
     Alert.alert(title, message, [
-      { text: buttonText ?? "OK", onPress: onDismiss },
+      {
+        text: textDismiss ?? t("common.alert.confirm"),
+        onPress: () => onDismiss?.(),
+      },
     ]);
   };
 
-  return { showAlert };
+  const showConfirmAlert = ({
+    title,
+    message,
+    onDismiss,
+    textDismiss,
+    onConfirm,
+    textConfirm,
+  }: ShowConfirmAlert) => {
+    Alert.alert(title, message, [
+      {
+        text: textDismiss ?? t("common.alert.cancel"),
+        onPress: () => onDismiss?.(),
+        style: "destructive",
+      },
+      {
+        text: textConfirm ?? t("common.alert.confirm"),
+        onPress: () => {
+          void onConfirm();
+        },
+      },
+    ]);
+  };
+
+  return { showAlert, showConfirmAlert };
 };
 
 export const useAlert = () => {

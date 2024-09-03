@@ -2,9 +2,10 @@ import { useState } from "react";
 import { useUser } from "@clerk/clerk-expo";
 import { useTranslation } from "react-i18next";
 
+import type { UpdateDetailsFormKeys } from "~/modules/account/hooks/personal-details/useUpdateDetails";
 import { ChangePasswordForm } from "~/modules/account/components/personal-details/ChangePasswordForm";
 import { UpdateDetailsForm } from "~/modules/account/components/personal-details/UpdateDetailsForm";
-import { UpdateDetailsFormKeys } from "~/modules/account/hooks/personal-details/useUpdateDetails";
+import { useDeleteAccount } from "~/modules/account/hooks/personal-details/useDeleteAccount";
 import {
   BottomSheet,
   BottomSheetView,
@@ -24,6 +25,8 @@ export default function PersonalDetails() {
     open: openBottomSheet,
     close: closeBottomSheet,
   } = useBottomSheet();
+
+  const { handleShowDeleteAccountAlert } = useDeleteAccount();
 
   const personalDetails = [
     {
@@ -53,12 +56,13 @@ export default function PersonalDetails() {
       title: t("account.personalDetails.changePassword.title"),
       disabled: !user?.passwordEnabled,
     },
-    {
-      id: "deleteAccount",
-      title: t("account.personalDetails.deleteAccount.title"),
-      disabled: false,
-    },
   ].filter((detail) => !detail.disabled);
+
+  const deleteAccountAction = {
+    id: "deleteAccount",
+    title: t("account.personalDetails.deleteAccount.title"),
+    disabled: false,
+  };
 
   const [selectedPersonalOption, setSelectedPersonalOption] = useState<
     (typeof personalDetails)[number] | null
@@ -107,18 +111,29 @@ export default function PersonalDetails() {
           ))}
         </List.Inner>
       </List>
-
+      {personalActions.length > 0 ? (
+        <List className="mt-2">
+          <List.Inner>
+            {personalActions.map((detail, index) => (
+              <List.Item
+                key={detail.id}
+                title={detail.title}
+                onPress={() => handlePressPersonalAction(detail)}
+                isTouchable
+                isLastItem={index === personalActions.length - 1}
+              />
+            ))}
+          </List.Inner>
+        </List>
+      ) : null}
       <List className="mt-2">
         <List.Inner>
-          {personalActions.map((detail, index) => (
-            <List.Item
-              key={detail.id}
-              title={detail.title}
-              onPress={() => handlePressPersonalAction(detail)}
-              isTouchable
-              isLastItem={index === personalActions.length - 1}
-            />
-          ))}
+          <List.Item
+            title={deleteAccountAction.title}
+            onPress={handleShowDeleteAccountAlert}
+            isTouchable
+            isLastItem
+          />
         </List.Inner>
       </List>
       <BottomSheet ref={ref} onDismiss={handleCloseModal}>

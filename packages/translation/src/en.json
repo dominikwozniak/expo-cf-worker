@@ -115,7 +115,12 @@
         "title": "Change Password"
       },
       "deleteAccount": {
-        "title": "Delete Account"
+        "title": "Delete Account",
+        "alert": {
+          "title": "Delete Account",
+          "description": "Are you sure you want to delete your account? This action cannot be undone.",
+          "confirm": "Delete"
+        }
       }
     }
   },
@@ -155,6 +160,10 @@
     "notifications": {
       "enabled": "Enabled",
       "disabled": "Disabled"
+    },
+    "alert": {
+      "confirm": "Ok",
+      "cancel": "Cancel"
     },
     "error": {
       "baseError": {
