@@ -53,3 +53,7 @@ dist/
 # cf worker variables
 .dev.vars
 .wrangler
+
+# expo
+expo-env.d.ts
+
