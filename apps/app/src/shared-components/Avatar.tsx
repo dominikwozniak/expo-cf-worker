@@ -7,8 +7,8 @@ import { Typography } from "~/shared-components/Typography";
 import { cn } from "~/utils/classnames";
 
 interface AvatarProps extends ViewProps {
-  src: string;
-  alt: string;
+  src?: string;
+  alt?: string;
 }
 
 export function Avatar({ src, alt, className, ...props }: AvatarProps) {
