@@ -38,5 +38,21 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     tsconfigPaths: true,
     typedRoutes: true,
   },
-  plugins: ["expo-router", "expo-localization"],
+  plugins: [
+    "expo-router",
+    "expo-localization",
+    [
+      "expo-dynamic-app-icon",
+      {
+        default: {
+          image: "./assets/icon.png",
+          prerendered: true,
+        },
+        dark: {
+          image: "./assets/icon-dark.png",
+          prerendered: true,
+        },
+      },
+    ],
+  ],
 });

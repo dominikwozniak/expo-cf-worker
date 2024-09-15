@@ -80,6 +80,9 @@ importers:
       expo-dev-client:
         specifier: ~4.0.13
         version: 4.0.16(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
+      expo-dynamic-app-icon:
+        specifier: ^1.2.0
+        version: 1.2.0(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
       expo-font:
         specifier: ~12.0.7
         version: 12.0.7(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
@@ -377,7 +380,7 @@ importers:
         version: 7.34.2(eslint@9.4.0)
       eslint-plugin-react-hooks:
         specifier: rc
-        version: 5.1.0-rc-4c58fce7-20240904(eslint@9.4.0)
+        version: 5.1.0-rc-206df66e-20240912(eslint@9.4.0)
       eslint-plugin-turbo:
         specifier: ^2.0.3
         version: 2.0.3(eslint@9.4.0)
@@ -3623,8 +3626,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
 
-  eslint-plugin-react-hooks@5.1.0-rc-4c58fce7-20240904:
-    resolution: {integrity: sha512-PDoulHvydL8q8QhhyQx9y7c0Ot79D/o53+/6GG/9stROV2iBteNl/n8WNxwdcVtaSrFJ2BXd/M1U2fyjhelUzA==}
+  eslint-plugin-react-hooks@5.1.0-rc-206df66e-20240912:
+    resolution: {integrity: sha512-7ApoGzoavioLFz1Vb2eQKnA6S9zdCWFkMNe17uBHQ0n0o9j1UiZxzaQumHrPNXMJwvCR1nuvpHxHOg7tRKw81g==}
     engines: {node: '>=10'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
@@ -3754,6 +3757,13 @@ packages:
     resolution: {integrity: sha512-a5aADQXOH/uw2NDy4fbgVl9wkAcZIfkrz8yzwQz0X6Yvf0a68zafqxSvvYkq+MmUTrFsuiST49s+mk4uRqHJMw==}
     peerDependencies:
       expo: '*'
+
+  expo-dynamic-app-icon@1.2.0:
+    resolution: {integrity: sha512-l8qNUVl9lhADtdgyL6hf6xWFOaDayFCXdXnqDGzh1H3P58n380WkzibjVxbL/w0Nbu4FUUGVqMLAY1BETTzo9g==}
+    peerDependencies:
+      expo: '>=49'
+      react: '*'
+      react-native: '*'
 
   expo-file-system@17.0.1:
     resolution: {integrity: sha512-dYpnZJqTGj6HCYJyXAgpFkQWsiCH3HY1ek2cFZVHFoEc5tLz9gmdEgTF6nFHurvmvfmXqxi7a5CXyVm0aFYJBw==}
@@ -10934,7 +10944,7 @@ snapshots:
       object.entries: 1.1.8
       object.fromentries: 2.0.8
 
-  eslint-plugin-react-hooks@5.1.0-rc-4c58fce7-20240904(eslint@9.4.0):
+  eslint-plugin-react-hooks@5.1.0-rc-206df66e-20240912(eslint@9.4.0):
     dependencies:
       eslint: 9.4.0
 
@@ -11136,6 +11146,12 @@ snapshots:
       expo: 51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))
       expo-dev-menu-interface: 1.8.3(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
       semver: 7.6.2
+
+  expo-dynamic-app-icon@1.2.0(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1):
+    dependencies:
+      expo: 51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))
+      react: 18.3.1
+      react-native: 0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1)
 
   expo-file-system@17.0.1(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))):
     dependencies:

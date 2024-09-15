@@ -1,8 +1,10 @@
 import * as React from "react";
-import { Keyboard, ViewStyle } from "react-native";
+import type { ViewStyle } from "react-native";
+import { Keyboard } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import type {
+  BottomSheetBackdropProps} from "@gorhom/bottom-sheet";
 import {
-  BottomSheetBackdropProps,
   BottomSheetBackdrop as GBottomSheetBackdrop,
   BottomSheetModal as GBottomSheetModal,
   BottomSheetView as GBottomSheetView,

@@ -1,8 +1,9 @@
 import { View } from "react-native";
 import { useTranslation } from "react-i18next";
 
+import type {
+  UpdateDetailsFormKeys} from "~/modules/account/hooks/personal-details/useUpdateDetails";
 import {
-  UpdateDetailsFormKeys,
   useUpdateDetails,
 } from "~/modules/account/hooks/personal-details/useUpdateDetails";
 import { Button } from "~/shared-components/Button";

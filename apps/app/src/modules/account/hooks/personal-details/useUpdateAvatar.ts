@@ -20,7 +20,7 @@ export function useUpdateAvatar() {
         base64: true,
       });
 
-      if (user && !pickedImage.canceled && pickedImage.assets?.[0]?.base64) {
+      if (user && !pickedImage.canceled && pickedImage.assets[0]?.base64) {
         setLoading(true);
 
         const base64 = `data:image/png;base64,${pickedImage.assets[0].base64}`;
@@ -28,7 +28,7 @@ export function useUpdateAvatar() {
           file: base64,
         });
       }
-    } catch (error) {
+    } catch {
       showAlert({
         title: t("common.error.baseError.title"),
         message: t("common.error.baseError.message"),

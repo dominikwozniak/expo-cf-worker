@@ -93,6 +93,9 @@
       "language": {
         "button": "Language"
       },
+      "appIcon": {
+        "button": "App Icon"
+      },
       "notifications": {
         "button": "Notifications"
       }
