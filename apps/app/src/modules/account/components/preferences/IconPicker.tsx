@@ -24,6 +24,7 @@ export function IconPicker() {
                 activeIcon.toLowerCase() !== icon.name.toLowerCase(),
             })}
           >
+            {/* eslint-disable-next-line */}
             <Image source={icon.icon} className="h-full w-full rounded-xl" />
           </View>
 

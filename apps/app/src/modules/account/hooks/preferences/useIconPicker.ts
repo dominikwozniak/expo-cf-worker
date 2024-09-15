@@ -5,12 +5,12 @@ const ICONS = [
   {
     name: "Default",
     // eslint-disable-next-line
-    icon: require("../../../../../assets/icon.png") as string,
+    icon: require("../../../../../assets/icon.png"),
   },
   {
     name: "Dark",
     // eslint-disable-next-line
-    icon: require("../../../../../assets/icon-dark.png") as string,
+    icon: require("../../../../../assets/icon-dark.png"),
   },
 ] as const;
 
