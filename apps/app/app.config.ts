@@ -2,31 +2,31 @@ import type { ConfigContext, ExpoConfig } from "expo/config";
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
-  name: "expo",
-  slug: "expo",
-  scheme: "expo",
+  name: "rnstarter",
+  slug: "rnstarter",
+  scheme: "rnstarter",
   version: "0.1.0",
   orientation: "portrait",
   icon: "./assets/icon.png",
   userInterfaceStyle: "automatic",
   splash: {
-    image: "./assets/icon.png",
+    image: "./assets/splash.png",
     resizeMode: "contain",
-    backgroundColor: "#1F104A",
+    backgroundColor: "#936FFE",
   },
   updates: {
     fallbackToCacheTimeout: 0,
   },
   assetBundlePatterns: ["**/*"],
   ios: {
-    bundleIdentifier: "com.dominikwozniak.rnstarer",
+    bundleIdentifier: "com.dominikwozniak.rnstarter",
     supportsTablet: true,
   },
   android: {
-    package: "com.dominikwozniak.rnstarer",
+    package: "com.dominikwozniak.rnstarter",
     adaptiveIcon: {
-      foregroundImage: "./assets/icon.png",
-      backgroundColor: "#1F104A",
+      foregroundImage: "./assets/adaptive-icon.png",
+      backgroundColor: "#936FFE",
     },
   },
   // extra: {
