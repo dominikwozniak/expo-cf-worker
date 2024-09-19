@@ -8,7 +8,7 @@ export function IconPicker() {
   const { availableIcons, activeIcon, onChangeAppIcon } = useIconPicker();
 
   return (
-    <View className="flex flex-row justify-center gap-8 py-4">
+    <View className="flex flex-row justify-center gap-4 py-4">
       {availableIcons.map((icon) => (
         <TouchableOpacity
           key={icon.name}
@@ -17,7 +17,7 @@ export function IconPicker() {
           className="flex items-center gap-2"
         >
           <View
-            className={cn("h-16 w-16 rounded-2xl border-2 p-1", {
+            className={cn("h-16 w-16 rounded-2xl border-2 p-[4px]", {
               "border-primary":
                 activeIcon.toLowerCase() === icon.name.toLowerCase(),
               "border-transparent":

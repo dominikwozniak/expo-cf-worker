@@ -2,6 +2,7 @@ import { useRouter } from "expo-router";
 import { useAuth } from "@clerk/clerk-expo";
 import { useTranslation } from "react-i18next";
 
+import { AppVersion } from "~/modules/account/components/AppVersion";
 import { UserInfoCard } from "~/modules/account/components/UserInfoCard";
 import {
   DocumentIcon,
@@ -159,6 +160,7 @@ export default function AccountScreen() {
           ))}
         </List.Inner>
       </List>
+      <AppVersion />
     </ScreenLayout>
   );
 }

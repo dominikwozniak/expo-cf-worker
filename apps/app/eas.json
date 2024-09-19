@@ -1,28 +1,34 @@
 {
   "cli": {
-    "version": ">= 4.1.2"
+    "version": ">= 4.1.2",
+    "appVersionSource": "remote"
   },
   "build": {
     "base": {
-      "node": "18.16.1",
+      "node": "20.12.2",
       "ios": {
         "resourceClass": "m-medium"
-      }
+      },
+      "channel": "preview"
     },
     "development": {
       "extends": "base",
       "developmentClient": true,
-      "distribution": "internal"
+      "distribution": "internal",
+      "channel": "development"
     },
     "preview": {
       "extends": "base",
       "distribution": "internal",
       "ios": {
         "simulator": true
-      }
+      },
+      "channel": "preview"
     },
     "production": {
-      "extends": "base"
+      "extends": "base",
+      "channel": "production",
+      "autoIncrement": true
     }
   },
   "submit": {

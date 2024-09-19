@@ -19,8 +19,7 @@ export {
   ErrorBoundary,
 } from "expo-router";
 
-// eslint-disable-next-line @typescript-eslint/no-floating-promises
-SplashScreen.preventAutoHideAsync();
+void SplashScreen.preventAutoHideAsync();
 
 function AppLayout() {
   const { isAppReady } = useAppBootstrap();
@@ -28,8 +27,7 @@ function AppLayout() {
 
   useEffect(() => {
     if (isAppReady) {
-      // eslint-disable-next-line @typescript-eslint/no-floating-promises
-      SplashScreen.hideAsync();
+      void SplashScreen.hideAsync();
     }
   }, [isAppReady]);
 

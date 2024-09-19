@@ -147,6 +147,12 @@
       "title": "Enter verification code",
       "description": "After you provide verification code, you will be able to sign in to your account. Then you can change your password on the account settings screen.",
       "button": "Verify Code"
+    },
+    "appUpdateScreen": {
+      "title": "Update Available!",
+      "description": "Keep Your App Running Smoothly. One Tap Away!",
+      "button": "Update Now!",
+      "backButton": "Skip for now"
     }
   },
   "common": {
