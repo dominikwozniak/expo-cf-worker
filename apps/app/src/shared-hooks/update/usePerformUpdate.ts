@@ -15,7 +15,7 @@ export function usePerformUpdate() {
         return;
       }
 
-      setLoading(true)
+      setLoading(true);
       const update = await Updates.checkForUpdateAsync();
 
       if (!update.isAvailable) {
@@ -30,7 +30,7 @@ export function usePerformUpdate() {
         message: t("common.error.baseError.message"),
       });
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
 

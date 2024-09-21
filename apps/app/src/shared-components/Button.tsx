@@ -66,6 +66,8 @@ export function Button({
         { "opacity-70": loading ?? disabled },
         className,
       ])}
+      accessibilityRole="button"
+      accessibilityState={{ disabled: loading ?? disabled }}
       {...props}
     >
       <Typography

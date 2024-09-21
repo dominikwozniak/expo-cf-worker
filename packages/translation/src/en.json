@@ -36,7 +36,21 @@
       "button": "Reset Password"
     },
     "oauth": {
-      "selectProvider": "or sign in with"
+      "selectProvider": "or sign in with",
+      "facebook": "Sign in using Facebook",
+      "apple": "Sign in using Apple",
+      "google": "Sign in using Google"
+    }
+  },
+  "onboarding": {
+    "onboardingScreen": {
+      "title": "Hi, glad to see you!",
+      "description": "Looks like you are new here! Let's get to know each other better.",
+      "slides": {
+        "name": "How should I call you?",
+        "notifications": "Do you want to enable push notifications?",
+        "premium": "Would you like to try the premium package?"
+      }
     }
   },
   "account": {
@@ -88,7 +102,8 @@
     "preferencesScreen": {
       "title": "Preferences",
       "darkMode": {
-        "button": "Dark Mode"
+        "button": "Dark Mode",
+        "label": "Dark Mode switch"
       },
       "language": {
         "button": "Language"
@@ -158,6 +173,8 @@
   "common": {
     "cancel": "Cancel",
     "save": "Save Changes",
+    "next": "Next",
+    "goBack": "Go Back",
     "languages": {
       "pl": "Polish",
       "en": "English"

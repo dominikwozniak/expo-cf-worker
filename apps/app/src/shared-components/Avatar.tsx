@@ -55,6 +55,7 @@ export function Avatar({ src, alt, className, ...props }: AvatarProps) {
           transition={100}
           placeholder={fallbackText}
           onError={() => setImageError(true)}
+          accessibilityLabel={alt}
         />
       )}
     </View>

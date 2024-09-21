@@ -9,6 +9,8 @@ interface LabelProps extends React.ComponentPropsWithoutRef<typeof View> {
   isRequired?: boolean;
   isError: boolean;
   error: FieldError | undefined;
+  labelId?: string;
+  errorId?: string;
   children: React.ReactNode;
 }
 
@@ -16,6 +18,8 @@ export function Label({
   isRequired,
   isError,
   error,
+  labelId,
+  errorId,
   children,
   ...rest
 }: LabelProps) {
@@ -27,11 +31,19 @@ export function Label({
         variant="paragraph"
         weight="semiBold"
         color={isError ? "accent" : "default"}
+        id={labelId}
+        nativeID={labelId}
       >
         {children} {isRequired ? "*" : ""}
       </Typography>
       {isError ? (
-        <Typography variant="paragraph" weight="semiBold" color="accent">
+        <Typography
+          variant="paragraph"
+          weight="semiBold"
+          color="accent"
+          id={errorId}
+          nativeID={errorId}
+        >
           {error?.message ?? t("common.input.required")}
         </Typography>
       ) : null}

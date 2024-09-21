@@ -53,17 +53,25 @@ export function Checkbox({
   ...props
 }: CheckboxProps) {
   const { light } = useColor();
+  const labelId = `${label}-label`;
 
   return (
     <TouchableOpacity
       className="flex flex-row items-center"
       activeOpacity={0.7}
+      aria-label={label}
+      aria-labelledby={labelId}
       {...props}
     >
       <View className={cn(checkboxVariants({ variant, isChecked }))}>
         {isChecked ? <CheckmarkIcon color={light} /> : null}
       </View>
-      <Typography weight="semiBold" className="pr-4">
+      <Typography
+        weight="semiBold"
+        className="pr-4"
+        id={labelId}
+        nativeID={labelId}
+      >
         {label}
       </Typography>
     </TouchableOpacity>

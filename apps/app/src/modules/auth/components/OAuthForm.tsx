@@ -63,6 +63,8 @@ export function OAuthForm() {
               backgroundColor: provider.background,
               marginHorizontal: index === 1 ? 16 : 0,
             }}
+            accessibilityRole="button"
+            accessibilityLabel={t(`auth.oauth.${provider.name}`)}
           >
             {provider.name === "apple" ? <AppleIcon /> : null}
             {provider.name === "facebook" ? <FacebookIcon /> : null}

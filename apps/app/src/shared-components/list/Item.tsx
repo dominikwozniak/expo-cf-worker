@@ -14,6 +14,7 @@ import { ChevronIcon, ShareIcon } from "~/shared-components/icons";
 import { Typography } from "~/shared-components/Typography";
 import { useColor } from "~/shared-hooks/useColor";
 import { cn } from "~/utils/classnames";
+import { isExternalLink } from "~/utils/is-external-link";
 
 const itemVariants = cva(
   "flex flex-row items-center justify-between px-2 py-4",
@@ -92,7 +93,7 @@ export function Item({
 
   if (!isTouchable) {
     return (
-      <View className={itemClassName} {...props}>
+      <View accessibilityRole="text" className={itemClassName} {...props}>
         {item}
       </View>
     );
@@ -108,8 +109,7 @@ export function Item({
       return;
     }
 
-    const isExternalLink = href.startsWith("http") && !href.startsWith("/");
-    if (isExternalLink) {
+    if (isExternalLink(href)) {
       void Linking.openURL(href);
     } else {
       // @ts-expect-error no typed route
@@ -122,6 +122,7 @@ export function Item({
       activeOpacity={0.7}
       className={itemClassName}
       onPress={handlePress}
+      accessibilityRole={isExternalLink(href) ? "link" : "button"}
       {...props}
     >
       {item}
@@ -150,9 +151,7 @@ const RightIcon = ({
 }) => {
   const { primary: primaryColor, accent: accentColor } = useColor();
 
-  const isExternalLink = href.startsWith("http") && !href.startsWith("/");
-
-  if (isExternalLink) {
+  if (isExternalLink(href)) {
     return <ShareIcon color={isAccent ? accentColor : primaryColor} />;
   }
 

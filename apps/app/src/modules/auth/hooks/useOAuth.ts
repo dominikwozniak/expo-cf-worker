@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 import { useAlert } from "~/shared-hooks/useAlert";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
-import { useWarmUpBrowser } from "~/shared-hooks/useWarmUpBrowser";
+import { useWarmUpBrowser } from "~/shared-hooks/utils/useWarmUpBrowser";
 
 WebBrowser.maybeCompleteAuthSession();
 

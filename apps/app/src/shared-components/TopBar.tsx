@@ -2,6 +2,7 @@ import type { ViewProps } from "react-native";
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
 import { useNavigation } from "expo-router";
+import { useTranslation } from "react-i18next";
 
 import { ArrowIcon } from "~/shared-components/icons";
 import { Typography } from "~/shared-components/Typography";
@@ -29,6 +30,7 @@ export function TopBar({
   className,
   ...props
 }: TopBarProps) {
+  const { t } = useTranslation();
   const navigation = useNavigation();
   const { dark: darkColor } = useColor();
 
@@ -53,6 +55,8 @@ export function TopBar({
         <TouchableOpacity
           className="absolute left-4 top-0 h-full"
           onPress={handleBackButtonPress}
+          accessibilityRole="button"
+          accessibilityLabel={t("common.goBack")}
         >
           <ArrowIcon color={darkColor} width={32} height={32} />
         </TouchableOpacity>

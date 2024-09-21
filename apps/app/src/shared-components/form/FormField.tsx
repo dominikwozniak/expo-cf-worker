@@ -34,6 +34,8 @@ export function FormField<FieldName extends FieldValues>({
   ...props
 }: FormFieldProps<FieldName>) {
   const isError = Object.keys(error ?? {}).length > 0;
+  const labelId = `input-label-${name}`;
+  const errorId = `input-error-${name}`;
 
   return (
     <View {...props}>
@@ -44,7 +46,13 @@ export function FormField<FieldName extends FieldValues>({
         render={({ field: { value, onChange } }) => (
           <View>
             {label && label.length > 0 ? (
-              <Label isError={isError} error={error} isRequired={isRequired}>
+              <Label
+                isError={isError}
+                error={error}
+                isRequired={isRequired}
+                labelId={labelId}
+                errorId={errorId}
+              >
                 {label}
               </Label>
             ) : null}
@@ -56,6 +64,9 @@ export function FormField<FieldName extends FieldValues>({
               isPassword={isPassword}
               isBottomSheet={isBottomSheet}
               keyboardType={isNumeric ? "numeric" : "default"}
+              aria-label={label}
+              aria-labelledby={labelId}
+              aria-errormessage={errorId}
             />
           </View>
         )}
