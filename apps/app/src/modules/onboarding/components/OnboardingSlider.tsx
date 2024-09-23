@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { NotificationSettings } from "~/modules/onboarding/components/NotificationSettings";
 import { PreferredName } from "~/modules/onboarding/components/PreferredName";
 import { TrialPremiumBanner } from "~/modules/onboarding/components/TrialPremiumBanner";
+import { useOnboarding } from "~/modules/onboarding/hooks/useOnboarding";
 import { Button } from "~/shared-components/Button";
 import { Typography } from "~/shared-components/Typography";
 import { useListSlideControl } from "~/shared-hooks/useListSlideControl";
@@ -32,6 +33,7 @@ export function OnboardingSlider() {
     },
   ] as const;
 
+  const { completeOnboarding } = useOnboarding();
   const { listRef, handleNextSlide, currentIndex, handleViewableItemsChanged } =
     useListSlideControl<(typeof slides)[number]>(slides);
 
@@ -76,8 +78,12 @@ export function OnboardingSlider() {
           ))}
         </View>
         <Button
-          disabled={currentIndex === slides.length - 1}
-          onPress={handleNextSlide}
+          disabled={currentIndex > slides.length - 1}
+          onPress={
+            currentIndex >= slides.length - 1
+              ? completeOnboarding
+              : handleNextSlide
+          }
           className="mt-4"
         >
           {currentIndex === slides.length - 1

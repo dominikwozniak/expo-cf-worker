@@ -9,7 +9,7 @@ export function PreferredName() {
   const { control, onSubmitPress, errors } = usePreferredName();
 
   return (
-    <View>
+    <View className="flex items-center">
       <FormField
         control={control}
         name="preferredName"
@@ -20,7 +20,7 @@ export function PreferredName() {
           minLength: 1,
         }}
         onFinishedEditing={onSubmitPress}
-        className="mx-auto mt-4 w-3/4"
+        className="mt-4 w-4/5"
       />
     </View>
   );
