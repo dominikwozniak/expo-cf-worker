@@ -21,6 +21,14 @@ export default function VerifyEmail() {
       >
         App Update
       </Button>
+      <Button
+        onPress={() => router.push("/(onboarding)/")}
+        backgroundColor="alternative"
+        textColor="alternative"
+        className="mt-2"
+      >
+        Onboarding
+      </Button>
       <Typography>{JSON.stringify(user, null, 2)}</Typography>
     </ScreenLayout>
   );

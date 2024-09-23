@@ -6,6 +6,7 @@ export * from "./Facebook";
 export * from "./User";
 export * from "./Home";
 export * from "./Chevron";
+export * from "./Cross";
 export * from "./Share";
 export * from "./Message";
 export * from "./Settings";

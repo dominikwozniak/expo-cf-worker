@@ -1,7 +1,7 @@
 import type { SvgProps } from "react-native-svg";
 import Svg, { Path } from "react-native-svg";
 
-export function ArrowIcon(props: SvgProps) {
+export function CrossIcon(props: SvgProps) {
   return (
     <Svg
       fill="none"
@@ -12,7 +12,7 @@ export function ArrowIcon(props: SvgProps) {
       {...props}
     >
       <Path
-        d="M4 12h16M4 12l6-6m-6 6l6 6"
+        d="M19 5L5 19M5 5l14 14"
         stroke="currentColor"
         strokeWidth={1.5}
         strokeLinecap="round"

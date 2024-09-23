@@ -13,7 +13,7 @@ const inputVariants = cva(
       state: {
         default: "border-tertiary",
         focused: "border-primary",
-        error: "border-accent-dark",
+        error: "border-accent",
       },
       isTextarea: {
         true: "h-[160px] justify-start pt-2",

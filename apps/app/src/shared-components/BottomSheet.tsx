@@ -8,6 +8,7 @@ import {
   BottomSheetModal as GBottomSheetModal,
   BottomSheetView as GBottomSheetView,
 } from "@gorhom/bottom-sheet";
+import { useTranslation } from "react-i18next";
 
 import { useColor } from "~/shared-hooks/useColor";
 import { useColorScheme } from "~/shared-hooks/useColorScheme";
@@ -59,6 +60,7 @@ const BottomSheet = React.forwardRef<
     ref,
   ) => {
     const insets = useSafeAreaInsets();
+    const { t } = useTranslation();
     const { light: lightColor, dark: darkColor } = useColor();
     const { isDarkColorScheme } = useColorScheme();
 
@@ -83,6 +85,9 @@ const BottomSheet = React.forwardRef<
                 Keyboard.dismiss();
               }
             }}
+            accessibilityRole="button"
+            accessibilityLabel={t("common.bottomSheetModal.close")}
+            accessibilityHint={t("common.bottomSheetModal.closeHint")}
             {...rest}
           />
         );
@@ -117,6 +122,8 @@ const BottomSheet = React.forwardRef<
           backgroundColor: darkColor,
         }}
         backdropComponent={renderBackdrop}
+        accessibilityLabel={t("common.bottomSheetModal.title")}
+        accessibilityViewIsModal
         {...props}
       />
     );

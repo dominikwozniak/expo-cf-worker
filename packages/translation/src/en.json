@@ -170,11 +170,36 @@
       "backButton": "Skip for now"
     }
   },
+  "notifications": {
+    "pushNotifications": {
+      "title": "Push Notifications",
+      "description": "Stay up to date with the latest news and updates",
+      "button": "Enable Notifications"
+    },
+    "dailyReminder": {
+      "title": "Daily Reminder",
+      "description": "Get daily reminders to keep you on track",
+      "button": "Enable Daily Reminder"
+    }
+  },
+  "premium": {
+    "trialBanner": {
+      "title": "Try Premium for Free",
+      "description": "Unlock all features and enjoy the best experience",
+      "button": "Start Free Trial"
+    }
+  },
   "common": {
     "cancel": "Cancel",
     "save": "Save Changes",
     "next": "Next",
     "goBack": "Go Back",
+    "complete": "Complete",
+    "bottomSheetModal": {
+      "title": "Bottom Sheet Modal",
+      "close": "Close Bottom Sheet",
+      "closeHint": "Tap outside to close"
+    },
     "languages": {
       "pl": "Polish",
       "en": "English"
@@ -237,6 +262,11 @@
         "label": "Last Name",
         "placeholder": "Enter your last name",
         "error": "Invalid last name"
+      },
+      "preferredName": {
+        "label": "Preferred Name",
+        "placeholder": "Enter your preferred name",
+        "error": "Invalid preferred name"
       },
       "verifyCode": {
         "label": "Verification Code",

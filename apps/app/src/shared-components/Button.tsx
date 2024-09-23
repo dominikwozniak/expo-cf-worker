@@ -14,6 +14,7 @@ const buttonVariants = cva("border-2", {
       secondary: "border-secondary bg-secondary",
       alternative: "border-primary bg-light",
       transparent: "border-transparent bg-transparent",
+      accent: "border-accent bg-accent",
     },
   },
   defaultVariants: {
@@ -27,6 +28,7 @@ const textVariants = cva("py-2 leading-8", {
       primary: "text-light",
       alternative: "text-primary",
       transparent: "text-primary underline decoration-2",
+      accent: "text-light",
     },
   },
   defaultVariants: {

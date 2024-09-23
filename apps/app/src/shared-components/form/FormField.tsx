@@ -18,6 +18,7 @@ interface FormFieldProps<T extends FieldValues>
   isPassword?: boolean;
   isNumeric?: boolean;
   isBottomSheet?: boolean;
+  onFinishedEditing?: () => void | Promise<void>;
 }
 
 export function FormField<FieldName extends FieldValues>({
@@ -31,6 +32,7 @@ export function FormField<FieldName extends FieldValues>({
   isPassword,
   isNumeric,
   isBottomSheet,
+  onFinishedEditing,
   ...props
 }: FormFieldProps<FieldName>) {
   const isError = Object.keys(error ?? {}).length > 0;
@@ -67,6 +69,8 @@ export function FormField<FieldName extends FieldValues>({
               aria-label={label}
               aria-labelledby={labelId}
               aria-errormessage={errorId}
+              onSubmitEditing={onFinishedEditing}
+              onBlur={onFinishedEditing}
             />
           </View>
         )}

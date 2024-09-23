@@ -61,6 +61,8 @@ export function Checkbox({
       activeOpacity={0.7}
       aria-label={label}
       aria-labelledby={labelId}
+      accessibilityLabel={label}
+      accessibilityRole="checkbox"
       {...props}
     >
       <View className={cn(checkboxVariants({ variant, isChecked }))}>
