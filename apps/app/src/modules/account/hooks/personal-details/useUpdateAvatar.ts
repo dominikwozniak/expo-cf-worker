@@ -2,13 +2,12 @@ import * as ImagePicker from "expo-image-picker";
 import { useUser } from "@clerk/clerk-expo";
 import { useTranslation } from "react-i18next";
 
-import { useAlert } from "~/shared-hooks/useAlert";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
+import { errorToast, successToast } from "~/utils/toast";
 
 export function useUpdateAvatar() {
   const { t } = useTranslation();
   const { user } = useUser();
-  const { showAlert } = useAlert();
   const setLoading = useGlobalStore((state) => state.setLoading);
 
   const handleChangeImage = async () => {
@@ -27,11 +26,15 @@ export function useUpdateAvatar() {
         await user.setProfileImage({
           file: base64,
         });
+        successToast({
+          title: t("common.success.updateImage.title"),
+          message: t("common.success.updateImage.message"),
+        });
       }
     } catch {
-      showAlert({
-        title: t("common.error.baseError.title"),
-        message: t("common.error.baseError.message"),
+      errorToast({
+        title: t("common.error.updateImage.title"),
+        message: t("common.error.updateImage.message"),
       });
     } finally {
       setLoading(false);

@@ -5,8 +5,8 @@ import { useUser } from "@clerk/clerk-expo";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import { useAlert } from "~/shared-hooks/useAlert";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
+import { errorToast, successToast } from "~/utils/toast";
 
 export interface FormValues {
   currentPassword: string;
@@ -18,7 +18,7 @@ export function useChangePasswordForm(onSuccess: () => void) {
   const { t } = useTranslation();
 
   const setLoading = useGlobalStore((state) => state.setLoading);
-  const { showAlert } = useAlert();
+
   const {
     handleSubmit,
     control,
@@ -51,11 +51,17 @@ export function useChangePasswordForm(onSuccess: () => void) {
           currentPassword,
         });
         Keyboard.dismiss();
+
+        successToast({
+          title: t("common.success.updatePassword.title"),
+          message: t("common.success.updatePassword.message"),
+        });
+
         onSuccess();
       } catch {
-        showAlert({
-          title: t("common.error.baseError.title"),
-          message: t("common.error.baseError.message"),
+        errorToast({
+          title: t("common.error.updatePassword.title"),
+          message: t("common.error.updatePassword.message"),
         });
       } finally {
         setLoading(false);

@@ -167,6 +167,9 @@ importers:
       react-native-svg:
         specifier: 15.2.0
         version: 15.2.0(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
+      sonner-native:
+        specifier: ^0.14.2
+        version: 0.14.2(iginubzp4dxxgdktu246sskfc4)
       superjson:
         specifier: 2.2.1
         version: 2.2.1
@@ -386,7 +389,7 @@ importers:
         version: 7.34.2(eslint@9.4.0)
       eslint-plugin-react-hooks:
         specifier: rc
-        version: 5.1.0-rc-e740d4b1-20240919(eslint@9.4.0)
+        version: 5.1.0-rc-04bd67a4-20240924(eslint@9.4.0)
       eslint-plugin-turbo:
         specifier: ^2.0.3
         version: 2.0.3(eslint@9.4.0)
@@ -3642,8 +3645,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
 
-  eslint-plugin-react-hooks@5.1.0-rc-e740d4b1-20240919:
-    resolution: {integrity: sha512-+PFjivirj4bkEC+icGsD1HAs7Tfs2cG9M2hDQL2tlNwCRE2NY65TeqXRBd1wrGPMXjwhcotoeM/NZDfzYYsdFA==}
+  eslint-plugin-react-hooks@5.1.0-rc-04bd67a4-20240924:
+    resolution: {integrity: sha512-7z/4xgNRUds/0jLx1znXbHS1KWIfaLJgaP9maBR3P16ynGppsxmxSgnVAG6NBRYfvn0yfYecU5mGPXjcZnrtPw==}
     engines: {node: '>=10'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
@@ -6240,6 +6243,21 @@ packages:
   socks@2.8.3:
     resolution: {integrity: sha512-l5x7VUUWbjVFbafGLxPWkYsHIhEvmF85tbIeFZWc8ZPtoMyybuEhL7Jye/ooC4/d48FgOjSJXgsF/AJPYCW8Zw==}
     engines: {node: '>= 10.0.0', npm: '>= 3.0.0'}
+
+  sonner-native@0.14.2:
+    resolution: {integrity: sha512-4zcHBGLQIV/2u6I7zcEHXpBoyCkpRax1BuHlFvcCEc3qPc+qTZykAOlsCijoOGQ2chUsmXFhB6Ux3M3CaCRZew==}
+    peerDependencies:
+      nativewind: '*'
+      react: '*'
+      react-native: '*'
+      react-native-gesture-handler: '>=2.16.1'
+      react-native-reanimated: '>=3.10.1'
+      react-native-safe-area-context: '>=4.10.5'
+      react-native-screens: '>=3.31.1'
+      react-native-svg: '>=15.6.0'
+    peerDependenciesMeta:
+      nativewind:
+        optional: true
 
   source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
@@ -11007,7 +11025,7 @@ snapshots:
       object.entries: 1.1.8
       object.fromentries: 2.0.8
 
-  eslint-plugin-react-hooks@5.1.0-rc-e740d4b1-20240919(eslint@9.4.0):
+  eslint-plugin-react-hooks@5.1.0-rc-04bd67a4-20240924(eslint@9.4.0):
     dependencies:
       eslint: 9.4.0
 
@@ -13950,6 +13968,18 @@ snapshots:
     dependencies:
       ip-address: 9.0.5
       smart-buffer: 4.2.0
+
+  sonner-native@0.14.2(iginubzp4dxxgdktu246sskfc4):
+    dependencies:
+      react: 18.3.1
+      react-native: 0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1)
+      react-native-gesture-handler: 2.16.2(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
+      react-native-reanimated: 3.10.1(@babel/core@7.24.7)(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
+      react-native-safe-area-context: 4.10.4(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
+      react-native-screens: 3.31.1(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
+      react-native-svg: 15.2.0(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
+    optionalDependencies:
+      nativewind: 4.0.36(@babel/core@7.24.7)(react-native-reanimated@3.10.1(@babel/core@7.24.7)(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1))(react-native-safe-area-context@4.10.4(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1))(react-native-svg@15.2.0(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1))(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.4(ts-node@10.9.2(@types/node@20.14.2)(typescript@5.4.5)))
 
   source-map-js@1.2.0: {}
 

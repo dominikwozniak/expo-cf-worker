@@ -6,9 +6,9 @@ import { useSignIn } from "@clerk/clerk-expo";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import { useAlert } from "~/shared-hooks/useAlert";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
 import { MMKV_ONBOARDING_COMPLETE, mmkvStore } from "~/utils/mmkv-store";
+import { errorToast } from "~/utils/toast";
 
 export interface FormValues {
   email: string;
@@ -20,7 +20,6 @@ export function useLogin() {
   const { signIn, setActive, isLoaded } = useSignIn();
   const { t } = useTranslation();
   const setLoading = useGlobalStore((state) => state.setLoading);
-  const { showAlert } = useAlert();
 
   const {
     handleSubmit,
@@ -57,9 +56,9 @@ export function useLogin() {
           isUserOnboarded ? "/(app)/(tabs)/home" : "/(onboarding)",
         );
       } catch {
-        showAlert({
-          title: t("common.error.baseError.title"),
-          message: t("common.error.baseError.message"),
+        errorToast({
+          title: t("common.error.login.title"),
+          message: t("common.error.login.message"),
         });
       } finally {
         setLoading(false);

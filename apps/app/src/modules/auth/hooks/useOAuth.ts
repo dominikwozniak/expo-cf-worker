@@ -4,10 +4,10 @@ import * as WebBrowser from "expo-web-browser";
 import { useAuth, useOAuth as useOAuthClerk } from "@clerk/clerk-expo";
 import { useTranslation } from "react-i18next";
 
-import { useAlert } from "~/shared-hooks/useAlert";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
 import { useWarmUpBrowser } from "~/shared-hooks/utils/useWarmUpBrowser";
 import { MMKV_ONBOARDING_COMPLETE, mmkvStore } from "~/utils/mmkv-store";
+import { errorToast } from "~/utils/toast";
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -20,7 +20,6 @@ export const useOAuth = () => {
   const { isLoaded } = useAuth();
   const { t } = useTranslation();
   const setLoading = useGlobalStore((state) => state.setLoading);
-  const { showAlert } = useAlert();
 
   const { startOAuthFlow: startOAuthFlowApple } = useOAuthClerk({
     strategy: "oauth_apple",
@@ -72,9 +71,9 @@ export const useOAuth = () => {
         throw new Error("OAuth flow failed");
       }
     } catch {
-      showAlert({
-        title: t("common.error.baseError.title"),
-        message: t("common.error.baseError.message"),
+      errorToast({
+        title: t("common.error.oauth.title"),
+        message: t("common.error.oauth.message"),
       });
     } finally {
       setLoading(false);

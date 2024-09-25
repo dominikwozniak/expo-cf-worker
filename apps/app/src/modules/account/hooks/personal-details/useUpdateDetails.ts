@@ -5,8 +5,8 @@ import { useUser } from "@clerk/clerk-expo";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import { useAlert } from "~/shared-hooks/useAlert";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
+import { errorToast, successToast } from "~/utils/toast";
 
 export interface FormValues {
   firstName: string;
@@ -24,7 +24,6 @@ export function useUpdateDetails(
   const { t } = useTranslation();
 
   const setLoading = useGlobalStore((state) => state.setLoading);
-  const { showAlert } = useAlert();
   const {
     handleSubmit,
     control,
@@ -56,11 +55,16 @@ export function useUpdateDetails(
           ...(lastName && { lastName }),
         });
         Keyboard.dismiss();
+
+        successToast({
+          title: t("common.success.updateProfile.title"),
+          message: t("common.success.updateProfile.message"),
+        });
         onSuccess();
       } catch {
-        showAlert({
-          title: t("common.error.baseError.title"),
-          message: t("common.error.baseError.message"),
+        errorToast({
+          title: t("common.error.updateProfile.title"),
+          message: t("common.error.updateProfile.message"),
         });
       } finally {
         setLoading(false);

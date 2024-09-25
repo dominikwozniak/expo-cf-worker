@@ -1,12 +1,12 @@
 import * as Updates from "expo-updates";
 import { useTranslation } from "react-i18next";
 
-import { useAlert } from "~/shared-hooks/useAlert";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
+import { errorToast } from "~/utils/toast";
 
 export function usePerformUpdate() {
   const { t } = useTranslation();
-  const { showAlert } = useAlert();
+
   const setLoading = useGlobalStore((state) => state.setLoading);
 
   const handleUpdate = async () => {
@@ -25,9 +25,9 @@ export function usePerformUpdate() {
       await Updates.fetchUpdateAsync();
       await Updates.reloadAsync();
     } catch {
-      showAlert({
-        title: t("common.error.baseError.title"),
-        message: t("common.error.baseError.message"),
+      errorToast({
+        title: t("common.error.appUpdate.title"),
+        message: t("common.error.appUpdate.message"),
       });
     } finally {
       setLoading(false);

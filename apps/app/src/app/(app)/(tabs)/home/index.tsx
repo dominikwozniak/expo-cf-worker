@@ -4,6 +4,7 @@ import { useAuth, useUser } from "@clerk/clerk-expo";
 import { Button } from "~/shared-components/Button";
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
 import { Typography } from "~/shared-components/Typography";
+import { infoToast } from "~/utils/toast";
 
 export default function VerifyEmail() {
   const router = useRouter();
@@ -28,6 +29,16 @@ export default function VerifyEmail() {
         className="mt-2"
       >
         Onboarding
+      </Button>
+      <Button
+        onPress={() =>
+          infoToast({ title: "Info toast", message: "This is an info toast" })
+        }
+        backgroundColor="alternative"
+        textColor="alternative"
+        className="mt-2"
+      >
+        Show toast
       </Button>
       <Typography>{JSON.stringify(user, null, 2)}</Typography>
     </ScreenLayout>

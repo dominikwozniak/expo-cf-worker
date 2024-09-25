@@ -6,9 +6,9 @@ import { useSignIn } from "@clerk/clerk-expo";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import { useAlert } from "~/shared-hooks/useAlert";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
 import { MMKV_ONBOARDING_COMPLETE, mmkvStore } from "~/utils/mmkv-store";
+import { errorToast, successToast } from "~/utils/toast";
 
 export interface FormValues {
   code: string;
@@ -18,8 +18,9 @@ export function useVerifyCode() {
   const router = useRouter();
   const { signIn, isLoaded, setActive } = useSignIn();
   const { t } = useTranslation();
+
   const setLoading = useGlobalStore((state) => state.setLoading);
-  const { showAlert } = useAlert();
+
   const {
     handleSubmit,
     control,
@@ -48,14 +49,20 @@ export function useVerifyCode() {
         });
 
         await setActive({ session: completeSignIn.createdSessionId });
+
+        successToast({
+          title: t("common.success.verifyCode.title"),
+          message: t("common.success.verifyCode.message"),
+        });
+
         const isUserOnboarded = mmkvStore.getBoolean(MMKV_ONBOARDING_COMPLETE);
         router.replace(
           isUserOnboarded ? "/(app)/(tabs)/home" : "/(onboarding)",
         );
       } catch {
-        showAlert({
-          title: t("common.error.baseError.title"),
-          message: t("common.error.baseError.message"),
+        errorToast({
+          title: t("common.error.verifyCode.title"),
+          message: t("common.error.verifyCode.message"),
         });
       } finally {
         setLoading(false);

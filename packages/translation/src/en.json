@@ -216,6 +216,52 @@
       "confirm": "Ok",
       "cancel": "Cancel"
     },
+    "success": {
+      "baseSuccess": {
+        "title": "Success!",
+        "message": "Operation completed successfully."
+      },
+      "register": {
+        "title": "Account Created!",
+        "message": "Your account has been successfully created."
+      },
+      "forgotPassword": {
+        "title": "Forgot Password Email Sent!",
+        "message": "Please check your email for a code to login into your account."
+      },
+      "resetPassword": {
+        "title": "Reset Password Email Sent!",
+        "message": "Please check your email for a code to reset your password."
+      },
+      "verifyEmail": {
+        "title": "Email Verified!",
+        "message": "Your email has been successfully verified."
+      },
+      "verifyCode": {
+        "title": "Code Verified!",
+        "message": "Your code has been successfully verified."
+      },
+      "updateProfile": {
+        "title": "Profile Updated!",
+        "message": "Your profile has been successfully updated."
+      },
+      "updateImage": {
+        "title": "Image Updated!",
+        "message": "Your image has been successfully updated."
+      },
+      "updatePassword": {
+        "title": "Password Updated!",
+        "message": "Your password has been successfully updated."
+      },
+      "deleteAccount": {
+        "title": "Account Deleted!",
+        "message": "Your account has been successfully deleted."
+      },
+      "logout": {
+        "title": "Logged Out!",
+        "message": "You have been successfully logged out."
+      }
+    },
     "error": {
       "baseError": {
         "title": "Error Occurred!",
@@ -224,6 +270,54 @@
       "passwordNotMatch": {
         "title": "Password Not Match!",
         "message": "Please make sure your password and confirm password are the same."
+      },
+      "oauth": {
+        "title": "OAuth Error",
+        "message": "Something went wrong with the OAuth process. Please try again later."
+      },
+      "login": {
+        "title": "Login Error",
+        "message": "Something went wrong with the login process. Please try again later."
+      },
+      "register": {
+        "title": "Register Error",
+        "message": "Something went wrong with the register process. Please try again later."
+      },
+      "forgotPassword": {
+        "title": "Forgot Password Error",
+        "message": "Something went wrong with the forgot password process. Please try again later."
+      },
+      "resetPassword": {
+        "title": "Reset Password Error",
+        "message": "Something went wrong with the reset password process. Please try again later."
+      },
+      "verifyEmail": {
+        "title": "Verify Email Error",
+        "message": "Something went wrong with the verify email process. Please try again later."
+      },
+      "verifyCode": {
+        "title": "Verify Code Error",
+        "message": "Something went wrong with the verify code process. Please try again later."
+      },
+      "updateProfile": {
+        "title": "Update Profile Error",
+        "message": "Something went wrong with the update profile process. Please try again later."
+      },
+      "updatePassword": {
+        "title": "Update Password Error",
+        "message": "Something went wrong with the update password process. Please try again later."
+      },
+      "updateImage": {
+        "title": "Update Image Error",
+        "message": "Something went wrong with the update image process. Please try again later."
+      },
+      "deleteAccount": {
+        "title": "Delete Account Error",
+        "message": "Something went wrong with the delete account process. Please try again later."
+      },
+      "appUpdate": {
+        "title": "App Update Error",
+        "message": "Something went wrong with the app update process. Please try again later."
       }
     },
     "input": {

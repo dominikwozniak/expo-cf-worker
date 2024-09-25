@@ -3,6 +3,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { ClerkProvider } from "@clerk/clerk-expo";
 import { ActionSheetProvider } from "@expo/react-native-action-sheet";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import { Toaster } from "sonner-native";
 
 import { AlertProvider } from "~/shared-components/providers/AlertProvider";
 import { ThemeProvider } from "~/shared-components/providers/ThemeProvider";
@@ -25,7 +26,10 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
           <ActionSheetProvider>
             <AlertProvider>
               <BottomSheetModalProvider>
-                <TRPCProvider>{children}</TRPCProvider>
+                <TRPCProvider>
+                  {children}
+                  <Toaster />
+                </TRPCProvider>
               </BottomSheetModalProvider>
             </AlertProvider>
           </ActionSheetProvider>
