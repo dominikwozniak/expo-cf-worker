@@ -50,7 +50,7 @@ export function TopBar({
   };
 
   return (
-    <View className={containerStyle} {...props}>
+    <View className={containerStyle} accessibilityRole="header" {...props}>
       {!isBackButtonHidden ? (
         <TouchableOpacity
           className="absolute left-4 top-0 h-full"
