@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 
 import { useAlert } from "~/shared-hooks/useAlert";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
+import { MMKV_ONBOARDING_COMPLETE, mmkvStore } from "~/utils/mmkv-store";
 
 export interface FormValues {
   code: string;
@@ -47,7 +48,10 @@ export function useVerifyCode() {
         });
 
         await setActive({ session: completeSignIn.createdSessionId });
-        router.replace("/(app)/(tabs)/home");
+        const isUserOnboarded = mmkvStore.getBoolean(MMKV_ONBOARDING_COMPLETE);
+        router.replace(
+          isUserOnboarded ? "/(app)/(tabs)/home" : "/(onboarding)",
+        );
       } catch {
         showAlert({
           title: t("common.error.baseError.title"),

@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import { useAlert } from "~/shared-hooks/useAlert";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
 import { useWarmUpBrowser } from "~/shared-hooks/utils/useWarmUpBrowser";
+import { MMKV_ONBOARDING_COMPLETE, mmkvStore } from "~/utils/mmkv-store";
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -63,7 +64,10 @@ export const useOAuth = () => {
 
       if (createdSessionId && setActive) {
         void setActive({ session: createdSessionId });
-        router.replace("/(app)/(tabs)/home");
+        const isUserOnboarded = mmkvStore.getBoolean(MMKV_ONBOARDING_COMPLETE);
+        router.replace(
+          isUserOnboarded ? "/(app)/(tabs)/home" : "/(onboarding)",
+        );
       } else {
         throw new Error("OAuth flow failed");
       }

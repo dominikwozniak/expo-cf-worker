@@ -39,7 +39,7 @@ export function Avatar({ src, alt, className, ...props }: AvatarProps) {
       {imageError ? (
         <View
           role="img"
-          aria-label={alt}
+          accessibilityLabel={alt}
           className="bg-muted flex h-full w-full items-center justify-center rounded-full"
         >
           <Typography>{fallbackText}</Typography>

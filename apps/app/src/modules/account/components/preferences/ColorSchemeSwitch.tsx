@@ -19,7 +19,6 @@ export function ColorSchemeSwitch() {
     <Switch
       value={value}
       onValueChange={handleChange}
-      aria-label={t("account.preferencesScreen.darkMode.label")}
       accessibilityLabel={t("account.preferencesScreen.darkMode.label")}
     />
   );
