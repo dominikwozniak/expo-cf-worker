@@ -1,18 +1,18 @@
 import { useEffect } from "react";
 import { useUser } from "@clerk/clerk-expo";
-import { setUser } from "@sentry/react-native";
+import { setUser as setSentryUser} from "@sentry/react-native";
 
 export function useSentry() {
   const { user } = useUser();
 
   useEffect(() => {
     if (user) {
-      setUser({
+      setSentryUser({
         id: user.id,
-        email: user.primaryEmailAddress?.emailAddress,
+        email: user.emailAddresses[0]?.emailAddress,
       });
     } else {
-      setUser(null);
+      setSentryUser(null);
     }
   }, [user]);
 }

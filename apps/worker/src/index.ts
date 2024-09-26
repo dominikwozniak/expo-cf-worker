@@ -1,3 +1,4 @@
+import { sentry } from "@hono/sentry";
 import { trpcServer } from "@hono/trpc-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
@@ -7,6 +8,7 @@ import { appRouter, createContext } from "@acme/trpc";
 
 const app = new Hono<{ Bindings: Env }>();
 
+app.use("*", sentry());
 app.use(
   "*",
   cors({
@@ -37,5 +39,10 @@ app.use(
     },
   }),
 );
+
+app.onError((error, c) => {
+  c.get("sentry").captureException(error);
+  return c.text("Internal Server Error", 500);
+});
 
 export default app;
