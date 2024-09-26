@@ -1,6 +1,7 @@
 import { useRouter } from "expo-router";
 import { useAuth, useUser } from "@clerk/clerk-expo";
 import { captureException } from "@sentry/react-native";
+import { usePostHog } from "posthog-react-native";
 
 import { Button } from "~/shared-components/Button";
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
@@ -11,6 +12,7 @@ export default function VerifyEmail() {
   const router = useRouter();
   const { user } = useUser();
   const { signOut } = useAuth();
+  const posthog = usePostHog();
 
   return (
     <ScreenLayout>
@@ -48,6 +50,14 @@ export default function VerifyEmail() {
         className="mt-2"
       >
         Trace Error
+      </Button>
+      <Button
+        onPress={() => posthog.capture("Button clicked")}
+        backgroundColor="alternative"
+        textColor="alternative"
+        className="mt-2"
+      >
+        PostHog capture
       </Button>
       <Typography>{JSON.stringify(user, null, 2)}</Typography>
     </ScreenLayout>

@@ -86,9 +86,15 @@ importers:
       expo-dev-client:
         specifier: ~4.0.13
         version: 4.0.16(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
+      expo-device:
+        specifier: ~6.0.2
+        version: 6.0.2(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
       expo-dynamic-app-icon:
         specifier: ^1.2.0
         version: 1.2.0(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
+      expo-file-system:
+        specifier: ~17.0.1
+        version: 17.0.1(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
       expo-font:
         specifier: ~12.0.7
         version: 12.0.7(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
@@ -134,6 +140,9 @@ importers:
       nativewind:
         specifier: ~4.0.36
         version: 4.0.36(@babel/core@7.24.7)(react-native-reanimated@3.10.1(@babel/core@7.24.7)(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1))(react-native-safe-area-context@4.10.4(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1))(react-native-svg@15.2.0(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1))(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.4(ts-node@10.9.2(@types/node@20.14.2)(typescript@5.4.5)))
+      posthog-react-native:
+        specifier: ^3.3.0
+        version: 3.3.0(@react-navigation/native@6.1.17(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1))(expo-application@5.9.1(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))))(expo-device@6.0.2(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))))(expo-file-system@17.0.1(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))))(expo-localization@15.0.3(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))))
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -234,6 +243,9 @@ importers:
       '@acme/trpc':
         specifier: workspace:*
         version: link:../../packages/trpc
+      '@hono/sentry':
+        specifier: ^1.2.0
+        version: 1.2.0(hono@4.4.5)
       '@hono/trpc-server':
         specifier: ^0.3.1
         version: 0.3.1(@trpc/server@11.0.0-rc.364)(hono@4.4.5)
@@ -279,10 +291,10 @@ importers:
         version: 0.10.1(typescript@5.4.5)(zod@3.23.8)
       drizzle-orm:
         specifier: ^0.31.2
-        version: 0.31.2(@cloudflare/workers-types@4.20240605.0)(@types/react@18.3.3)(better-sqlite3@11.0.0)(react@18.3.1)
+        version: 0.31.2(@cloudflare/workers-types@4.20240605.0)(@opentelemetry/api@1.9.0)(@types/pg@8.6.1)(@types/react@18.3.3)(better-sqlite3@11.0.0)(react@18.3.1)
       drizzle-zod:
         specifier: ^0.5.1
-        version: 0.5.1(drizzle-orm@0.31.2(@cloudflare/workers-types@4.20240605.0)(@types/react@18.3.3)(better-sqlite3@11.0.0)(react@18.3.1))(zod@3.23.8)
+        version: 0.5.1(drizzle-orm@0.31.2(@cloudflare/workers-types@4.20240605.0)(@opentelemetry/api@1.9.0)(@types/pg@8.6.1)(@types/react@18.3.3)(better-sqlite3@11.0.0)(react@18.3.1))(zod@3.23.8)
     devDependencies:
       '@acme/eslint-config':
         specifier: workspace:*
@@ -392,7 +404,7 @@ importers:
         version: 7.34.2(eslint@9.4.0)
       eslint-plugin-react-hooks:
         specifier: rc
-        version: 5.1.0-rc-f9ebd85a-20240925(eslint@9.4.0)
+        version: 5.1.0-rc-204a551e-20240926(eslint@9.4.0)
       eslint-plugin-turbo:
         specifier: ^2.0.3
         version: 2.0.3(eslint@9.4.0)
@@ -1985,6 +1997,11 @@ packages:
   '@hapi/topo@5.1.0':
     resolution: {integrity: sha512-foQZKJig7Ob0BMAYBfcJk8d77QtOe7Wo4ox7ff1lQYoNNAb6jwcY1ncdoy2e9wQZzvNy7ODZCYJkK8kzmcAnAg==}
 
+  '@hono/sentry@1.2.0':
+    resolution: {integrity: sha512-9mS8GrkGtR4YxM1CViL4Ft8LFQ9YhCoXeqKnUA1AUmrvA5PhUU/V+xoo8Autw0nVriin3liX5/lPrwWz3muwiw==}
+    peerDependencies:
+      hono: '>=3.*'
+
   '@hono/trpc-server@0.3.1':
     resolution: {integrity: sha512-2FgDUv6ngrDA8pu/hb8hTqUyEgsT7PbYriTVKJoYxlqW8nnCqubruZ/14IQ/MCkBPXKVefnqUCJNAytW1Su++A==}
     engines: {node: '>=16.0.0'}
@@ -2083,6 +2100,10 @@ packages:
   '@npmcli/fs@3.1.1':
     resolution: {integrity: sha512-q9CRWjpHCMIh5sVyefoD1cA7PkvILqCZsnSOEUUivORLjxCO/Irmue2DprETiNgEqktDBZaM1Bi+jrarx1XdCg==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
+
+  '@opentelemetry/api@1.9.0':
+    resolution: {integrity: sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg==}
+    engines: {node: '>=8.0.0'}
 
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -2354,6 +2375,10 @@ packages:
     resolution: {integrity: sha512-CS2kUv9rAJJEjiRat6wle3JATHypB0SyD7pt4cpX5y0dN5dZ1JrF57oLHRMnga9fxRivydHz7tMTuBhSSwhzjw==}
     engines: {node: '>=8'}
 
+  '@sentry/core@8.9.2':
+    resolution: {integrity: sha512-ixm8NISFlPlEo3FjSaqmq4nnd13BRHoafwJ5MG+okCz6BKGZ1SexEggP42/QpGvDprUUHnfncG6WUMgcarr1zA==}
+    engines: {node: '>=14.18'}
+
   '@sentry/hub@7.119.0':
     resolution: {integrity: sha512-183h5B/rZosLxpB+ZYOvFdHk0rwZbKskxqKFtcyPbDAfpCUgCass41UTqyxF6aH1qLgCRxX8GcLRF7frIa/SOg==}
     engines: {node: '>=8'}
@@ -2387,9 +2412,17 @@ packages:
     resolution: {integrity: sha512-27qQbutDBPKGbuJHROxhIWc1i0HJaGLA90tjMu11wt0E4UNxXRX+UQl4Twu68v4EV3CPvQcEpQfgsViYcXmq+w==}
     engines: {node: '>=8'}
 
+  '@sentry/types@8.9.2':
+    resolution: {integrity: sha512-+LFOyQGl+zk5SZRGZD2MEURf7i5RHgP/mt3s85Rza+vz8M211WJ0YsjkIGUJFSY842nged5QLx4JysLaBlLymg==}
+    engines: {node: '>=14.18'}
+
   '@sentry/utils@7.119.0':
     resolution: {integrity: sha512-ZwyXexWn2ZIe2bBoYnXJVPc2esCSbKpdc6+0WJa8eutXfHq3FRKg4ohkfCBpfxljQGEfP1+kfin945lA21Ka+A==}
     engines: {node: '>=8'}
+
+  '@sentry/utils@8.9.2':
+    resolution: {integrity: sha512-A4srR9mEBFdVXwSEKjQ94msUbVkMr8JeFiEj9ouOFORw/Y/ux/WV2bWVD/ZI9wq0TcTNK8L1wBgU8UMS5lIq3A==}
+    engines: {node: '>=14.18'}
 
   '@shopify/flash-list@1.6.4':
     resolution: {integrity: sha512-M2momcnY7swsvmpHIFDVbdOaFw4aQocJXA/lFP0Gpz+alQjFylqVKvszxl4atYO2SNbjxlb2L6hEP9WEcAknGQ==}
@@ -2529,6 +2562,9 @@ packages:
 
   '@types/parse-json@4.0.2':
     resolution: {integrity: sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw==}
+
+  '@types/pg@8.6.1':
+    resolution: {integrity: sha512-1Kc4oAGzAl7uqUStZCDvaLFqZrW9qWSjXOmBfdgyBP5La7Us6Mg4GBvRlSoaZMhQF/zSj1C8CtKMBkoiT8eL8w==}
 
   '@types/prop-types@15.7.12':
     resolution: {integrity: sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==}
@@ -3755,8 +3791,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
 
-  eslint-plugin-react-hooks@5.1.0-rc-f9ebd85a-20240925:
-    resolution: {integrity: sha512-poLblSkeeqf7NO/S8UceBVVpYq49ifmN8V4rW5BNz8KkQyEeFoF7KjhIYCdZHfew6C7nzBJIPN6U6W2h47CDxg==}
+  eslint-plugin-react-hooks@5.1.0-rc-204a551e-20240926:
+    resolution: {integrity: sha512-jJPRdt9j5FEMTQfOcRaOaJX2VmycFrteVK3oDkTc8w7jZROR4OqA5JUElK1h5z1Bu+5TTH+hwQq8Rr/bULHXxA==}
     engines: {node: '>=10'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
@@ -3884,6 +3920,11 @@ packages:
 
   expo-dev-menu@5.0.15:
     resolution: {integrity: sha512-a5aADQXOH/uw2NDy4fbgVl9wkAcZIfkrz8yzwQz0X6Yvf0a68zafqxSvvYkq+MmUTrFsuiST49s+mk4uRqHJMw==}
+    peerDependencies:
+      expo: '*'
+
+  expo-device@6.0.2:
+    resolution: {integrity: sha512-sCt91CuTmAuMXX4SlFOn4lIos2UIr8vb0jDstDDZXys6kErcj0uynC7bQAMreU5uRUTKMAl4MAMpKt9ufCXPBw==}
     peerDependencies:
       expo: '*'
 
@@ -5644,6 +5685,17 @@ packages:
   pathe@1.1.2:
     resolution: {integrity: sha512-whLdWMYL2TwI08hn8/ZqAbrVemu0LNaNNJZX73O6qaIdCTfXutsLhMkjdENX0qhsQ9uIimo4/aQOmXkoon2nDQ==}
 
+  pg-int8@1.0.1:
+    resolution: {integrity: sha512-WCtabS6t3c8SkpDBUlb1kjOs7l66xsGdKpIPZsg4wR+B3+u9UAum2odSsF9tnvxg80h4ZxLWMy4pRjOsFIqQpw==}
+    engines: {node: '>=4.0.0'}
+
+  pg-protocol@1.7.0:
+    resolution: {integrity: sha512-hTK/mE36i8fDDhgDFjy6xNOG+LCorxLG3WO17tku+ij6sVHXh1jQUJ8hYAnRhNla4QVD2H8er/FOjc/+EgC6yQ==}
+
+  pg-types@2.2.0:
+    resolution: {integrity: sha512-qTAAlrEsl8s4OiEQY69wDvcMIdQN6wdz5ojQiOy6YRMuynxenON0O5oCpJI6lshc6scgAY8qvJ2On/p+CXY0GA==}
+    engines: {node: '>=4'}
+
   picocolors@1.0.1:
     resolution: {integrity: sha512-anP1Z8qwhkbmu7MFP5iTt+wQKXgwzf7zTyGlcdzabySa9vd0Xt392U0rVmz9poOaBj0uHJKyyo9/upk0HrEQew==}
 
@@ -5723,6 +5775,54 @@ packages:
   postcss@8.4.38:
     resolution: {integrity: sha512-Wglpdk03BSfXkHoQa3b/oulrotAkwrlLDRSOb9D0bN86FdRyE9lppSp33aHNPgBa0JKCoB+drFLZkQoRRYae5A==}
     engines: {node: ^10 || ^12 || >=14}
+
+  postgres-array@2.0.0:
+    resolution: {integrity: sha512-VpZrUqU5A69eQyW2c5CA1jtLecCsN2U/bD6VilrFDWq5+5UIEVO7nazS3TEcHf1zuPYO/sqGvUvW62g86RXZuA==}
+    engines: {node: '>=4'}
+
+  postgres-bytea@1.0.0:
+    resolution: {integrity: sha512-xy3pmLuQqRBZBXDULy7KbaitYqLcmxigw14Q5sj8QBVLqEwXfeybIKVWiqAXTlcvdvb0+xkOtDbfQMOf4lST1w==}
+    engines: {node: '>=0.10.0'}
+
+  postgres-date@1.0.7:
+    resolution: {integrity: sha512-suDmjLVQg78nMK2UZ454hAG+OAW+HQPZ6n++TNDUX+L0+uUlLywnoxJKDou51Zm+zTCjrCl0Nq6J9C5hP9vK/Q==}
+    engines: {node: '>=0.10.0'}
+
+  postgres-interval@1.2.0:
+    resolution: {integrity: sha512-9ZhXKM/rw350N1ovuWHbGxnGh/SNJ4cnxHiM0rxE4VN41wsg8P8zWn9hv/buK00RP4WvlOyr/RBDiptyxVbkZQ==}
+    engines: {node: '>=0.10.0'}
+
+  posthog-react-native@3.3.0:
+    resolution: {integrity: sha512-qz2oH/G8I51WZmeFITSiXubQREIYhhHsBUIKQGv0RLK1s5LbNXshyyWF6iE/d+bnhnsGKtl3/IWlOD2g7LL0TQ==}
+    peerDependencies:
+      '@react-native-async-storage/async-storage': '>=1.0.0'
+      '@react-navigation/native': '>= 5.0.10'
+      expo-application: '>= 4.0.0'
+      expo-device: '>= 4.0.0'
+      expo-file-system: '>= 13.0.0'
+      expo-localization: '>= 11.0.0'
+      posthog-react-native-session-replay: '>=0.1.1'
+      react-native-device-info: '>= 10.0.0'
+      react-native-navigation: '>=6.0.0'
+    peerDependenciesMeta:
+      '@react-native-async-storage/async-storage':
+        optional: true
+      '@react-navigation/native':
+        optional: true
+      expo-application:
+        optional: true
+      expo-device:
+        optional: true
+      expo-file-system:
+        optional: true
+      expo-localization:
+        optional: true
+      posthog-react-native-session-replay:
+        optional: true
+      react-native-device-info:
+        optional: true
+      react-native-navigation:
+        optional: true
 
   prebuild-install@7.1.2:
     resolution: {integrity: sha512-UnNke3IQb6sgarcZIDU3gbMeTp/9SSU1DAIkil7PrqG1vZlBtY5msYccSKSHDqa3hNg436IXK+SNImReuA1wEQ==}
@@ -6689,6 +6789,9 @@ packages:
     resolution: {integrity: sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==}
     engines: {node: '>=0.6'}
 
+  toucan-js@4.0.0:
+    resolution: {integrity: sha512-FkF7uBztiyjs2WxVt54akH3pFWDcu61RwHsdH2oB0KGailstKEB/xmgMHiE6mft4YCnZi88uM2RPWZVZrA5r1w==}
+
   tr46@0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
 
@@ -6837,6 +6940,10 @@ packages:
   typescript@5.4.5:
     resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
     engines: {node: '>=14.17'}
+    hasBin: true
+
+  ua-parser-js@0.7.39:
+    resolution: {integrity: sha512-IZ6acm6RhQHNibSt7+c09hhvsKy9WUr4DVbeq9U8o71qxyYtJpQeDxQnMrVqnIFMLcQjHO0I9wgfO2vIahht4w==}
     hasBin: true
 
   ua-parser-js@1.0.38:
@@ -9061,6 +9168,11 @@ snapshots:
     dependencies:
       '@hapi/hoek': 9.3.0
 
+  '@hono/sentry@1.2.0(hono@4.4.5)':
+    dependencies:
+      hono: 4.4.5
+      toucan-js: 4.0.0
+
   '@hono/trpc-server@0.3.1(@trpc/server@11.0.0-rc.364)(hono@4.4.5)':
     dependencies:
       '@trpc/server': 11.0.0-rc.364
@@ -9180,6 +9292,9 @@ snapshots:
   '@npmcli/fs@3.1.1':
     dependencies:
       semver: 7.6.2
+
+  '@opentelemetry/api@1.9.0':
+    optional: true
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -9683,6 +9798,11 @@ snapshots:
       '@sentry/types': 7.119.0
       '@sentry/utils': 7.119.0
 
+  '@sentry/core@8.9.2':
+    dependencies:
+      '@sentry/types': 8.9.2
+      '@sentry/utils': 8.9.2
+
   '@sentry/hub@7.119.0':
     dependencies:
       '@sentry/core': 7.119.0
@@ -9733,9 +9853,15 @@ snapshots:
 
   '@sentry/types@7.119.0': {}
 
+  '@sentry/types@8.9.2': {}
+
   '@sentry/utils@7.119.0':
     dependencies:
       '@sentry/types': 7.119.0
+
+  '@sentry/utils@8.9.2':
+    dependencies:
+      '@sentry/types': 8.9.2
 
   '@shopify/flash-list@1.6.4(@babel/runtime@7.24.7)(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -9904,6 +10030,13 @@ snapshots:
       undici-types: 5.26.5
 
   '@types/parse-json@4.0.2': {}
+
+  '@types/pg@8.6.1':
+    dependencies:
+      '@types/node': 20.14.2
+      pg-protocol: 1.7.0
+      pg-types: 2.2.0
+    optional: true
 
   '@types/prop-types@15.7.12': {}
 
@@ -10964,16 +11097,18 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.31.2(@cloudflare/workers-types@4.20240605.0)(@types/react@18.3.3)(better-sqlite3@11.0.0)(react@18.3.1):
+  drizzle-orm@0.31.2(@cloudflare/workers-types@4.20240605.0)(@opentelemetry/api@1.9.0)(@types/pg@8.6.1)(@types/react@18.3.3)(better-sqlite3@11.0.0)(react@18.3.1):
     optionalDependencies:
       '@cloudflare/workers-types': 4.20240605.0
+      '@opentelemetry/api': 1.9.0
+      '@types/pg': 8.6.1
       '@types/react': 18.3.3
       better-sqlite3: 11.0.0
       react: 18.3.1
 
-  drizzle-zod@0.5.1(drizzle-orm@0.31.2(@cloudflare/workers-types@4.20240605.0)(@types/react@18.3.3)(better-sqlite3@11.0.0)(react@18.3.1))(zod@3.23.8):
+  drizzle-zod@0.5.1(drizzle-orm@0.31.2(@cloudflare/workers-types@4.20240605.0)(@opentelemetry/api@1.9.0)(@types/pg@8.6.1)(@types/react@18.3.3)(better-sqlite3@11.0.0)(react@18.3.1))(zod@3.23.8):
     dependencies:
-      drizzle-orm: 0.31.2(@cloudflare/workers-types@4.20240605.0)(@types/react@18.3.3)(better-sqlite3@11.0.0)(react@18.3.1)
+      drizzle-orm: 0.31.2(@cloudflare/workers-types@4.20240605.0)(@opentelemetry/api@1.9.0)(@types/pg@8.6.1)(@types/react@18.3.3)(better-sqlite3@11.0.0)(react@18.3.1)
       zod: 3.23.8
 
   eastasianwidth@0.2.0: {}
@@ -11275,7 +11410,7 @@ snapshots:
       object.entries: 1.1.8
       object.fromentries: 2.0.8
 
-  eslint-plugin-react-hooks@5.1.0-rc-f9ebd85a-20240925(eslint@9.4.0):
+  eslint-plugin-react-hooks@5.1.0-rc-204a551e-20240926(eslint@9.4.0):
     dependencies:
       eslint: 9.4.0
 
@@ -11477,6 +11612,11 @@ snapshots:
       expo: 51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))
       expo-dev-menu-interface: 1.8.3(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
       semver: 7.6.2
+
+  expo-device@6.0.2(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))):
+    dependencies:
+      expo: 51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))
+      ua-parser-js: 0.7.39
 
   expo-dynamic-app-icon@1.2.0(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1):
     dependencies:
@@ -13467,6 +13607,21 @@ snapshots:
 
   pathe@1.1.2: {}
 
+  pg-int8@1.0.1:
+    optional: true
+
+  pg-protocol@1.7.0:
+    optional: true
+
+  pg-types@2.2.0:
+    dependencies:
+      pg-int8: 1.0.1
+      postgres-array: 2.0.0
+      postgres-bytea: 1.0.0
+      postgres-date: 1.0.7
+      postgres-interval: 1.2.0
+    optional: true
+
   picocolors@1.0.1: {}
 
   picomatch@2.3.1: {}
@@ -13530,6 +13685,28 @@ snapshots:
       nanoid: 3.3.7
       picocolors: 1.0.1
       source-map-js: 1.2.0
+
+  postgres-array@2.0.0:
+    optional: true
+
+  postgres-bytea@1.0.0:
+    optional: true
+
+  postgres-date@1.0.7:
+    optional: true
+
+  postgres-interval@1.2.0:
+    dependencies:
+      xtend: 4.0.2
+    optional: true
+
+  posthog-react-native@3.3.0(@react-navigation/native@6.1.17(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1))(expo-application@5.9.1(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))))(expo-device@6.0.2(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))))(expo-file-system@17.0.1(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))))(expo-localization@15.0.3(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))):
+    optionalDependencies:
+      '@react-navigation/native': 6.1.17(react-native@0.74.2(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
+      expo-application: 5.9.1(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
+      expo-device: 6.0.2(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
+      expo-file-system: 17.0.1(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
+      expo-localization: 15.0.3(expo@51.0.14(@babel/core@7.24.7)(@babel/preset-env@7.24.7(@babel/core@7.24.7)))
 
   prebuild-install@7.1.2:
     dependencies:
@@ -14587,6 +14764,12 @@ snapshots:
 
   toidentifier@1.0.1: {}
 
+  toucan-js@4.0.0:
+    dependencies:
+      '@sentry/core': 8.9.2
+      '@sentry/types': 8.9.2
+      '@sentry/utils': 8.9.2
+
   tr46@0.0.3: {}
 
   traverse@0.6.9:
@@ -14738,6 +14921,8 @@ snapshots:
       - supports-color
 
   typescript@5.4.5: {}
+
+  ua-parser-js@0.7.39: {}
 
   ua-parser-js@1.0.38: {}
 
