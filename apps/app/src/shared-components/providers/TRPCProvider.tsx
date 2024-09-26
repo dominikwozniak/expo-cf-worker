@@ -2,15 +2,10 @@ import { useState } from "react";
 import { useAuth } from "@clerk/clerk-expo";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink, loggerLink } from "@trpc/client";
-import { createTRPCReact } from "@trpc/react-query";
 import superjson from "superjson";
 
-import type { AppRouter } from "@acme/trpc";
-
-import { getBaseUrl } from "./base-url";
-
-export const api = createTRPCReact<AppRouter>();
-export { type RouterInputs, type RouterOutputs } from "@acme/trpc";
+import { trpcUrl } from "~/config";
+import { api } from "~/utils/api";
 
 export function TRPCProvider(props: { children: React.ReactNode }) {
   const { getToken } = useAuth();
@@ -27,7 +22,7 @@ export function TRPCProvider(props: { children: React.ReactNode }) {
         }),
         httpBatchLink({
           transformer: superjson,
-          url: `${getBaseUrl()}/trpc`,
+          url: `${trpcUrl}/trpc`,
           async headers() {
             const authToken = await getToken();
 

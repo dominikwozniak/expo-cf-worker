@@ -2,6 +2,7 @@ import type { SubmitHandler } from "react-hook-form";
 import { useCallback } from "react";
 import { Keyboard } from "react-native";
 import { useUser } from "@clerk/clerk-expo";
+import { captureException } from "@sentry/react-native";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
@@ -61,7 +62,10 @@ export function useUpdateDetails(
           message: t("common.success.updateProfile.message"),
         });
         onSuccess();
-      } catch {
+      } catch (error) {
+        captureException(new Error("Failed to update details"), {
+          extra: { error },
+        });
         errorToast({
           title: t("common.error.updateProfile.title"),
           message: t("common.error.updateProfile.message"),

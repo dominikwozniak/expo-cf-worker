@@ -1,5 +1,6 @@
 import * as ImagePicker from "expo-image-picker";
 import { useUser } from "@clerk/clerk-expo";
+import { captureException } from "@sentry/react-native";
 import { useTranslation } from "react-i18next";
 
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
@@ -31,7 +32,10 @@ export function useUpdateAvatar() {
           message: t("common.success.updateImage.message"),
         });
       }
-    } catch {
+    } catch (error) {
+      captureException(new Error("Failed to update avatar"), {
+        extra: { error },
+      });
       errorToast({
         title: t("common.error.updateImage.title"),
         message: t("common.error.updateImage.message"),

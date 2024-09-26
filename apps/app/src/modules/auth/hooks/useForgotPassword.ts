@@ -3,6 +3,7 @@ import { useCallback } from "react";
 import { Keyboard } from "react-native";
 import { useRouter } from "expo-router";
 import { useSignIn } from "@clerk/clerk-expo";
+import { captureException } from "@sentry/react-native";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
@@ -50,7 +51,10 @@ export function useForgotPassword() {
           message: t("common.success.forgotPassword.message"),
         });
         router.push("/(utils)/verify-code");
-      } catch {
+      } catch (error) {
+        captureException(new Error("Failed to forgot password"), {
+          extra: { error },
+        });
         errorToast({
           title: t("common.error.forgotPassword.title"),
           message: t("common.error.forgotPassword.message"),

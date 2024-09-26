@@ -1,5 +1,6 @@
 import { useRouter } from "expo-router";
 import { useAuth, useUser } from "@clerk/clerk-expo";
+import { captureException } from "@sentry/react-native";
 
 import { Button } from "~/shared-components/Button";
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
@@ -39,6 +40,14 @@ export default function VerifyEmail() {
         className="mt-2"
       >
         Show toast
+      </Button>
+      <Button
+        onPress={() => captureException(new Error("First error"))}
+        backgroundColor="alternative"
+        textColor="alternative"
+        className="mt-2"
+      >
+        Trace Error
       </Button>
       <Typography>{JSON.stringify(user, null, 2)}</Typography>
     </ScreenLayout>

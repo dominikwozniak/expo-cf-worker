@@ -1,4 +1,5 @@
 import * as SecureStore from "expo-secure-store";
+import { captureException } from "@sentry/react-native";
 
 export const tokenCache = {
   async getToken(key: string) {
@@ -11,7 +12,9 @@ export const tokenCache = {
 
       return item;
     } catch (error) {
-      console.error("SecureStore get item error: ", error);
+      captureException(new Error("SecureStore get item error"), {
+        extra: { error },
+      });
       await SecureStore.deleteItemAsync(key);
       return null;
     }

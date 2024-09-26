@@ -1,4 +1,5 @@
 import * as Updates from "expo-updates";
+import { captureException } from "@sentry/react-native";
 import { useTranslation } from "react-i18next";
 
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
@@ -24,7 +25,8 @@ export function usePerformUpdate() {
 
       await Updates.fetchUpdateAsync();
       await Updates.reloadAsync();
-    } catch {
+    } catch (error) {
+      captureException(new Error("Failed to update app"), { extra: { error } });
       errorToast({
         title: t("common.error.appUpdate.title"),
         message: t("common.error.appUpdate.message"),

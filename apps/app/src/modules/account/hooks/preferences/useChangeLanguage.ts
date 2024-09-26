@@ -1,7 +1,8 @@
 import { useActionSheet } from "@expo/react-native-action-sheet";
 import { useTranslation } from "react-i18next";
 
-import { MMKV_LANGUAGE, mmkvStore } from "~/utils/mmkv-store";
+import { mmkvConfig } from "~/config";
+import { mmkvStore } from "~/utils/mmkv-store";
 
 export function useChangeLanguage() {
   const { showActionSheetWithOptions } = useActionSheet();
@@ -18,7 +19,7 @@ export function useChangeLanguage() {
   const cancelButtonIndex = 2;
 
   const changeLanguage = (language: string) => {
-    mmkvStore.set(MMKV_LANGUAGE, language);
+    mmkvStore.set(mmkvConfig.language, language);
     void i18n.changeLanguage(language);
   };
 

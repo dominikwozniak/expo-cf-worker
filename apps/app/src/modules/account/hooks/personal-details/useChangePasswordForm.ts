@@ -2,6 +2,7 @@ import type { SubmitHandler } from "react-hook-form";
 import { useCallback } from "react";
 import { Keyboard } from "react-native";
 import { useUser } from "@clerk/clerk-expo";
+import { captureException } from "@sentry/react-native";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
@@ -58,7 +59,10 @@ export function useChangePasswordForm(onSuccess: () => void) {
         });
 
         onSuccess();
-      } catch {
+      } catch (error) {
+        captureException(new Error("Failed to change password"), {
+          extra: { error },
+        });
         errorToast({
           title: t("common.error.updatePassword.title"),
           message: t("common.error.updatePassword.message"),

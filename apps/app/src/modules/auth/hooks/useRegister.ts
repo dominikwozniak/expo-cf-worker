@@ -3,6 +3,7 @@ import { useCallback } from "react";
 import { Keyboard } from "react-native";
 import { useRouter } from "expo-router";
 import { useSignUp } from "@clerk/clerk-expo";
+import { captureException } from "@sentry/react-native";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
@@ -68,7 +69,8 @@ export function useRegister() {
         });
 
         router.push("/(utils)/verify-email");
-      } catch {
+      } catch (error) {
+        captureException(new Error("Failed to register"), { extra: { error } });
         errorToast({
           title: t("common.error.register.title"),
           message: t("common.error.register.message"),

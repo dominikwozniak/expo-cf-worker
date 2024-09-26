@@ -1,12 +1,14 @@
 import { useCallback } from "react";
 import { useRouter } from "expo-router";
 import { useUser } from "@clerk/clerk-expo";
+import { captureException } from "@sentry/react-native";
 import { useTranslation } from "react-i18next";
 
 import { useAlert } from "~/shared-hooks/useAlert";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
 import { api } from "~/utils/api";
 import { mmkvStore } from "~/utils/mmkv-store";
+import { errorToast } from "~/utils/toast";
 
 export function useDeleteAccount() {
   const router = useRouter();
@@ -29,8 +31,14 @@ export function useDeleteAccount() {
       await deleteUserMutation();
       mmkvStore.clearAll();
       router.push("/(auth)");
-    } catch (err) {
-      console.error(JSON.stringify(err, null, 2));
+    } catch (error) {
+      captureException(new Error("Failed to delete account"), {
+        extra: { error },
+      });
+      errorToast({
+        title: t("common.error.deleteAccount.title"),
+        message: t("common.error.deleteAccount.message"),
+      });
     } finally {
       setLoading(false);
     }

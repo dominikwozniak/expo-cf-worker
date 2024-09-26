@@ -4,7 +4,8 @@ import { initReactI18next } from "react-i18next";
 
 import { en, pl } from "@acme/translation";
 
-import { MMKV_LANGUAGE, mmkvStore } from "~/utils/mmkv-store";
+import { mmkvConfig } from "~/config";
+import { mmkvStore } from "~/utils/mmkv-store";
 
 const resources = {
   en: { translation: en },
@@ -12,7 +13,7 @@ const resources = {
 };
 
 const getLocale = () => {
-  const savedLanguage = mmkvStore.getString(MMKV_LANGUAGE);
+  const savedLanguage = mmkvStore.getString(mmkvConfig.language);
 
   if (savedLanguage) {
     return savedLanguage;

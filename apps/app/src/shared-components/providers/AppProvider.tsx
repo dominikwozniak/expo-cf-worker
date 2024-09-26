@@ -7,20 +7,20 @@ import { Toaster } from "sonner-native";
 
 import { AlertProvider } from "~/shared-components/providers/AlertProvider";
 import { ThemeProvider } from "~/shared-components/providers/ThemeProvider";
-import { TRPCProvider } from "~/utils/api";
+import { TRPCProvider } from "~/shared-components/providers/TRPCProvider";
 import { tokenCache } from "~/utils/token-cache";
 
-const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
+const clerkPublishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
-if (!publishableKey) {
+if (!clerkPublishableKey) {
   throw new Error(
-    "Missing Publishable Key. Please set EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY in your .env",
+    "Missing Clerk Publishable Key. Please set EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY in your .env",
   );
 }
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
+    <ClerkProvider publishableKey={clerkPublishableKey} tokenCache={tokenCache}>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <ThemeProvider>
           <ActionSheetProvider>

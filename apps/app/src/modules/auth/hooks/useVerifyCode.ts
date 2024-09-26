@@ -3,11 +3,13 @@ import { useCallback } from "react";
 import { Keyboard } from "react-native";
 import { useRouter } from "expo-router";
 import { useSignIn } from "@clerk/clerk-expo";
+import { captureException } from "@sentry/react-native";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
+import { mmkvConfig } from "~/config";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
-import { MMKV_ONBOARDING_COMPLETE, mmkvStore } from "~/utils/mmkv-store";
+import { mmkvStore } from "~/utils/mmkv-store";
 import { errorToast, successToast } from "~/utils/toast";
 
 export interface FormValues {
@@ -55,11 +57,16 @@ export function useVerifyCode() {
           message: t("common.success.verifyCode.message"),
         });
 
-        const isUserOnboarded = mmkvStore.getBoolean(MMKV_ONBOARDING_COMPLETE);
+        const isUserOnboarded = mmkvStore.getBoolean(
+          mmkvConfig.onboardingComplete,
+        );
         router.replace(
           isUserOnboarded ? "/(app)/(tabs)/home" : "/(onboarding)",
         );
-      } catch {
+      } catch (error) {
+        captureException(new Error("Failed to verify code"), {
+          extra: { error },
+        });
         errorToast({
           title: t("common.error.verifyCode.title"),
           message: t("common.error.verifyCode.message"),

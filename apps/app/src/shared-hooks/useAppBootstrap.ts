@@ -7,6 +7,7 @@ import {
 } from "@expo-google-fonts/poppins";
 
 import { useAppUpdate } from "~/shared-hooks/update/useAppUpdate";
+import { useSentry } from "~/shared-hooks/useSentry";
 
 export const useAppBootstrap = () => {
   const [fontsLoaded, fontLoadedError] = useFonts({
@@ -16,6 +17,7 @@ export const useAppBootstrap = () => {
   });
   const { isLoaded: isClerkLoaded } = useAuth();
   const { isCheckingAppUpdate } = useAppUpdate();
+  useSentry();
 
   const isAppReady =
     fontsLoaded && !fontLoadedError && isClerkLoaded && !isCheckingAppUpdate;

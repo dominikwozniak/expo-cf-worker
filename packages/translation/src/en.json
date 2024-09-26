@@ -303,6 +303,10 @@
         "title": "Update Profile Error",
         "message": "Something went wrong with the update profile process. Please try again later."
       },
+      "updatePreferredName": {
+        "title": "Update Preferred Name Error",
+        "message": "Something went wrong with the update preferred name process. Please try again later."
+      },
       "updatePassword": {
         "title": "Update Password Error",
         "message": "Something went wrong with the update password process. Please try again later."

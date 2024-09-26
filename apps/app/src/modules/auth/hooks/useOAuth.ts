@@ -2,11 +2,13 @@ import { Platform } from "react-native";
 import { useRouter } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
 import { useAuth, useOAuth as useOAuthClerk } from "@clerk/clerk-expo";
+import { captureException } from "@sentry/react-native";
 import { useTranslation } from "react-i18next";
 
+import { mmkvConfig } from "~/config";
 import { useGlobalStore } from "~/shared-hooks/useGlobalStore";
 import { useWarmUpBrowser } from "~/shared-hooks/utils/useWarmUpBrowser";
-import { MMKV_ONBOARDING_COMPLETE, mmkvStore } from "~/utils/mmkv-store";
+import { mmkvStore } from "~/utils/mmkv-store";
 import { errorToast } from "~/utils/toast";
 
 WebBrowser.maybeCompleteAuthSession();
@@ -63,14 +65,17 @@ export const useOAuth = () => {
 
       if (createdSessionId && setActive) {
         void setActive({ session: createdSessionId });
-        const isUserOnboarded = mmkvStore.getBoolean(MMKV_ONBOARDING_COMPLETE);
+        const isUserOnboarded = mmkvStore.getBoolean(
+          mmkvConfig.onboardingComplete,
+        );
         router.replace(
           isUserOnboarded ? "/(app)/(tabs)/home" : "/(onboarding)",
         );
       } else {
         throw new Error("OAuth flow failed");
       }
-    } catch {
+    } catch (error) {
+      captureException(new Error("Failed to oauth"), { extra: { error } });
       errorToast({
         title: t("common.error.oauth.title"),
         message: t("common.error.oauth.message"),
