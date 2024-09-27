@@ -6,10 +6,9 @@ import { NotificationSettings } from "~/modules/onboarding/components/Notificati
 import { PreferredName } from "~/modules/onboarding/components/PreferredName";
 import { TrialPremiumBanner } from "~/modules/onboarding/components/TrialPremiumBanner";
 import { useOnboarding } from "~/modules/onboarding/hooks/useOnboarding";
+import { AnimatedDots } from "~/shared-components/AnimatedDots";
 import { Button } from "~/shared-components/Button";
-import { Typography } from "~/shared-components/Typography";
 import { useListSlideControl } from "~/shared-hooks/useListSlideControl";
-import { cn } from "~/utils/classnames";
 
 export function OnboardingSlider() {
   const { width } = useWindowDimensions();
@@ -18,17 +17,14 @@ export function OnboardingSlider() {
   const slides = [
     {
       id: 1,
-      title: t("onboarding.onboardingScreen.slides.name"),
       component: <PreferredName />,
     },
     {
       id: 2,
-      title: t("onboarding.onboardingScreen.slides.notifications"),
       component: <NotificationSettings />,
     },
     {
       id: 3,
-      title: t("onboarding.onboardingScreen.slides.premium"),
       component: <TrialPremiumBanner />,
     },
   ] as const;
@@ -51,13 +47,6 @@ export function OnboardingSlider() {
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
             <View style={{ width: width - 32, height: "100%" }}>
-              <Typography
-                variant="title"
-                weight="semiBold"
-                className="text-center"
-              >
-                {item.title}
-              </Typography>
               {item.component}
             </View>
           )}
@@ -66,17 +55,7 @@ export function OnboardingSlider() {
         />
       </View>
       <View className="flex-1">
-        <View className="mt-4 flex-row justify-center">
-          {slides.map((_, index) => (
-            <View
-              key={index}
-              className={cn([
-                "mx-2 h-2 w-2 rounded-full",
-                index === currentIndex ? "bg-primary" : "bg-gray",
-              ])}
-            />
-          ))}
-        </View>
+        <AnimatedDots dotsCount={slides.length} currentIndex={currentIndex} />
         <Button
           disabled={currentIndex > slides.length - 1}
           onPress={

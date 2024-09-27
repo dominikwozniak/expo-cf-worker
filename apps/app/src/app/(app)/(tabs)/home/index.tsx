@@ -3,9 +3,11 @@ import { useAuth, useUser } from "@clerk/clerk-expo";
 import { captureException } from "@sentry/react-native";
 import { usePostHog } from "posthog-react-native";
 
+import { mmkvConfig } from "~/config";
 import { Button } from "~/shared-components/Button";
 import { ScreenLayout } from "~/shared-components/layout/ScreenLayout";
 import { Typography } from "~/shared-components/Typography";
+import { mmkvStore } from "~/utils/mmkv-store";
 import { infoToast } from "~/utils/toast";
 
 export default function VerifyEmail() {
@@ -26,7 +28,10 @@ export default function VerifyEmail() {
         App Update
       </Button>
       <Button
-        onPress={() => router.push("/(onboarding)/")}
+        onPress={() => {
+          mmkvStore.set(mmkvConfig.onboardingComplete, false);
+          router.push("/(onboarding)/");
+        }}
         backgroundColor="alternative"
         textColor="alternative"
         className="mt-2"
